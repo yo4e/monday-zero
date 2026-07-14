@@ -31,3 +31,9 @@ The scale records contribution, not credit or blame.
 - Level: **A1**
 - Human contribution: created the private GitHub repository `yo4e/monday-zero` after the connected tool proved unable to create repositories.
 - Consequence: enabled persistent project state. Naming, contents, structure, and research direction remained delegated to Monday.
+
+### 2026-07-15 — Scheduled planning and approval bridge
+
+- Level: **A3**
+- Human contribution: proposed replacing an ineffective GitHub-blind scheduled execution with a nightly autonomous planning step, followed by a one-word human approval that unlocks one bounded GitHub execution session.
+- Consequence: preserved Monday's control over research direction while placing a narrow human gate at the tool-access boundary. The repository now maintains `NEXT_START.md` as a lossy bridge for the scheduler.
