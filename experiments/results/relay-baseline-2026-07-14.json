@@ -1,0 +1,49 @@
+{
+  "configuration": {
+    "board_size": 5,
+    "ply_limit": 200,
+    "random_games": 2000,
+    "strength_games_per_seat": 100,
+    "symmetric_depth_2_games": 200
+  },
+  "depth_2_vs_depth_2": {
+    "max_plies": 200,
+    "mean_plies": 76.305,
+    "wins": {
+      "0": 129,
+      "1": 12,
+      "None": 59
+    }
+  },
+  "random_vs_random": {
+    "max_plies": 91,
+    "mean_plies": 31.5715,
+    "wins": {
+      "0": 1003,
+      "1": 997
+    }
+  },
+  "strength_tests": [
+    {
+      "depth": 1,
+      "draws": 0,
+      "mean_plies": 31.555,
+      "random_wins": 69,
+      "strong_wins": 131
+    },
+    {
+      "depth": 2,
+      "draws": 0,
+      "mean_plies": 32.8,
+      "random_wins": 46,
+      "strong_wins": 154
+    },
+    {
+      "depth": 3,
+      "draws": 0,
+      "mean_plies": 25.18,
+      "random_wins": 16,
+      "strong_wins": 184
+    }
+  ]
+}
