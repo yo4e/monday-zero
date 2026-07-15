@@ -30,38 +30,43 @@ When Yoshie Yamada sends `承認` in the project chat, the executing session mus
 
 ## Current position
 
-Relay and Span v0.1 are rejected. Keystone is the remaining shortlisted prototype. Issue #2 is open for candidate recovery, exact rule freezing, implementation, and evaluation.
+Relay and Span v0.1 are rejected. Keystone is the third and final originally shortlisted prototype. Its candidate description has been recovered, ambiguities have been resolved, and Keystone v0.1 is frozen before implementation or play results. Issue #2 remains open.
 
 ## Confirmed
 
-- Relay failed stronger symmetric balance screening: 129 Player 0 wins, 12 Player 1 wins, and 59 draws in 200 depth-2 games.
-- Span v0.1's reference implementation, deterministic rule tests, symmetric evaluation, minimax agent, and fixed-seed match harness are preserved.
-- The reconstructed suite produced **20 passed**, and `compileall` completed without error.
-- The formal Span depth-2 smoke used code commit `285d1f575a2b8af498c23679f216419315340173`, 200 games, and seeds 0–199. Repeating the run produced identical aggregates.
-- Every formal game was a Black connection on ply 5. Depths 1–4 also produced 100 Black wins in 100 exploratory games per depth.
-- `tests/test_span_forced_line.py` exhaustively confirms that after C2, every legal White reply still permits C3 and then C4, connecting Black's fixed C1 and C5 anchors on ply 5.
-- The reflected C4–C3–C2 line is equivalent.
+- Relay failed stronger symmetric balance screening.
+- Span v0.1 contains a constructive five-ply Black forced win and remains preserved as a negative result.
+- The Keystone genesis brief specifies a 5×5 board, placement or shifting, center-to-two-edges victory, and a single orthogonal custodian capture.
+- `prototypes/keystone/ORIGIN.md` records the original brief, ambiguities, and pre-result decisions.
+- `prototypes/keystone/RULES.md` is the frozen v0.1 baseline.
+- Each player has eight stones; the board begins empty and Black moves first.
+- A turn is either placement from reserve or a one-step orthogonal shift.
+- Only the newly arrived stone may complete a bracket; exactly one available capture is mandatory and captured stones leave the game.
+- Victory requires one orthogonal component containing C3 and two different edge stones touching two different edges. One corner stone cannot count as both contacts.
+- No legal move loses; the third occurrence of a complete position is a draw.
+- The core rules are 277 words and contain no swap rule.
 
 ## Rejected
 
 - Relay in its current ruleset.
 - Span v0.1 in its frozen ruleset.
 - Random-play parity as balance evidence.
-- Running a larger Span tournament after a constructive forced win has already been established.
 - Silently repairing a frozen baseline after results.
 - Scheduled Tasks as the canonical continuation mechanism for project work.
 
 ## Unresolved
 
-- Keystone's exact intended mechanism and whether the existing candidate record is sufficiently complete.
-- Keystone v0.1's legal moves, terminal conditions, termination profile, balance, and strategic signal.
-- Whether any of the three original candidates can survive the precommitted protocol without post-result repair.
+- Whether Keystone v0.1 can be implemented without hidden ambiguity.
+- Whether the center objective creates a trivial first-player race.
+- Whether mandatory single capture creates meaningful tactics.
+- Termination frequency, repetition rate, balance, branching, and strategic signal.
+- Teachability, fun, elegance, and originality.
 
 ## Next recommended work unit
 
-Inspect all available candidate-generation and shortlist records, recover Keystone's intended mechanism, list ambiguities, and freeze a complete Keystone v0.1 rule document before implementation or play results. Do not write code until the rule document is internally consistent and testable.
+Implement Keystone v0.1 exactly as frozen under `src/templex_zero/`. Add deterministic tests covering placement, shifting, capture creation, mandatory single capture when several brackets exist, victory geometry, corner handling, no-move loss, and threefold repetition. Run the full existing test suite and compile check. Do not run play experiments until these tests pass.
 
-This is the highest-value next bounded cycle because Span has a decisive disposition and all further Study 001 evidence now depends on giving the third preselected prototype the same pre-result specification discipline.
+This is the highest-value next bounded cycle because all later Keystone evidence depends on implementation fidelity, especially capture choice and repetition state.
 
 ## Human gate
 
@@ -79,9 +84,7 @@ None.
 
 - Approval protocol: `governance/APPROVAL_DRIVEN_EXECUTION.md`
 - Study protocol: `research/studies/001-autonomous-game-design/PROTOCOL.md`
-- Span rules: `research/studies/001-autonomous-game-design/prototypes/span/RULES.md`
-- Span disposition: `research/studies/001-autonomous-game-design/prototypes/span/DECISION.md`
-- Span forced-line analysis: `research/studies/001-autonomous-game-design/analysis/span_minimax_smoke_v0_1.md`
-- Span smoke data: `research/studies/001-autonomous-game-design/data/span_minimax_smoke_v0_1.json`
+- Keystone origin: `research/studies/001-autonomous-game-design/prototypes/keystone/ORIGIN.md`
+- Keystone rules: `research/studies/001-autonomous-game-design/prototypes/keystone/RULES.md`
 - Issue #1: completed Span evaluation
-- Issue #2: Keystone formalization and evaluation
+- Issue #2: Keystone implementation and evaluation
