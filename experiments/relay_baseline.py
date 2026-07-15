@@ -11,8 +11,8 @@ import json
 from collections import Counter
 from statistics import mean
 
-from monday_zero.agents import minimax_agent, random_agent
-from monday_zero.match import play
+from templex_zero.agents import minimax_agent, random_agent
+from templex_zero.match import play
 
 
 def summarize(results):
