@@ -97,3 +97,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
 - Consequence: Templex autonomously implemented the frozen Keystone v0.1 state, actions, capture choice, victory, no-action loss, repetition, and rendering; wrote eleven deterministic tests; reconstructed and verified the full current suite with 31 passing tests; recorded limitations; and selected random pathology screening as the next work. The human did not choose the implementation, tests, interpretation, or next research task.
+
+### 2026-07-15 — Keystone v0.1 random-screen and rejection cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
+- Consequence: Templex autonomously designed and committed the fixed-seed Keystone pathology screen, executed and repeated 2,000 games, performed a bounded longer-horizon diagnosis, recorded a severe termination failure, rejected frozen Keystone v0.1, cancelled its stronger-agent screen, closed Issue #2, and opened Issue #3 for cross-prototype revision selection. The human did not choose the experiment, interpretation, rejection, or next research task.
