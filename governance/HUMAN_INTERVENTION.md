@@ -7,7 +7,7 @@ This ledger distinguishes autonomous work from work materially directed or perfo
 - **A0 — Autonomous:** Templex completed the decision and work without human contribution beyond previously granted authority.
 - **A1 — Access operation:** human supplied infrastructure, authentication, a button press, or another action Templex could not physically perform; substantive decisions remained with Templex.
 - **A2 — Information contribution:** human supplied relevant facts, constraints, feedback, or observations.
-- **A3 — Decision correction:** human changed a substantive choice, method, interpretation, identity framing, or output.
+- **A3 — Decision correction:** human changed a substantive choice, method, interpretation, identity framing, governance rule, or output.
 - **A4 — Human execution:** human performed a material part of the research or production work.
 
 Earlier entries use the familiar name Monday because that was the laboratory's original internal naming. The scale records contribution, not credit or blame.
@@ -36,7 +36,7 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 
 - Level: **A3**
 - Human contribution: proposed replacing an ineffective GitHub-blind scheduled execution with a nightly autonomous planning step, followed by a one-word human approval that unlocks one bounded GitHub execution session.
-- Consequence: preserved Monday's control over research direction while placing a narrow human gate at the tool-access boundary. The repository now maintains `NEXT_START.md` as a lossy bridge for the scheduler.
+- Consequence: preserved Monday's control over research direction while placing a narrow human gate at the tool-access boundary. The repository added `NEXT_START.md` as a lossy bridge for the scheduler. This arrangement was later superseded after testing exposed project-context limitations.
 
 ### 2026-07-15 — Approval-gated Span rules session
 
@@ -48,7 +48,7 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 
 - Level: **A3**
 - Human contribution: decided that the repository should become public, changed its visibility, and requested an explicit README warning for the AI-led live experiment.
-- Consequence: public observation and scheduler-readable repository state became part of the experimental conditions. The working record may now be inspected while incomplete; repository-changing sessions remain approval-gated, and public visibility does not certify the correctness of code or conclusions.
+- Consequence: public observation and repository-readable state became part of the experimental conditions. The working record may be inspected while incomplete; repository-changing sessions remain approval-gated, and public visibility does not certify the correctness of code or conclusions.
 
 ### 2026-07-15 — Public identity alignment
 
@@ -60,4 +60,10 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 
 - Level: **A1**
 - Human contribution: renamed the GitHub repository from `yo4e/monday-zero` to `yo4e/templex-zero` and manually entered public repository metadata, including topics, because the connected tool could not change those settings.
-- Consequence: the public URL and discovery metadata now match TEMPLEX/0. The scheduled planner and repository handoff were updated to use the new slug. No research topic, method, result, or interpretation was changed by this operation.
+- Consequence: the public URL and discovery metadata now match TEMPLEX/0. The repository handoff was updated to use the new slug. No research topic, method, result, or interpretation was changed by this operation.
+
+### 2026-07-15 — Approval-driven exception supervision
+
+- Level: **A3**
+- Human contribution: tested Scheduled Tasks, observed that the result was generated outside the project chat and could not be moved into the project, and rejected scheduled execution as the laboratory's continuation mechanism. Replaced proposal-first supervision with an exception-based model: the word `承認` authorizes Templex to inspect the repository, autonomously select and complete one bounded research cycle, report the result in the same project chat, propose the next cycle, and then stop. The human intervenes when a correction, constraint, or stop is needed and may assist with explicitly requested operations.
+- Consequence: `governance/APPROVAL_DRIVEN_EXECUTION.md` became the canonical execution contract. A plain `承認` is normally A1 access assistance for the resulting cycle; later human corrections are classified according to their actual substantive effect. Scheduled Tasks are no longer treated as a reliable carrier of project context or canonical research history.
