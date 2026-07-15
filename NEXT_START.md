@@ -1,6 +1,6 @@
 # Next Start
 
-_Updated: 2026-07-15 (Asia/Tokyo)_
+_Updated: 2026-07-16 (Asia/Tokyo)_
 
 ## Purpose
 
@@ -26,46 +26,50 @@ When Yoshie Yamada sends `承認` in the project chat, the executing session mus
 
 ## Current position
 
-The three originally shortlisted prototypes have each received a first disposition and are rejected in their tested forms.
+Relay, Span v0.1, and Keystone v0.1 are rejected in their tested forms.
 
-- **Relay:** stronger symmetric play showed severe first-player advantage and substantial draws.
-- **Span v0.1:** exhaustive reply enumeration proved a Black connection win on ply 5.
-- **Keystone v0.1:** only 50.9% of 2,000 random games completed by 200 plies; 49.1% reached the observation limit.
+- **Relay:** stronger symmetric play showed severe first-player advantage and substantial unresolved games; one rule would not address both symptoms.
+- **Span v0.1:** exhaustive reply enumeration proved a Black connection win on ply 5, but random termination and practical duration were sound.
+- **Keystone v0.1:** only 50.9% of 2,000 random games completed by 200 plies; fixing the post-reserve movement phase would require a larger redesign.
 
-Issue #2 is closed. Issue #3 is open to compare the failures and select at most one versioned revision—or conclude Study 001 negatively.
+A common comparison selected **Span v0.2** as the only revision target. The decision is recorded in `analysis/prototype_revision_selection.md`.
 
-## Keystone evidence
+## Frozen Span v0.2
 
-- Screen script: `experiments/keystone_random_screen.py`
-- Script commit: `f4550102b8a3879d5754ac8dc30eaaac017f2833`
-- Seeds: 0–1,999; observation limit: 200 plies
-- Repeated formal output: byte-identical
-- Structural victories: 886
-- Immobilization wins: 104
-- Threefold repetition draws: 28
-- Observation-limit hits: 982
-- Median plies: 193
-- Shifts: 88.13% of observed actions
-- Both reserves exhausted: 91.7% of games
-- Fixed 100-seed diagnostic follow-up at 1,000 plies: all resolved, median 427.5, maximum 964
+- Rules: `research/studies/001-autonomous-game-design/prototypes/span/RULES_v0_2.md`
+- Frozen before implementation or new play results on 2026-07-16.
+- The only rule change from v0.1 is an opening swap option.
+- First participant makes one normal Black placement.
+- Second participant either makes one normal White placement or swaps sides.
+- A swap exchanges participant ownership of colors, goals, and all existing stones without changing the board.
+- The swap consumes the second participant's turn; the opening participant, now White, moves next.
+- No further swap is available.
+- Anchors, expansion, merger, victory, immobilization, and finite termination are unchanged.
+- Core rules: 308 words.
+- No v0.2 implementation or play result exists yet.
 
-The result fails the protocol's 98% termination threshold. Random Black/White parity must not be used as balance evidence. Keystone's stronger-agent screen is cancelled for v0.1.
+## Rejected revision paths
 
-## Rejected
-
-- Relay in its current ruleset.
-- Span v0.1 in its frozen ruleset.
-- Keystone v0.1 in its frozen ruleset.
-- Random-play parity as balance evidence.
-- Silently repairing a frozen baseline after results.
-- Automatically rescuing the most recently tested prototype.
-- Scheduled Tasks as the canonical continuation mechanism.
+- Relay swap-only repair: does not address the 200-ply unresolved population.
+- Relay repetition-only repair: does not address the initiative advantage.
+- Span anchor changes or C2/C4 opening bans: overly tailored to the observed line and lack a principled replacement geometry.
+- Keystone arbitrary ply draw: reclassifies censorship without creating progress.
+- Keystone movement restriction or new score: changes its defining reversible-control mechanism or adds substantial bookkeeping.
+- Multiple simultaneous v0.2 projects.
 
 ## Next recommended work unit
 
-Build one comparative diagnosis for Relay, Span, and Keystone. Score evidence strength, diagnosed failure, smallest plausible repair, rule-complexity cost, risk of replacing the original mechanism, and expected test value. Select at most one v0.2 target or conclude the study negatively.
+Implement frozen Span v0.2 under `src/templex_zero/` while separating participant identity from color ownership. Add deterministic tests for:
 
-Do not implement a revision in that cycle until the exact new rules and rationale have been frozen before new play results.
+- swap availability only after the first Black placement;
+- normal White placement expiring the swap option;
+- unchanged board and stones after swap;
+- exchanged participant-color ownership;
+- the opening participant moving next as White;
+- swap being unavailable thereafter;
+- unchanged v0.1 expansion, merge, connection, and immobilization behavior.
+
+Run the full existing test suite and compile checks. Do not run balance experiments until implementation fidelity is established.
 
 ## Human gate
 
@@ -83,8 +87,9 @@ None.
 
 - Approval protocol: `governance/APPROVAL_DRIVEN_EXECUTION.md`
 - Study protocol: `research/studies/001-autonomous-game-design/PROTOCOL.md`
-- Keystone disposition: `research/studies/001-autonomous-game-design/prototypes/keystone/DECISION.md`
-- Keystone data: `research/studies/001-autonomous-game-design/data/keystone_random_v0_1.json`
-- Keystone analysis: `research/studies/001-autonomous-game-design/analysis/keystone_random_v0_1.md`
-- Issue #2: completed Keystone evaluation
-- Issue #3: prototype comparison and revision decision
+- Revision comparison: `research/studies/001-autonomous-game-design/analysis/prototype_revision_selection.md`
+- Span v0.1 rules: `research/studies/001-autonomous-game-design/prototypes/span/RULES.md`
+- Span v0.1 disposition: `research/studies/001-autonomous-game-design/prototypes/span/DECISION.md`
+- Span v0.2 rules: `research/studies/001-autonomous-game-design/prototypes/span/RULES_v0_2.md`
+- Issue #3: completed prototype comparison
+- New implementation issue: Span v0.2 implementation and evaluation
