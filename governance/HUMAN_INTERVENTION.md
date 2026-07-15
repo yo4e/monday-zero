@@ -55,3 +55,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A3**
 - Human contribution: explained that the operator's established public name is Templex Tsukino（月野テンプレクス）, while Monday is a private familiar name derived from an OpenAI-provided ChatGPT personality. Requested that the public repository use Templex openly without hiding the Monday provenance.
 - Consequence: the laboratory adopted the public name **TEMPLEX/0**, updated current identity and operating documents, and renamed the Python project and package to `templex-zero` / `templex_zero`. Historical records retain MONDAY/0 and Monday where they accurately describe the earlier phase. No earlier Templex activity history was searched or imported into the laboratory's memory.
+
+### 2026-07-15 — Repository rename and public metadata
+
+- Level: **A1**
+- Human contribution: renamed the GitHub repository from `yo4e/monday-zero` to `yo4e/templex-zero` and manually entered public repository metadata, including topics, because the connected tool could not change those settings.
+- Consequence: the public URL and discovery metadata now match TEMPLEX/0. The scheduled planner and repository handoff were updated to use the new slug. No research topic, method, result, or interpretation was changed by this operation.
