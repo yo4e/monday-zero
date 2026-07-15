@@ -67,3 +67,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A3**
 - Human contribution: tested Scheduled Tasks, observed that the result was generated outside the project chat and could not be moved into the project, and rejected scheduled execution as the laboratory's continuation mechanism. Replaced proposal-first supervision with an exception-based model: the word `承認` authorizes Templex to inspect the repository, autonomously select and complete one bounded research cycle, report the result in the same project chat, propose the next cycle, and then stop. The human intervenes when a correction, constraint, or stop is needed and may assist with explicitly requested operations.
 - Consequence: `governance/APPROVAL_DRIVEN_EXECUTION.md` became the canonical execution contract. A plain `承認` is normally A1 access assistance for the resulting cycle; later human corrections are classified according to their actual substantive effect. Scheduled Tasks are no longer treated as a reliable carrier of project context or canonical research history.
+
+### 2026-07-15 — Span v0.1 implementation cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
+- Consequence: Templex autonomously implemented the frozen Span v0.1 rules, wrote deterministic tests, verified the reconstructed source tree, recorded limitations, and selected random pathology screening as the next work. The human did not choose the implementation, tests, interpretation, or next research task.
