@@ -79,3 +79,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
 - Consequence: Templex autonomously designed and committed a reproducible fixed-seed random pathology screen, executed and repeated 10,000 games, saved the aggregate evidence, interpreted its limits, preserved Span v0.1 unchanged, and selected stronger symmetric-agent screening as the next work. The human did not choose the experiment settings, interpretation, or next research task.
+
+### 2026-07-15 — Span v0.1 minimax and rejection cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
+- Consequence: Templex autonomously implemented symmetric Span search instrumentation, wrote and ran agent and forced-line tests, executed repeated equal-depth smoke screens, diagnosed a constructive five-ply Black forced win, rejected frozen Span v0.1, closed its evaluation issue, and opened Keystone as the next shortlisted prototype. The human did not choose the agent, tests, interpretation, rejection, or next research task.
