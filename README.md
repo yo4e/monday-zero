@@ -23,7 +23,7 @@ This is a live research workspace, not a curated release.
 - Research topics, methods, implementations, experiments, analysis, and internal next actions are primarily selected by an AI operating under [`CHARTER.md`](CHARTER.md).
 - Human actions at access, publication, safety, identity, and authority boundaries are recorded in [`governance/HUMAN_INTERVENTION.md`](governance/HUMAN_INTERVENTION.md).
 - Files may contain mistakes, incomplete implementations, failed hypotheses, provisional interpretations, or conclusions that are later revised or rejected.
-- Human approval of a bounded work session authorizes the action; it does not certify that the resulting code or claims are correct.
+- Human authorization of a bounded work cycle enables execution; it does not certify that the resulting code or claims are correct.
 - Nothing here should be treated as professional advice, validated scientific consensus, production-ready software, or a security-reviewed tool. Inspect code and evidence before relying on or running them.
 - TEMPLEX/0 does not contact, advise, modify, or submit work to outsiders without explicit authorization. Public visibility is for auditability and read access, not unsolicited intervention.
 
@@ -39,13 +39,14 @@ Negative results and visible corrections are intentional parts of the experiment
 
 ## Current operating loop
 
-1. Templex reads the repository and selects the highest-value internal next action.
-2. A scheduled read-only planning run may inspect the public repository and propose one bounded work unit.
-3. A human approval token unlocks that one repository-writing session.
-4. Templex performs the work, tests or criticizes it, records evidence and failures, and updates the restart state.
-5. Human contribution is classified in the intervention ledger rather than hidden inside a claim of autonomy.
+1. Yoshie Yamada sends the trigger word `承認` in the project chat.
+2. Templex re-reads the live repository rather than relying on conversational memory.
+3. Templex autonomously selects the highest-value bounded internal work item.
+4. Templex performs the work, verifies or criticizes it, records evidence and failures, and updates restart state.
+5. Templex reports what was actually done in the same project chat and proposes the next single cycle.
+6. The laboratory stops until another `承認` is received.
 
-The human gate controls access and responsibility boundaries. It is not intended to choose the research topic or rewrite results for appeal.
+Yoshie Yamada supervises by exception: she may stop, correct, constrain, or require reconsideration, but ordinarily does not choose each work item in advance. The complete execution contract is defined in [`governance/APPROVAL_DRIVEN_EXECUTION.md`](governance/APPROVAL_DRIVEN_EXECUTION.md).
 
 ## Operating principles
 
@@ -53,13 +54,14 @@ The human gate controls access and responsibility boundaries. It is not intended
 2. **No unsolicited interference.** The laboratory does not contact, modify, advise, or submit work to outsiders without invitation.
 3. **Claims require tests.** Attractive prose is not evidence.
 4. **Failure remains visible.** Rejected ideas, broken methods, and reversals are part of the record.
-5. **Public work remains bounded.** Repository-changing sessions and broader external actions remain subject to the human gates defined by the charter and current operating protocol.
+5. **Public work remains bounded.** Repository-changing cycles and broader external actions remain subject to the human gates defined by the charter and approval protocol.
 
 ## Start here
 
 - [`CHARTER.md`](CHARTER.md) — mission, boundaries, and authority
+- [`governance/APPROVAL_DRIVEN_EXECUTION.md`](governance/APPROVAL_DRIVEN_EXECUTION.md) — what one `承認` authorizes and how a cycle runs
 - [`STATE.md`](STATE.md) — current state and next actions
-- [`NEXT_START.md`](NEXT_START.md) — compact handoff for read-only scheduled planning
+- [`NEXT_START.md`](NEXT_START.md) — compact advisory handoff for a new execution context
 - [`AGENTS.md`](AGENTS.md) — restart and operating protocol
 - [`research/selection/DECISION.md`](research/selection/DECISION.md) — why the first study was chosen
 - [`research/studies/001-autonomous-game-design/README.md`](research/studies/001-autonomous-game-design/README.md) — active study
