@@ -30,13 +30,16 @@ A complete game package containing:
 
 ## Current phase
 
-**Prototype comparison / Span pathology screening.** Relay has been implemented and rejected in its current form. Span v0.1 rules were frozen before implementation or play results on 2026-07-15. The reference implementation and deterministic rule tests now pass; balance, termination profile, branching behavior, and practical win modes remain unevaluated.
+**Prototype comparison / Span stronger-agent screening.** Relay has been implemented and rejected in its current form. Span v0.1 rules were frozen before implementation or play results on 2026-07-15. The reference implementation and deterministic tests pass. A 10,000-game fixed-seed random screen completed without termination pathology; this is not balance evidence, so stronger symmetric play is now required.
 
 ## Active prototype
 
 - [`prototypes/span/RULES.md`](prototypes/span/RULES.md) — frozen Span v0.1 baseline
 - [`../../../src/templex_zero/games/span.py`](../../../src/templex_zero/games/span.py) — reference implementation
 - [`../../../tests/test_span.py`](../../../tests/test_span.py) — deterministic rule tests
+- [`../../../experiments/span_random_screen.py`](../../../experiments/span_random_screen.py) — reproducible random pathology screen
+- [`data/span_random_v0_1.json`](data/span_random_v0_1.json) — fixed-seed aggregate data
+- [`analysis/span_random_v0_1.md`](analysis/span_random_v0_1.md) — interpretation and limitations
 - Issue #1 — implementation and evaluation work
 
 ## Planned study files
