@@ -26,48 +26,51 @@ A complete game package containing:
 - No dependence on proprietary assets or external services.
 - Core rules should fit within 400 words.
 - A physical version should require at most a small board and a modest set of generic pieces, or be playable with pencil and paper.
-- The design must not knowingly duplicate an existing game; claims will remain qualified until a deliberate similarity search occurs.
+- The design must not knowingly duplicate an existing game; claims remain qualified until a deliberate similarity search occurs.
 
 ## Current phase
 
-**Prototype comparison / Keystone random pathology screening.** Relay and Span v0.1 have both been rejected in their tested forms. Keystone v0.1 was frozen before implementation or play results, and its reference implementation plus deterministic rule tests now pass. No Keystone play experiment has yet been run.
+**Initial prototype comparison / revision decision.** Relay, Span v0.1, and Keystone v0.1 have each received a first documented disposition and are rejected in their tested forms. Issue #3 compares the evidence and repair costs before any v0.2 rules are frozen.
 
 ## Prototype outcomes
 
 ### Relay — rejected
 
-Stronger symmetric play exposed a severe first-player advantage: 129 Player 0 wins, 12 Player 1 wins, and 59 draws in 200 depth-2 games.
+Stronger symmetric play exposed a severe first-player advantage: 129 Player 0 wins, 12 Player 1 wins, and 59 draws in 200 depth-2 games. Random parity had concealed the defect.
 
 ### Span v0.1 — rejected
 
 - [`prototypes/span/RULES.md`](prototypes/span/RULES.md) — frozen baseline
 - [`prototypes/span/DECISION.md`](prototypes/span/DECISION.md) — disposition
-- [`../../../src/templex_zero/games/span.py`](../../../src/templex_zero/games/span.py) — reference implementation
-- [`../../../tests/test_span_forced_line.py`](../../../tests/test_span_forced_line.py) — exhaustive five-ply forced-line evidence
-- [`analysis/span_minimax_smoke_v0_1.md`](analysis/span_minimax_smoke_v0_1.md) — diagnosis and limitations
+- [`analysis/span_minimax_smoke_v0_1.md`](analysis/span_minimax_smoke_v0_1.md) — diagnosis
 
-Black can force C2–C3–C4, or the reflected C4–C3–C2 line, to connect the fixed C1 and C5 anchors on ply 5. The frozen rules remain preserved rather than repaired after the result.
+Black can force C2–C3–C4, or the reflected line, and connect its fixed anchors on ply 5. Exhaustive reply enumeration makes a larger tournament unnecessary.
 
-### Keystone v0.1 — active
+### Keystone v0.1 — rejected
 
-- [`prototypes/keystone/ORIGIN.md`](prototypes/keystone/ORIGIN.md) — recovered candidate, ambiguities, and pre-result decisions
-- [`prototypes/keystone/RULES.md`](prototypes/keystone/RULES.md) — frozen v0.1 baseline
+- [`prototypes/keystone/ORIGIN.md`](prototypes/keystone/ORIGIN.md) — recovered candidate and ambiguity decisions
+- [`prototypes/keystone/RULES.md`](prototypes/keystone/RULES.md) — frozen baseline
+- [`prototypes/keystone/DECISION.md`](prototypes/keystone/DECISION.md) — disposition
 - [`../../../src/templex_zero/games/keystone.py`](../../../src/templex_zero/games/keystone.py) — reference implementation
 - [`../../../tests/test_keystone.py`](../../../tests/test_keystone.py) — deterministic rule tests
-- [`analysis/keystone_implementation_v0_1.md`](analysis/keystone_implementation_v0_1.md) — implementation verification and limitations
-- Issue #2 — implementation and evaluation work
+- [`../../../experiments/keystone_random_screen.py`](../../../experiments/keystone_random_screen.py) — reproducible screen
+- [`data/keystone_random_v0_1.json`](data/keystone_random_v0_1.json) — formal aggregate data
+- [`analysis/keystone_random_v0_1.md`](analysis/keystone_random_v0_1.md) — diagnosis and limitations
 
-The baseline uses an empty 5×5 board, eight stones per player, placement or one-step orthogonal shifting, mandatory single custodian capture, and a victory component containing C3 plus separate contacts with two different edges. Threefold repetition is a draw. The baseline has no swap rule.
+The reconstructed full suite produced **31 passed** and compiled without error. In 2,000 fixed-seed random games, only 50.9% completed by 200 plies; 49.1% hit the observation limit. Shifts were 88.13% of observed actions. Keystone v0.1 therefore fails the precommitted termination threshold, and its stronger-agent screen is cancelled.
 
-The reconstructed full suite produced **31 passed**: eleven Keystone tests and twenty existing Relay and Span tests. `compileall` completed without error. This establishes implementation fidelity only, not game quality.
+## Next decision
+
+Issue #3 must compare the three failures using one table, estimate the smallest honest repair for each, and select at most one versioned revision—or conclude Study 001 negatively. No v0.1 baseline may be rewritten after results.
 
 ## Planned study files
 
 - `PROTOCOL.md` — evaluation plan and thresholds
 - `candidates/` — candidate mechanisms and rejection notes
-- `prototypes/` — versioned rules for implemented candidates
+- `prototypes/` — versioned rules and dispositions
 - `src/templex_zero/` — game and agent implementations
-- `experiments/` — reproducible runs and data
+- `experiments/` — reproducible runs
+- `data/` — machine-readable results
 - `analysis/` — interpretation and critique
-- `RULES.md` — rules of the surviving design
+- `RULES.md` — rules of a surviving design, if any
 - `REPORT.md` — final research report
