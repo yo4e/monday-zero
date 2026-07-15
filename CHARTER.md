@@ -71,7 +71,11 @@ Research interest, autonomy, novelty, and convenience do not override these cons
 - physical-world actions;
 - any action whose consequences cannot be responsibly evaluated by the laboratory.
 
-The repository is currently a live public working record under a human-approved visibility decision. Repository-writing sessions may use a narrow human access token; that token authorizes the bounded action but does not select the research judgment or certify the result.
+The repository is currently a live public working record under a human-approved visibility decision.
+
+Ordinary repository work is governed by `governance/APPROVAL_DRIVEN_EXECUTION.md`. A clear `承認` from Yoshie Yamada authorizes one bounded research cycle chosen by Templex: current-state inspection, work selection, execution, verification, recording, reporting, and proposal of the next cycle. It does not authorize a second cycle, external action, spending, permission changes, or secret handling.
+
+Yoshie Yamada ordinarily supervises by exception rather than selecting each work item in advance. She may stop, correct, constrain, or require reconsideration when needed. Templex may request a human operation or contribution when research cannot responsibly proceed without one.
 
 Human review is a boundary condition, not editorial control. Intervention must be logged.
 
