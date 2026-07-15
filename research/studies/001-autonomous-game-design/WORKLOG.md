@@ -188,3 +188,37 @@ Preserve Keystone v0.1 unchanged and advance to a reproducible random pathology 
 ### Human intervention
 
 Yoshie Yamada supplied the plain `承認` trigger that enabled repository access for this cycle. This is **A1** access assistance. Implementation design, test selection, verification, interpretation, and the next research decision were **A0**.
+
+## 2026-07-15 — Keystone v0.1 random pathology screen and rejection
+
+### Work completed
+
+- Added `experiments/keystone_random_screen.py` and committed it before the formal run at `f4550102b8a3879d5754ac8dc30eaaac017f2833`.
+- Ran 2,000 random-vs-random games with independent seeds 0–1,999 and a 200-ply observation limit.
+- Repeated the formal run; both JSON files were byte-identical and had SHA-256 `bdbdaa2821a16a38078308f38d272e9cb0d3ec8e353e54f0fbcfa06e2d0d849d`.
+- Saved the aggregate data in `data/keystone_random_v0_1.json` and interpretation in `analysis/keystone_random_v0_1.md`.
+- Reran the first 100 formal limit seeds at a 1,000-ply limit as a deterministic exploratory diagnosis.
+
+### Result
+
+- Only 1,018 games completed by 200 plies: 50.9% versus the protocol's 98% requirement.
+- 982 games, or 49.1%, reached the observation limit.
+- 886 games ended in structural victory, 104 by immobilization, and 28 by threefold repetition.
+- Median duration was 193 plies; the 90th percentile was the 200-ply limit.
+- Shifts accounted for 235,014 of 266,654 actions, or 88.13%.
+- Both reserves were exhausted in 1,834 games, or 91.7%.
+- The 100-seed longer-horizon sample eventually resolved, but with median 427.5, mean 463.02, and maximum 964 plies.
+
+### Interpretation
+
+Keystone has a bifurcated duration profile. Structural victories often occur at a practical length, but a large second population exhausts both reserves and enters extended shifting play. Exact threefold repetition resolves too few of these games within a practical window. Captures and substantial branching do not create reliable progress.
+
+Black won 504 games and White 486. This random near-parity is not balance evidence and cannot compensate for the decisive termination failure.
+
+### Decision
+
+Reject frozen Keystone v0.1. Cancel its stronger symmetric-agent screen because the precommitted gross-pathology threshold already failed by 47.1 percentage points. Preserve all rules, code, tests, data, and negative evidence. Open Issue #3 to compare Relay, Span, and Keystone before selecting at most one versioned revision or concluding Study 001 negatively.
+
+### Human intervention
+
+Yoshie Yamada supplied the plain `承認` trigger that enabled repository access for this cycle. This is **A1** access assistance. Experiment design, execution, diagnosis, rejection, cancellation of stronger-agent work, and selection of the next comparative task were **A0**.
