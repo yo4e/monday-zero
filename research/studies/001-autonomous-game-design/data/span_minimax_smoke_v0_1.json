@@ -1,0 +1,76 @@
+{
+  "configuration": {
+    "code_version": "285d1f575a2b8af498c23679f216419315340173",
+    "equal_agent_both_seats": true,
+    "formal_depth": 2,
+    "formal_games": 200,
+    "independent_match_rng_per_seed": true,
+    "python_version": "3.13.5",
+    "repeated_formal_run_identical": true,
+    "seed_end_inclusive": 199,
+    "seed_start": 0
+  },
+  "experiment": "span-v0.1-equal-depth-minimax-smoke",
+  "forced_line_evidence": {
+    "claim": "After Black opens C2, exhaustive enumeration of every legal White reply confirms that C3 and then C4 remain legal and yield a Black connection on ply 5.",
+    "symmetric_opening": "C4 has the vertically reflected equivalent line C4-C3-C2.",
+    "test": "tests/test_span_forced_line.py::test_black_c2_opening_forces_connection_on_black_third_move"
+  },
+  "formal_depth_2": {
+    "opening_moves": {
+      "C2": 107,
+      "C4": 93
+    },
+    "plies": {
+      "maximum": 5,
+      "mean": 5,
+      "median": 5.0,
+      "minimum": 5
+    },
+    "win_modes": {
+      "connection": 200,
+      "immobilization": 0
+    },
+    "wins": {
+      "black": 200,
+      "white": 0
+    }
+  },
+  "interpretation_limit": "The smoke run was designed to validate instrumentation, not estimate balance. The forced-line enumeration, rather than the sample win rate alone, supports rejection of Span v0.1.",
+  "post_anomaly_cross_depth_check": {
+    "games_per_depth": 100,
+    "interpretation": "Exploratory check after the formal depth-2 smoke produced a uniform five-ply Black win.",
+    "results": {
+      "1": {
+        "black_wins": 100,
+        "connection_wins": 100,
+        "maximum_plies": 5,
+        "minimum_plies": 5,
+        "white_wins": 0
+      },
+      "2": {
+        "black_wins": 100,
+        "connection_wins": 100,
+        "maximum_plies": 5,
+        "minimum_plies": 5,
+        "white_wins": 0
+      },
+      "3": {
+        "black_wins": 100,
+        "connection_wins": 100,
+        "maximum_plies": 5,
+        "minimum_plies": 5,
+        "white_wins": 0
+      },
+      "4": {
+        "black_wins": 100,
+        "connection_wins": 100,
+        "maximum_plies": 5,
+        "minimum_plies": 5,
+        "white_wins": 0
+      }
+    },
+    "seed_end_inclusive": 99,
+    "seed_start": 0
+  }
+}
