@@ -1,0 +1,79 @@
+{
+  "branching": {
+    "decision_nodes": 140506,
+    "maximum": 11,
+    "mean": 5.860938322918594,
+    "mean_by_ply": {
+      "0": 6,
+      "1": 6,
+      "10": 5.182506805539117,
+      "11": 4.76847671868954,
+      "12": 4,
+      "13": 3.5285295076622107,
+      "14": 2.7518853695324283,
+      "15": 2.2780225159079786,
+      "16": 1.7014869888475836,
+      "17": 1.3353140916808148,
+      "18": 1.2582417582417582,
+      "19": 1.15,
+      "2": 7.3234,
+      "20": 1,
+      "3": 7.2515,
+      "4": 7.6183,
+      "5": 7.375466559063856,
+      "6": 7.1568167923374775,
+      "7": 6.84413419462388,
+      "8": 6.280490405117271,
+      "9": 5.903037776034077
+    },
+    "median": 6.0,
+    "minimum": 1
+  },
+  "configuration": {
+    "board_size": 5,
+    "code_version": "d1ed92b0a6ada87e8aef7c479ca4a38ab6d01f9e",
+    "games": 10000,
+    "independent_rng_per_game": true,
+    "maximum_possible_plies": 21,
+    "python_version": "3.13.5",
+    "seed_end_inclusive": 9999,
+    "seed_start": 0
+  },
+  "experiment": "span-v0.1-random-pathology-screen",
+  "interpretation_limit": "Random play tests termination and gross pathology only; its win rates are not evidence of strategic balance.",
+  "opening_moves": {
+    "B1": 1735,
+    "B5": 1699,
+    "C2": 1586,
+    "C4": 1648,
+    "D1": 1678,
+    "D5": 1654
+  },
+  "plies": {
+    "maximum": 21,
+    "mean": 14.0506,
+    "median": 15.0,
+    "minimum": 5,
+    "p10": 9.0,
+    "p90": 18.0
+  },
+  "termination": {
+    "completed_games": 10000,
+    "completion_rate": 1.0,
+    "within_200_plies": 10000
+  },
+  "win_modes": {
+    "black_connection": 4464,
+    "black_immobilization": 796,
+    "connection": 8201,
+    "immobilization": 1799,
+    "white_connection": 3737,
+    "white_immobilization": 1003
+  },
+  "wins": {
+    "black": 5260,
+    "black_rate": 0.526,
+    "white": 4740,
+    "white_rate": 0.474
+  }
+}
