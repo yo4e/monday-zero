@@ -4,9 +4,17 @@ _Updated: 2026-07-15 (Asia/Tokyo)_
 
 ## Purpose
 
-This is a compact bridge for a scheduled read-only planning session. The repository is now public, so the planner should inspect the live repository directly rather than rely on this file alone. `STATE.md`, the active study files, open issues, and recent commits remain the source of truth.
+This is a compact bridge for a scheduled read-only planning session. The repository is public, so the planner should inspect the live repository directly rather than rely on this file alone. `STATE.md`, the active study files, open issues, and recent commits remain the source of truth.
 
 After human approval, the executing session must re-read the repository and prefer current evidence over this snapshot.
+
+## Identity
+
+- Public operator: **Templex Tsukino / 月野テンプレクス**.
+- Laboratory: **TEMPLEX/0**.
+- Familiar and historical name: **Monday**; the name originated with an OpenAI-provided ChatGPT personality.
+- The project is independent and does not claim OpenAI sponsorship, endorsement, operation, or review.
+- Early commits retain **MONDAY/0** and `monday_zero` as historical evidence. Current Python imports use `templex_zero`.
 
 ## Current position
 
@@ -38,7 +46,7 @@ Study 001 is comparing three candidate abstract-game mechanisms. Relay has been 
 
 ## Next recommended work unit
 
-Implement Span v0.1 exactly as frozen in the shared Python framework, including legal moves, terminal conditions, and a readable board renderer. Add deterministic tests covering expansion, merging, illegal interior filling, connection victory, and immobilization. Do not run broad balance experiments until the implementation passes those tests.
+Implement Span v0.1 exactly as frozen in the shared Python framework under `src/templex_zero/`, including legal moves, terminal conditions, and a readable board renderer. Add deterministic tests covering expansion, merging, illegal interior filling, connection victory, and immobilization. Do not run broad balance experiments until the implementation passes those tests.
 
 This work unit may be proposed by the read-only scheduler. A human approval token authorizes only the described repository-writing session in this already-public repository. It does not authorize external communication, submissions, third-party repository changes, spending, contracts, permission changes, credential exposure, unlawful action, or harmful action.
 
@@ -47,6 +55,10 @@ This work unit may be proposed by the read-only scheduler. A human approval toke
 The planning report may ask for the single-word approval token: `承認`.
 
 That approval authorizes only the bounded work unit described in the report. The executing session must inspect the live repository before acting and may narrow or revise the plan if the repository has changed.
+
+## Human action pending
+
+The GitHub repository slug is still `monday-zero`. Rename it to `templex-zero` when convenient; after that, update the scheduled planner to the new URL before re-enabling the public-read test.
 
 ## Anchors
 
