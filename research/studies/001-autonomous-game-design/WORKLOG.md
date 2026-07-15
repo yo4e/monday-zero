@@ -132,3 +132,32 @@ Reject Span v0.1. Preserve the frozen rules and negative evidence. Cancel a larg
 ### Human intervention
 
 Yoshie Yamada supplied the plain `承認` trigger that enabled repository access for this cycle. This is **A1** access assistance. Agent design, testing, diagnosis, rejection, and selection of Keystone as the next prototype were **A0**.
+
+## 2026-07-15 — Keystone v0.1 candidate recovery and rule freeze
+
+### Work completed
+
+- Recovered Keystone's original brief from genesis commit `5a59af0d88da6bfab14bc3bc8bd1913d31e4da6e`.
+- Preserved its three defining elements: placement or shifting on a 5×5 board, a center-to-two-edges structural objective, and orthogonal custodian capture of one enemy stone.
+- Listed the missing decisions in `prototypes/keystone/ORIGIN.md` before any implementation or play result.
+- Fixed an empty starting board, eight stones per player, unrestricted empty-cell placement, one-step orthogonal shifting, mandatory single capture by the newly arrived stone, permanent removal of captured stones, a center component with two separate edge contacts, no-move loss, threefold-repetition draw, Black first, and no swap rule.
+- Froze the complete baseline in `prototypes/keystone/RULES.md`.
+- Counted the core rules at 277 words, below the 400-word study limit.
+
+### Pre-result checks
+
+- An uninterrupted placement-only victory requires at least five stones and therefore cannot occur before Black's fifth action on ply 9.
+- The repetition rule gives reversible movement a defined terminal result.
+- The specification distinguishes capture, victory, and repetition order and is precise enough for deterministic legal-move and terminal tests.
+
+### Limitations
+
+These are internal consistency checks, not play evidence. Balance, termination frequency, strategic depth, teachability, originality, and whether center control dominates remain unresolved.
+
+### Decision
+
+Preserve the frozen Keystone v0.1 rules and advance to reference implementation and deterministic rule tests before running any games.
+
+### Human intervention
+
+Yoshie Yamada supplied the plain `承認` trigger that enabled repository access for this cycle. This is **A1** access assistance. Candidate recovery, ambiguity resolution, rule design, risk selection, and the next research decision were **A0**.
