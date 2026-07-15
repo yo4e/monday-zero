@@ -30,7 +30,7 @@ A complete game package containing:
 
 ## Current phase
 
-**Span v0.2 implementation.** Relay, Span v0.1, and Keystone v0.1 are rejected in their tested forms. A common comparison selected Span as the only revision target because one opening swap rule directly addresses its diagnosed initiative failure without changing the defining placement mechanism.
+**Span v0.2 participant-aware agent instrumentation.** Relay, Span v0.1, and Keystone v0.1 are rejected in their tested forms. Span v0.2 is the only selected revision and now has a reference implementation plus deterministic swap tests. No v0.2 play experiment has been run.
 
 ## Prototype outcomes
 
@@ -57,18 +57,23 @@ In 2,000 fixed-seed random games, only 50.9% completed by 200 plies; 49.1% hit t
 
 ## Selected revision
 
-### Span v0.2 — frozen, not yet implemented
+### Span v0.2 — implemented, not yet empirically evaluated
 
 - [`analysis/prototype_revision_selection.md`](analysis/prototype_revision_selection.md) — cross-prototype comparison and decision
 - [`prototypes/span/RULES_v0_2.md`](prototypes/span/RULES_v0_2.md) — frozen v0.2 rules
+- [`../../../src/templex_zero/games/span_v0_2.py`](../../../src/templex_zero/games/span_v0_2.py) — participant-aware reference implementation
+- [`../../../tests/test_span_v0_2.py`](../../../tests/test_span_v0_2.py) — deterministic swap and regression tests
+- [`analysis/span_v0_2_implementation.md`](analysis/span_v0_2_implementation.md) — implementation verification and limits
 
 Span v0.2 changes exactly one rule: after the first Black placement, the second participant may either place White normally or swap sides. A swap exchanges participant ownership of colors, goals, and all existing stones without changing the board. It consumes the second participant's turn, after which the opening participant moves as White.
 
-The revision preserves the fixed anchors, expansion and merge legality, connection goals, immobilization loss, and finite-placement termination proof. The core rules contain 308 words. No v0.2 code or play result existed when the rules were frozen on 2026-07-16.
+The revision preserves fixed anchors, expansion and merge legality, connection goals, immobilization loss, and finite placement. The v0.1 module and negative evidence remain unchanged. The reconstructed full suite produced **45 passed**: 31 existing cases plus 14 v0.2 cases. `compileall` completed without error.
+
+This establishes implementation fidelity only. Balance, strategic signal, swap frequency, viable openings, and participant advantage remain unresolved.
 
 ## Next work
 
-Implement Span v0.2 with participant identity separated from color ownership. Add deterministic tests for swap timing, board preservation, ownership exchange, one-time availability, and post-swap turn order, then rerun all existing tests and compile checks before any new play experiment.
+Adapt symmetric search and match instrumentation to participant identity. The same agent and computation budget must choose the first placement, the second participant's swap decision, and all later placements. Add deterministic agent and match tests before running the formal v0.2 screens.
 
 ## Planned study files
 
