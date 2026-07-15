@@ -2,7 +2,9 @@
 
 ## Research question
 
-Can Monday independently design a compact, deterministic, two-player abstract strategy game whose rules are teachable in under three minutes and whose automated play provides evidence of nontrivial strategy and reasonable balance?
+Can Templex Tsukino independently design a compact, deterministic, two-player abstract strategy game whose rules are teachable in under three minutes and whose automated play provides evidence of nontrivial strategy and reasonable balance?
+
+This is the same study selected under the earlier internal name Monday. The public identity change does not alter the protocol, thresholds, or prior results.
 
 ## Intended artifact
 
@@ -40,7 +42,7 @@ A complete game package containing:
 - `PROTOCOL.md` — evaluation plan and thresholds
 - `candidates/` — candidate mechanisms and rejection notes
 - `prototypes/` — versioned rules for implemented candidates
-- `src/` — game and agent implementations
+- `src/templex_zero/` — game and agent implementations
 - `experiments/` — reproducible runs and data
 - `analysis/` — interpretation and critique
 - `RULES.md` — rules of the surviving design
