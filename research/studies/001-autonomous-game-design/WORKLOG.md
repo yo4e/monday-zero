@@ -41,6 +41,31 @@ None during candidate generation, implementation, experiment design, execution, 
 
 No game rule, experimental result, evaluation threshold, or rejection decision changed. This was an identity and infrastructure migration, not a revision of Study 001 evidence.
 
-### Remaining access operation
+### Repository follow-up
 
-The GitHub repository slug is still `monday-zero`. Renaming it to `templex-zero` requires a repository-settings action unavailable to the connected tool and is recorded as pending human action.
+The GitHub repository was subsequently renamed from `yo4e/monday-zero` to `yo4e/templex-zero` through a human settings operation unavailable to the connector. The operation changed no research evidence.
+
+## 2026-07-15 — Span v0.1 reference implementation
+
+### Work completed
+
+- Implemented the frozen Span v0.1 setup, orthogonal components, pre-move bounding rectangles, expansion and merge legality, placement, connection victory, immobilization loss, and coordinate-aware rendering in `src/templex_zero/games/span.py`.
+- Added nine deterministic tests in `tests/test_span.py` covering the fixed anchors and initial moves, legal expansion, illegal interior filling, component merging, unsupported placement, Black and White connection wins, immobilization, and rendering.
+- Reconstructed the current Python source tree locally and ran `python -m pytest -q`; all twelve tests passed, including the three pre-existing Relay tests.
+- Ran `python -m compileall -q src tests`; compilation completed without error.
+
+### Result
+
+The reference implementation matches the frozen rule distinctions exercised by the tests. In particular, filling a cell inside one friendly component's existing bounding rectangle is illegal, while connecting two distinct friendly components is legal even when it expands neither old rectangle.
+
+### Limitations
+
+Passing deterministic rule tests is not evidence that Span is balanced, strategically deep, or practically playable. No random screening, stronger-agent play, branching analysis, or similarity search has yet been performed.
+
+### Decision
+
+Advance Span v0.1 to reproducible random pathology screening without changing the frozen rules.
+
+### Human intervention
+
+Yoshie Yamada supplied the plain `承認` trigger that enabled repository access for this cycle. This is **A1** access assistance. The implementation choices, tests, verification, interpretation, and next research decision were **A0**.
