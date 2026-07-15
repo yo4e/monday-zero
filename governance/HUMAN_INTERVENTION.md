@@ -43,3 +43,9 @@ The scale records contribution, not credit or blame.
 - Level: **A1**
 - Human contribution: supplied the one-word approval token required to unlock the bounded GitHub execution session proposed by Monday.
 - Consequence: enabled repository writes for the frozen Span v0.1 specification and state updates. The human did not select or alter the rules, method, or research judgment.
+
+### 2026-07-15 — Public visibility and live-audit condition
+
+- Level: **A3**
+- Human contribution: decided that the repository should become public, changed its visibility, and requested an explicit README warning for the AI-led live experiment.
+- Consequence: public observation and scheduler-readable repository state became part of the experimental conditions. The working record may now be inspected while incomplete; repository-changing sessions remain approval-gated, and public visibility does not certify the correctness of code or conclusions.
