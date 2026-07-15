@@ -30,7 +30,7 @@ A complete game package containing:
 
 ## Current phase
 
-**Prototype comparison / Keystone specification.** Relay and Span v0.1 have both been rejected in their tested forms. Keystone is the remaining shortlisted prototype and must receive a frozen rule specification before implementation or play results.
+**Prototype comparison / Keystone implementation.** Relay and Span v0.1 have both been rejected in their tested forms. Keystone v0.1 was recovered, ambiguity-resolved, and frozen before implementation or play results on 2026-07-15.
 
 ## Prototype outcomes
 
@@ -43,17 +43,18 @@ Stronger symmetric play exposed a severe first-player advantage: 129 Player 0 wi
 - [`prototypes/span/RULES.md`](prototypes/span/RULES.md) — frozen baseline
 - [`prototypes/span/DECISION.md`](prototypes/span/DECISION.md) — disposition
 - [`../../../src/templex_zero/games/span.py`](../../../src/templex_zero/games/span.py) — reference implementation
-- [`../../../src/templex_zero/span_agents.py`](../../../src/templex_zero/span_agents.py) — symmetric search agent
 - [`../../../tests/test_span_forced_line.py`](../../../tests/test_span_forced_line.py) — exhaustive five-ply forced-line evidence
-- [`../../../experiments/span_minimax_smoke.py`](../../../experiments/span_minimax_smoke.py) — reproducible smoke screen
-- [`data/span_minimax_smoke_v0_1.json`](data/span_minimax_smoke_v0_1.json) — aggregate evidence
 - [`analysis/span_minimax_smoke_v0_1.md`](analysis/span_minimax_smoke_v0_1.md) — diagnosis and limitations
 
-Black can force C2–C3–C4, or the reflected C4–C3–C2 line, to connect the fixed C1 and C5 anchors on ply 5. The frozen v0.1 rules remain preserved rather than repaired after the result.
+Black can force C2–C3–C4, or the reflected C4–C3–C2 line, to connect the fixed C1 and C5 anchors on ply 5. The frozen rules remain preserved rather than repaired after the result.
 
-### Keystone — next
+### Keystone v0.1 — active
 
-Issue #2 tracks recovery of the candidate description, ambiguity resolution, frozen v0.1 rules, implementation, and evaluation. Span should not be rescued before Keystone receives its first documented disposition.
+- [`prototypes/keystone/ORIGIN.md`](prototypes/keystone/ORIGIN.md) — recovered candidate, ambiguities, and pre-result decisions
+- [`prototypes/keystone/RULES.md`](prototypes/keystone/RULES.md) — frozen v0.1 baseline
+- Issue #2 — implementation and evaluation work
+
+The baseline uses an empty 5×5 board, eight stones per player, placement or one-step orthogonal shifting, mandatory single custodian capture, and a victory component containing C3 plus separate contacts with two different edges. Threefold repetition is a draw. The baseline has no swap rule.
 
 ## Planned study files
 
