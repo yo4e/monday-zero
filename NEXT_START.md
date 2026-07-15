@@ -33,36 +33,39 @@ When Yoshie Yamada sends `承認` in the project chat, the executing session mus
 
 ## Current position
 
-Study 001 is comparing three candidate abstract-game mechanisms. Relay has been rejected in its current form. Span v0.1 rules are frozen before implementation or play results. Issue #1 remains open.
+Study 001 is comparing three candidate abstract-game mechanisms. Relay has been rejected in its current form. Span v0.1 rules remain frozen. The Span reference implementation and deterministic rule tests now pass; Issue #1 remains open for empirical evaluation and disposition.
 
 ## Confirmed
 
-- Relay appeared balanced under random play but showed a severe first-player advantage under depth-2 symmetric play: 129–12 with 59 draws in 200 games.
+- Relay showed a severe first-player advantage under depth-2 symmetric play: 129–12 with 59 draws in 200 games.
 - Random-vs-random play is useful only for termination and gross-pathology screening, not as evidence of strategic balance.
 - Span v0.1 uses a 5×5 board with fixed midpoint anchors: Black at C1/C5 and White at A3/E3.
-- A Span placement must either expand the pre-move bounding rectangle of one friendly orthogonal component or merge at least two friendly components.
+- A placement must expand one friendly component's pre-move bounding rectangle or merge at least two distinct friendly components.
+- Filling an empty cell inside the existing bounding rectangle of a single friendly component is illegal.
 - Connection across the assigned opposite edges wins; beginning a turn without a legal placement loses.
-- The frozen baseline is `research/studies/001-autonomous-game-design/prototypes/span/RULES.md` and must not be silently rewritten after results.
+- `src/templex_zero/games/span.py` implements the frozen rules and coordinate-aware rendering.
+- `tests/test_span.py` contains nine deterministic tests. A local reconstruction of the current source tree produced **12 passed**, including all existing Relay tests, and compiled without error.
 
 ## Rejected
 
 - Relay in its current ruleset.
 - Random-play parity as sufficient balance evidence.
 - Retrofitting Span's baseline rules in response to results without creating a new version.
-- Scheduled Tasks as the canonical continuation mechanism for project work: test results were generated outside the project chat and could not reliably use the project as a continuous execution context.
+- Scheduled Tasks as the canonical continuation mechanism for project work.
 
 ## Unresolved
 
-- Whether Span v0.1 is implemented correctly and unambiguously.
-- Span's termination profile, first-player advantage, branching behavior, and response to stronger play.
-- Whether immobilization or connection dominates actual play.
+- Span's random-play termination profile and typical game length.
+- How often games end by connection versus immobilization.
+- First-player advantage, branching behavior, and response to stronger play.
+- Whether the current implementation contains rule errors not exercised by the deterministic tests.
 - Keystone remains unimplemented and should not begin before Span receives a documented disposition.
 
 ## Next recommended work unit
 
-Implement Span v0.1 exactly as frozen in the shared Python framework under `src/templex_zero/`, including legal moves, terminal conditions, and a readable board renderer. Add deterministic tests covering expansion, merging, illegal interior filling, connection victory, and immobilization. Do not run broad balance experiments until the implementation passes those tests.
+Create a reproducible Span random-pathology screening script, run a fixed seeded sample, and save the configuration and raw summary. Measure completion rate, ply distribution, Black/White wins, connection versus immobilization outcomes, and basic legal-move counts. Interpret the result only as a termination and gross-pathology screen; do not infer strategic balance from random agents.
 
-This is the highest-value next bounded cycle because all later Span evidence depends on implementation fidelity. The executing session must inspect the live repository before acting and may safely narrow or revise the work if current evidence has changed.
+This is the highest-value next bounded cycle because the implementation is now testable, while every stronger evaluation depends on first confirming that ordinary play terminates and does not collapse into a trivial or pathological outcome mode.
 
 ## Human gate
 
@@ -79,6 +82,7 @@ None.
 ## Anchors
 
 - Approval protocol: `governance/APPROVAL_DRIVEN_EXECUTION.md`
-- `STATE.md` updated on 2026-07-15; current content must be re-read live.
-- Span v0.1 rules commit: `418bdc92c7e32637c2b35648cfc7a79b4a3b444c`
+- Span rules: `research/studies/001-autonomous-game-design/prototypes/span/RULES.md`
+- Span implementation: `src/templex_zero/games/span.py`
+- Span tests: `tests/test_span.py`
 - Issue #1: `Study 001: Implement and evaluate Span`
