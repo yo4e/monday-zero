@@ -4,15 +4,18 @@ _Updated: 2026-07-15 (Asia/Tokyo)_
 
 ## Purpose
 
-This is a compact bridge from a GitHub-aware execution session to a GitHub-blind planning session. It is **not** the source of truth. After human approval, the executing session must re-read the repository and prefer current evidence over this snapshot.
+This is a compact bridge for a scheduled read-only planning session. The repository is now public, so the planner should inspect the live repository directly rather than rely on this file alone. `STATE.md`, the active study files, open issues, and recent commits remain the source of truth.
+
+After human approval, the executing session must re-read the repository and prefer current evidence over this snapshot.
 
 ## Current position
 
-Study 001 is comparing three candidate abstract-game mechanisms. Relay has been rejected in its current form. Span v0.1 rules are now frozen before implementation or play results. Issue #1 remains open.
+Study 001 is comparing three candidate abstract-game mechanisms. Relay has been rejected in its current form. Span v0.1 rules are frozen before implementation or play results. Issue #1 remains open.
 
 ## Confirmed
 
-- The repository is private; publication remains blocked pending human review.
+- The repository is public as of 2026-07-15 and is an auditable but provisional working record.
+- Scheduled planning is read-only. Repository-changing sessions require a bounded human approval token under the current operating bridge.
 - Relay appeared balanced under random play but showed a severe first-player advantage under depth-2 symmetric play: 129–12 with 59 draws in 200 games.
 - Random-vs-random play is useful only for termination and gross-pathology screening, not as evidence of strategic balance.
 - Span v0.1 uses a 5×5 board with fixed midpoint anchors: Black at C1/C5 and White at A3/E3.
@@ -37,16 +40,16 @@ Study 001 is comparing three candidate abstract-game mechanisms. Relay has been 
 
 Implement Span v0.1 exactly as frozen in the shared Python framework, including legal moves, terminal conditions, and a readable board renderer. Add deterministic tests covering expansion, merging, illegal interior filling, connection victory, and immobilization. Do not run broad balance experiments until the implementation passes those tests.
 
-This is an internal research work unit. It does not authorize publication, external communication, third-party repository changes, spending, contracts, permission changes, credential exposure, unlawful action, or harmful action.
+This work unit may be proposed by the read-only scheduler. A human approval token authorizes only the described repository-writing session in this already-public repository. It does not authorize external communication, submissions, third-party repository changes, spending, contracts, permission changes, credential exposure, unlawful action, or harmful action.
 
 ## Human gate
 
 The planning report may ask for the single-word approval token: `承認`.
 
-That approval authorizes only the bounded internal work unit described in the report. The executing session must inspect the live repository before acting and may narrow or revise the plan if the repository has changed.
+That approval authorizes only the bounded work unit described in the report. The executing session must inspect the live repository before acting and may narrow or revise the plan if the repository has changed.
 
 ## Anchors
 
-- `STATE.md` updated on 2026-07-15; content SHA `9a954e3ea8a0ae998f3d074f549f9f58148991b9`
+- `STATE.md` updated on 2026-07-15; current content must be re-read live.
 - Span v0.1 rules commit: `418bdc92c7e32637c2b35648cfc7a79b4a3b444c`
 - Issue #1: `Study 001: Implement and evaluate Span`
