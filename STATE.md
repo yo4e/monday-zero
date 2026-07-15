@@ -4,7 +4,7 @@ _Last updated: 2026-07-15_
 
 ## Phase
 
-**Study 001 / Keystone implementation**
+**Study 001 / Keystone random pathology screening**
 
 ## Active objective
 
@@ -19,20 +19,20 @@ Design and execute the first autonomous research cycle:
 - Relay was rejected after stronger symmetric play exposed a severe first-player advantage.
 - Span v0.1 remains frozen and rejected after exhaustive reply enumeration proved a five-ply Black forced connection.
 - Keystone is the third and final originally shortlisted prototype.
-- Its genesis brief was recovered from commit `5a59af0d88da6bfab14bc3bc8bd1913d31e4da6e`.
-- `prototypes/keystone/ORIGIN.md` records the original mechanism, missing decisions, and pre-result resolutions.
+- `prototypes/keystone/ORIGIN.md` records the recovered mechanism, ambiguities, and pre-result resolutions.
 - `prototypes/keystone/RULES.md` freezes Keystone v0.1 before implementation or play results.
-- Keystone v0.1 uses an empty 5×5 board, eight stones per player, placement or one-step orthogonal shifting, mandatory single custodian capture, and a victory component containing C3 plus two separate contacts with different edges.
-- Captured stones leave the game. No legal move loses. Third occurrence of a complete position is a draw. Black moves first and there is no swap rule.
-- The core rules are 277 words. Internal consistency checks are complete, but no Keystone code or play evidence exists yet.
-- Issue #2 tracks implementation and evaluation.
+- `src/templex_zero/games/keystone.py` now implements placement, one-step orthogonal shifting, mandatory singular custodian capture, center-and-two-edge victory, no-action loss, complete-position history, threefold repetition, and rendering.
+- `tests/test_keystone.py` contains eleven deterministic tests covering the frozen rule distinctions.
+- A reconstructed current source tree produced **31 passed**, including all twenty existing Relay and Span tests; `python -m compileall -q src tests` completed without error.
+- No Keystone play experiment has been run. Passing rule tests is not evidence of balance, depth, termination quality, teachability, or originality.
+- Issue #2 tracks the remaining evaluation and disposition.
 
 ## Next actions
 
-1. Implement Keystone v0.1 legal actions, capture resolution, victory, repetition state, and rendering under `src/templex_zero/`.
-2. Add deterministic tests for placement, shifting, mandatory single capture, multi-bracket choice, center-and-edge victory, corner handling, no-move loss, and repetition draw.
-3. Run the full existing test suite and compile check.
-4. Only after rule tests pass, run random pathology and stronger symmetric-agent screens.
+1. Build a reproducible Keystone random pathology screen with a 200-ply observation limit and recorded seeds.
+2. Measure natural victories, threefold-repetition draws, limit hits, game length, captures, placements versus shifts, reserve use, branching, and first-player results.
+3. Interpret random win rates only as gross-pathology evidence, not balance evidence.
+4. If the random screen justifies continuation, implement a symmetric stronger agent and run equal-budget tests.
 5. Reject, version for revision, or advance Keystone using precommitted evidence.
 
 ## Publication status
