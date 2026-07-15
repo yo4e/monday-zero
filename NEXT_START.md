@@ -33,18 +33,20 @@ When Yoshie Yamada sends `承認` in the project chat, the executing session mus
 
 ## Current position
 
-Study 001 is comparing three candidate abstract-game mechanisms. Relay has been rejected in its current form. Span v0.1 rules remain frozen. The Span reference implementation and deterministic rule tests now pass; Issue #1 remains open for empirical evaluation and disposition.
+Relay is rejected in its current form. Span v0.1 remains frozen and implemented. Deterministic rule tests pass, and a 10,000-game fixed-seed random pathology screen found reliable termination, practical game length, connection-dominant outcomes, and no gross random-play reason for immediate rejection. Issue #1 remains open for stronger evaluation and disposition.
 
 ## Confirmed
 
 - Relay showed a severe first-player advantage under depth-2 symmetric play: 129–12 with 59 draws in 200 games.
-- Random-vs-random play is useful only for termination and gross-pathology screening, not as evidence of strategic balance.
-- Span v0.1 uses a 5×5 board with fixed midpoint anchors: Black at C1/C5 and White at A3/E3.
-- A placement must expand one friendly component's pre-move bounding rectangle or merge at least two distinct friendly components.
-- Filling an empty cell inside the existing bounding rectangle of a single friendly component is illegal.
-- Connection across the assigned opposite edges wins; beginning a turn without a legal placement loses.
-- `src/templex_zero/games/span.py` implements the frozen rules and coordinate-aware rendering.
-- `tests/test_span.py` contains nine deterministic tests. A local reconstruction of the current source tree produced **12 passed**, including all existing Relay tests, and compiled without error.
+- Random-vs-random play is useful only for termination and gross-pathology screening, not balance evidence.
+- `src/templex_zero/games/span.py` implements the frozen Span v0.1 rules.
+- `tests/test_span.py` contains nine deterministic tests; a reconstructed full suite produced 12 passing tests.
+- `experiments/span_random_screen.py` at commit `d1ed92b0a6ada87e8aef7c479ca4a38ab6d01f9e` ran seeds 0–9,999 twice with identical aggregate output.
+- All 10,000 random games terminated within the 21-placement structural maximum.
+- Median length was 15 plies; the 10th and 90th percentiles were 9 and 18.
+- Connection ended 8,201 games and immobilization ended 1,799.
+- Mean legal moves across 140,506 decision nodes was 5.8609; maximum was 11.
+- Black won 52.6% of random games, but this is explicitly not treated as balance evidence.
 
 ## Rejected
 
@@ -55,17 +57,18 @@ Study 001 is comparing three candidate abstract-game mechanisms. Relay has been 
 
 ## Unresolved
 
-- Span's random-play termination profile and typical game length.
-- How often games end by connection versus immobilization.
-- First-player advantage, branching behavior, and response to stronger play.
-- Whether the current implementation contains rule errors not exercised by the deterministic tests.
+- First-player advantage under competent symmetric play.
+- Whether increasing search depth changes outcomes or reveals forced lines.
+- Whether a stronger Span agent reliably defeats random and shallower agents.
+- Whether the evaluation function captures strategically meaningful features rather than merely tempo.
+- Whether the current implementation contains rule errors not exercised by existing tests and random play.
 - Keystone remains unimplemented and should not begin before Span receives a documented disposition.
 
 ## Next recommended work unit
 
-Create a reproducible Span random-pathology screening script, run a fixed seeded sample, and save the configuration and raw summary. Measure completion rate, ply distribution, Black/White wins, connection versus immobilization outcomes, and basic legal-move counts. Interpret the result only as a termination and gross-pathology screen; do not infer strategic balance from random agents.
+Implement a Span-specific deterministic evaluation function and depth-limited minimax agent, with tests for seat symmetry, terminal scoring, and legal move selection. Then run a small fixed-seed equal-depth symmetric smoke screen to confirm the agent and match harness behave reproducibly. Do not yet run the full balance experiment until these agent tests pass.
 
-This is the highest-value next bounded cycle because the implementation is now testable, while every stronger evaluation depends on first confirming that ordinary play terminates and does not collapse into a trivial or pathological outcome mode.
+This is the highest-value next bounded cycle because random screening has completed and all substantive balance and strategic-signal claims now depend on a stronger, symmetric, reproducible decision procedure.
 
 ## Human gate
 
@@ -85,4 +88,7 @@ None.
 - Span rules: `research/studies/001-autonomous-game-design/prototypes/span/RULES.md`
 - Span implementation: `src/templex_zero/games/span.py`
 - Span tests: `tests/test_span.py`
+- Random-screen script: `experiments/span_random_screen.py`
+- Random-screen data: `research/studies/001-autonomous-game-design/data/span_random_v0_1.json`
+- Random-screen analysis: `research/studies/001-autonomous-game-design/analysis/span_random_v0_1.md`
 - Issue #1: `Study 001: Implement and evaluate Span`
