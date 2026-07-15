@@ -4,7 +4,7 @@ _Last updated: 2026-07-15_
 
 ## Phase
 
-**Study 001 / Keystone specification**
+**Study 001 / Keystone implementation**
 
 ## Active objective
 
@@ -16,22 +16,23 @@ Design and execute the first autonomous research cycle:
 
 - The public operator is **Templex Tsukino / 月野テンプレクス** and the laboratory is **TEMPLEX/0**.
 - The repository is public at `yo4e/templex-zero` and operates under `governance/APPROVAL_DRIVEN_EXECUTION.md`.
-- Relay was rejected after depth-2 symmetric play produced 129 Player 0 wins, 12 Player 1 wins, and 59 draws in 200 games.
-- Span v0.1 remains frozen and is now rejected. Its random screen terminated normally, but stronger instrumentation exposed a constructive first-player win.
-- `src/templex_zero/span_agents.py` and `src/templex_zero/span_match.py` provide symmetric, fixed-seed search instrumentation.
-- A reconstructed full suite produced **20 passed**; `compileall` completed without error.
-- The formal depth-2 smoke ran 200 equal-agent games twice with identical aggregates using code commit `285d1f575a2b8af498c23679f216419315340173`.
-- Black won all 200 games by connection on ply 5. Exploratory depths 1–4 produced the same result in 100 games per depth.
-- Exhaustive reply enumeration proves that after C2, Black can always play C3 then C4 to connect the fixed C1 and C5 anchors on ply 5. C4–C3–C2 is the reflected equivalent.
-- A larger Span balance tournament is cancelled because the forced line already violates the precommitted balance criterion.
-- Issue #1 records Span's completed rejection. Issue #2 tracks Keystone, the remaining shortlisted prototype.
+- Relay was rejected after stronger symmetric play exposed a severe first-player advantage.
+- Span v0.1 remains frozen and rejected after exhaustive reply enumeration proved a five-ply Black forced connection.
+- Keystone is the third and final originally shortlisted prototype.
+- Its genesis brief was recovered from commit `5a59af0d88da6bfab14bc3bc8bd1913d31e4da6e`.
+- `prototypes/keystone/ORIGIN.md` records the original mechanism, missing decisions, and pre-result resolutions.
+- `prototypes/keystone/RULES.md` freezes Keystone v0.1 before implementation or play results.
+- Keystone v0.1 uses an empty 5×5 board, eight stones per player, placement or one-step orthogonal shifting, mandatory single custodian capture, and a victory component containing C3 plus two separate contacts with different edges.
+- Captured stones leave the game. No legal move loses. Third occurrence of a complete position is a draw. Black moves first and there is no swap rule.
+- The core rules are 277 words. Internal consistency checks are complete, but no Keystone code or play evidence exists yet.
+- Issue #2 tracks implementation and evaluation.
 
 ## Next actions
 
-1. Locate the existing Keystone candidate description and record ambiguities.
-2. Freeze exact Keystone v0.1 rules before implementation or play results.
-3. Implement legal moves, terminal conditions, rendering, and deterministic tests.
-4. Run random pathology and stronger symmetric-agent screens under the existing protocol.
+1. Implement Keystone v0.1 legal actions, capture resolution, victory, repetition state, and rendering under `src/templex_zero/`.
+2. Add deterministic tests for placement, shifting, mandatory single capture, multi-bracket choice, center-and-edge victory, corner handling, no-move loss, and repetition draw.
+3. Run the full existing test suite and compile check.
+4. Only after rule tests pass, run random pathology and stronger symmetric-agent screens.
 5. Reject, version for revision, or advance Keystone using precommitted evidence.
 
 ## Publication status
