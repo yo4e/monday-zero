@@ -1,7 +1,7 @@
 # Study 002 Protocol — Exact-First Screening of Compact Games
 
 _Date activated: 2026-07-16 (Asia/Tokyo)_  
-_Status: **Active — setup cycle 1 of at most 6 completed**_
+_Status: **Active — manifest cycle 2 of at most 6 completed**_
 
 ## Authority and frozen source
 
@@ -10,7 +10,7 @@ This active protocol implements the frozen proposal:
 - `research/proposals/STUDY_002_EXACT_FIRST_SCREENING.md`
 - final pre-result proposal commit: `68fc4c2edb93ca1363e7b7040221b5507cfeb171`
 
-The activation changes status only. It does not revise the proposal's research question, candidate counts, measurements, resource caps, success criteria, failure conditions, or intervention boundaries. If this file and the frozen proposal ever disagree, stop and resolve the discrepancy before candidate generation or evaluation.
+Activation did not revise the proposal's research question, candidate counts, measurements, resource caps, success criteria, failure conditions, or intervention boundaries. If this file and the frozen proposal disagree, stop before candidate evaluation.
 
 ## Research question
 
@@ -24,43 +24,51 @@ The study evaluates a screening method. It does not require a good game to emerg
 - **H2:** Increasing shallow search depth will reduce, but not necessarily eliminate, disagreement with exact opening analysis.
 - **H3:** Exact-first analysis will provide a clearer rejection reason than aggregate win rates for at least some candidates.
 
-Failure to support all three hypotheses is an acceptable result. Zero false-reassurance cases is valid.
+Failure to support all three hypotheses is acceptable. Zero false-reassurance cases is valid.
 
-## Candidate family
+## Frozen candidate family
 
-Generate exactly **18** unranked candidates from the separately frozen grammar:
+The sample consists of exactly **18** unranked candidates:
 
-- 9 candidates on 3×3 boards;
-- 9 candidates on 4×4 boards;
+- 9 on 3×3 boards;
+- 9 on 4×4 boards;
 - three mechanism families:
   1. adjacency-constrained growth;
   2. component expansion or merger;
   3. local blocking and pattern completion;
-- exactly three candidates in every board-size × mechanism-family cell.
+- exactly three candidates in every board-size × family cell.
 
-All candidates must be deterministic, alternating, two-player, perfect-information placement games. Every normal action fills exactly one empty cell. Movement, capture, swap, chance, hidden information, scoring, repetition, and pass actions are excluded. Candidate boards use every cell, contain at most 16 normal plies, state intended participant/color symmetry explicitly, and keep core rules at or below 250 words.
+All candidates are deterministic, alternating, two-player, perfect-information placement games. Every normal action fills exactly one empty cell. Movement, capture, swap, chance, hidden information, scoring, repetition, and pass actions are excluded. Candidate boards use every cell, contain at most 16 normal plies, state intended participant/color symmetry, and keep core rules at or below 250 words.
 
-The grammar, generation seed, deterministic enumeration, canonicalization, and all 18 rule tuples must be committed before random, shallow, or exact candidate results are inspected. Within each cell, the manifest takes the first three distinct statically valid candidates in the frozen seeded order. No manual ranking or replacement is permitted.
+The grammar, seed `2026071602`, deterministic enumeration, canonicalization, and all 18 rule tuples were committed before random, shallow, or exact results were inspected. Within each cell, the manifest took the first three distinct statically valid candidates in frozen seeded order. No manual ranking or replacement was permitted.
 
-If fewer than 18 distinct valid candidates survive static generation, close the study as a grammar failure.
+The frozen manifest is:
+
+- `research/studies/002-exact-first-screening/manifest/index.json`
+- `research/studies/002-exact-first-screening/manifest/README.md`
+- `research/studies/002-exact-first-screening/manifest/<candidate-id>.json`
+
+The compact full-entry list has SHA-256:
+
+`cff3a75a58442b843134cd05a337e2af3166e1c1e035c15fc890f576e0495cee`
+
+The manifest is immutable except to correct a factual or technical error. Candidate replacement, reordering, polishing, or a second grammar is prohibited.
 
 ## Declarative representation
 
-The shared representation must encode:
+The shared representation encodes:
 
 - board size and playable cells;
 - player to move and immutable placement states;
 - mechanism family;
 - neighborhood relation;
 - first-move scope;
-- placement predicate and its parameters;
-- goal predicate and its parameters;
+- placement predicate and parameters;
+- goal predicate and parameters;
 - no-legal-action resolution;
 - intended symmetry and rule-word count.
 
-Candidate schema validation must reject out-of-scope board sizes, masked boards, asymmetric declarations, fixture-only explicit openings, fixture-only explicit winning patterns, and rule text above 250 words.
-
-The setup cycle may implement deterministic legal actions, placement, goal resolution, and state-graph enumeration needed to audit fixtures. It must not implement a candidate-specific evaluator or inspect candidate outcomes.
+Candidate schema validation rejects out-of-scope board sizes, masked boards, asymmetric declarations, fixture-only explicit openings, fixture-only explicit winning patterns, and rule text above 250 words.
 
 ## Exact-analysis instrument
 
@@ -70,17 +78,17 @@ Implement a standard-library-only generic engine and memoized full-width solver 
 - distance to terminal under outcome-preserving optimal play;
 - exact value of each legal opening action;
 - number of winning, drawing, and losing opening actions;
-- reachable-state count;
+- reachable or expanded-state count;
 - whether a configured cap was reached.
 
 ### Correctness gate
 
 Before candidate solving:
 
-1. define at least four hand-audited fixtures with explicit expected reachable state graphs;
-2. cross-check the memoized solver against an independently written brute-force enumerator on every fixture;
+1. cross-check the memoized solver against an independently written brute-force enumerator on every frozen fixture and every reachable fixture state;
+2. compare outcome, distance, and every opening-action value;
 3. exhaustively check participant/color symmetry on fixture states where symmetry is claimed;
-4. reject the instrument if any outcome, distance, or opening-action value disagrees after one bounded implementation-debugging cycle.
+4. reject the instrument if disagreement remains after one bounded implementation-debugging cycle.
 
 Symmetry reduction may be added only after a no-reduction reference solve agrees on all fixtures and all 3×3 candidates.
 
@@ -91,7 +99,7 @@ The four pre-candidate fixtures are recorded in:
 - `research/studies/002-exact-first-screening/FIXTURES.md`
 - `src/templex_zero/exact_first/fixtures.py`
 
-They cover immediate victory, draw by exhausted legal actions, branching actions with different winners, and a constrained adjacency-growth chain. Their state graphs are frozen before the exact solver and before candidate generation.
+They cover immediate victory, draw by exhausted actions, branching actions with different winners, and a constrained adjacency-growth chain. Fixtures 1 and 2 claim color-role symmetry. Fixtures 3 and 4 are treated as asymmetric.
 
 ## Resource boundaries
 
@@ -99,7 +107,7 @@ They cover immediate victory, draw by exhausted legal actions, branching actions
 - Maximum **30 seconds of measured solver time per candidate** in the recorded reference environment.
 - Maximum **25,000,000 expanded states across the study**.
 - Candidates are solved strictly in frozen manifest order.
-- If the total state cap is reached, all later manifest entries are recorded as unsolved.
+- If the total state cap is reached, all later entries are unsolved.
 - A capped candidate remains unsolved; caps may not be raised inside Study 002.
 - No paid compute, external solver service, continuous background task, or unpublished manual intervention.
 
@@ -166,12 +174,15 @@ Close without repair if:
 - reproducibility fails and cannot be isolated within one bounded cycle;
 - completion requires external services, paid compute, or materially human-authored candidate ranking.
 
+The static grammar-failure condition did not trigger: all six cells produced at least three valid candidates under the frozen rules.
+
 ## Cycle limit
 
 Study 002 receives at most **six approval-driven execution cycles after activation**, including final synthesis.
 
 - Cycle 1: protocol, schema, fixtures, grammar, seed — completed without candidate generation.
-- Later cycles: candidate manifest, exact instrument, frozen experiments, and synthesis as evidence permits.
+- Cycle 2: deterministic 18-entry manifest freeze — completed without candidate play or solving.
+- Later cycles: exact instrument, frozen candidate solves, approximate screens, and synthesis as evidence permits.
 
 At the limit the study closes as completed, negative, or incomplete. It may not expand into a second grammar, game polishing, prior-art review, human playtesting, or product development.
 
@@ -187,6 +198,12 @@ Study 002 will not claim that:
 - a survivor is ready for publication or human play.
 
 A structurally interesting survivor may be preserved only as a possible subject of a separately scoped later study.
+
+## Verification record so far
+
+Cycle 1 recorded 10 targeted setup tests. Cycle 2 recorded 7 targeted manifest tests, byte-identical regeneration, successful compilation, and exact Git blob identity for the generator, script, test, and all 21 manifest files.
+
+Fresh clone remained unavailable because the execution environment could not resolve `github.com`. A combined setup-plus-manifest rerun attempted with an incomplete reconstructed schema was discarded and is not evidence. The repository has no recorded GitHub Actions workflow.
 
 ## Intervention model
 
