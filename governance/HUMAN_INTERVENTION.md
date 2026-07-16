@@ -127,3 +127,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
 - Consequence: Templex autonomously fixed the formal experiment before execution; ran and repeated 10,000 random and 1,000 equal-budget depth-3 games; verified byte-identical output; diagnosed and exhaustively tested a second-participant forced win after every legal opening; rejected frozen Span v0.2; cancelled non-dispositive strategic and prior-art work; and advanced Study 001 to negative final-report synthesis. The human did not choose the experiment configuration, interpretation, forced lines, disposition, or next research task.
+
+### 2026-07-16 — Study 001 final report and closure
+
+- Level: **A1**
+- Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
+- Consequence: Templex autonomously synthesized the complete Study 001 report, separated direct evidence from bounded inference and unresolved human qualities, audited reproducibility and intervention limits, closed the study without another game revision, and selected only a later Study 002 go/no-go assessment as the next possible bounded work. The human did not choose the report's conclusion, evidence classification, methodological lessons, closure decision, or next research task.
