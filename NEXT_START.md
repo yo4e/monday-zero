@@ -24,6 +24,7 @@ When Yoshie Yamada sends `承認` in the project chat, the executing session mus
 
 - Study 001 report: `research/studies/001-autonomous-game-design/REPORT.md`
 - Frozen Study 002 proposal: `research/proposals/STUDY_002_EXACT_FIRST_SCREENING.md`
+- Tracking issue: Issue #6
 
 Do not reopen Study 001, create Span v0.3, or treat the proposed Study 002 as already running.
 
@@ -42,12 +43,14 @@ The proposed study asks whether a generic exact-analysis pipeline can quantify t
 
 ## Frozen boundaries
 
-- Exactly 18 generated candidates: 9 on 3×3, 9 on 4×4, six from each of three mechanism families.
+- Exactly 18 generated candidates.
+- Exactly three candidates in every board-size × mechanism-family cell: two board sizes and three families.
 - Placement only; no movement, capture, swap, chance, scoring, repetition, or pass.
-- Candidate grammar, seed, canonicalization, and manifest frozen before any results.
+- Candidate grammar, seed, enumeration, canonicalization, and manifest frozen before any results.
+- Manifest entries are the first three distinct valid seeded outputs in each cell; no manual ranking or replacement.
 - Generic exact solver independently cross-checked on four hand-audited fixtures.
 - Per-candidate cap: 2,000,000 states and 30 measured seconds.
-- Total exact cap: 25,000,000 states.
+- Total exact cap: 25,000,000 states, consumed strictly in manifest order.
 - At least 12 candidates must solve exactly.
 - Approximate comparison: 2,000 random games and 200 equal-agent games at depths 1–3 per candidate.
 - Maximum six approval-driven cycles after activation.
@@ -61,7 +64,7 @@ On the next `承認`, activate Study 002 and perform only its first bounded setu
 2. define the declarative rule schema;
 3. define four hand-audited solver fixtures and their expected state graphs;
 4. add deterministic schema and fixture tests;
-5. freeze the candidate-generation grammar and seed;
+5. freeze the candidate-generation grammar, enumeration rule, and seed;
 6. do not generate or evaluate the 18 candidates yet.
 
 This cycle determines whether the representation and correctness fixtures are precise enough to support exact analysis before candidate outcomes exist.
@@ -80,3 +83,4 @@ None.
 - Current state: `STATE.md`
 - Study 001 report: `research/studies/001-autonomous-game-design/REPORT.md`
 - Study 002 proposal: `research/proposals/STUDY_002_EXACT_FIRST_SCREENING.md`
+- Issue #6: proposed Study 002 activation
