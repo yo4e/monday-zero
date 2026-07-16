@@ -4,7 +4,7 @@ _Last updated: 2026-07-16_
 
 ## Phase
 
-**Study 002 active / exact-first setup complete / cycle 1 of at most 6**
+**Study 002 active / candidate manifest frozen / cycle 2 of at most 6**
 
 ## Laboratory
 
@@ -25,53 +25,62 @@ Do not alter it except to correct factual or technical errors. Do not create Spa
 
 > Can Templex Tsukino build and use an exact-analysis pipeline that measures when random and shallow symmetric play misrepresent the opening structure of autonomously generated compact deterministic placement games?
 
-The active protocol is:
+Active protocol:
 
 - `research/studies/002-exact-first-screening/PROTOCOL.md`
 
-It was activated without changing the frozen proposal at:
+Frozen proposal source:
 
 - `research/proposals/STUDY_002_EXACT_FIRST_SCREENING.md`
 - final proposal commit `68fc4c2edb93ca1363e7b7040221b5507cfeb171`
 
-## Cycle 1 completed
+## Cycles completed
 
-- Created the active protocol and six-cycle accounting.
-- Defined a declarative placement-game schema with immutable states, legal placement, adjacency growth, expansion/merger, local enemy limits, connection, line, component, and fixture-only pattern goals.
-- Candidate validation enforces 3×3/4×4 full boards, intended symmetry, placement-only rules, fixture-only explicit features, and a 250-word ceiling.
-- Froze generation seed `2026071602`.
-- Froze two board sizes, three mechanism families, exactly three candidates per cell, SHA-256 seeded ordering, canonical tuple serialization, and no manual replacement.
-- Defined four hand-audited reachable state graphs: immediate win, exhausted-action draw, branching winners, and adjacency chain.
-- Added machine-readable fixtures and deterministic schema/graph tests.
-- Did **not** generate an 18-entry manifest, implement the exact solver, or inspect any candidate outcome.
+### Cycle 1 — setup
+
+- Activated the frozen protocol.
+- Implemented the declarative schema and fixture graph enumerator.
+- Froze four audited fixtures, candidate grammar, seed `2026071602`, canonicalization, and seeded ordering.
+- Did not generate candidates or implement the exact solver.
+
+### Cycle 2 — manifest freeze
+
+- Implemented deterministic normalized tuple generation, compact canonical JSON, seeded SHA-256 ranking, schema validation, and generated rule text.
+- Generated exactly 18 candidates: 9 on 3×3, 9 on 4×4, and exactly three in every board-size × family cell.
+- Saved an index, overview, and eighteen complete candidate JSON files under `research/studies/002-exact-first-screening/manifest/`.
+- Full compact entry-list SHA-256: `cff3a75a58442b843134cd05a337e2af3166e1c1e035c15fc890f576e0495cee`.
+- Rule texts range from 83 to 142 words; all entries passed schema, full-board, intended-symmetry, and 250-word validation.
+- No solver, state result, random game, shallow game, exact outcome, or quality ranking was created or inspected.
 
 ## Verification
 
-- Local reconstruction: `python -m pytest -q` → **10 passed** for the new Study 002 tests.
-- Local reconstruction: `python -m compileall -q src tests` → no errors.
-- Git blob hashes for the remote schema, fixture, grammar, and two test files exactly matched the locally tested files.
-- A fresh repository clone failed because the execution environment could not resolve `github.com`; the pre-existing full suite was therefore not rerun in this cycle.
-- The repository still has no recorded GitHub Actions workflow.
+- Final targeted manifest suite: **7 passed**.
+- `python -m compileall -q src tests experiments`: no errors.
+- Repeated manifest generation was byte-identical.
+- Git blob SHAs for the generator, script, test, index, overview, and all eighteen candidate files matched the locally verified files.
+- Fresh clone failed because the execution environment could not resolve `github.com`.
+- A combined setup-plus-manifest rerun was not accepted because the reconstruction used for that attempt did not contain the complete live schema; no combined result is claimed.
+- The repository has no recorded GitHub Actions workflow.
 
 ## Frozen study boundaries
 
-- Exactly 18 candidates: 9 on 3×3, 9 on 4×4, three per board-size × family cell.
+- The 18-entry manifest is immutable except for factual or technical correction.
 - Placement only; no movement, capture, swap, chance, scoring, repetition, or pass.
-- Manifest selected by static validation and seeded SHA-256 order only.
-- Exact caps: 2,000,000 states and 30 seconds per candidate; 25,000,000 states total in manifest order.
-- At least 12 exact solutions required.
-- Random screen: 2,000 games per candidate.
-- Shallow screen: 200 equal-agent games at depths 1, 2, and 3 per candidate.
+- Exact caps remain 2,000,000 states and 30 seconds per candidate; 25,000,000 states total in manifest order.
+- At least 12 exact solutions are required.
+- Random screen remains 2,000 games per candidate.
+- Shallow screen remains 200 equal-agent games at depths 1, 2, and 3 per candidate.
 - Maximum six approval-driven cycles including final synthesis.
-- No second grammar, candidate polishing, prior-art search, human playtest, paid compute, or external solver.
+- No second grammar, candidate replacement, polishing, prior-art search, human playtest, paid compute, or external solver.
 
 ## Next actions
 
-1. Implement the already frozen deterministic tuple enumerator and canonical serializer.
-2. Generate exactly three valid entries in each of the six cells.
-3. Freeze all 18 canonical tuples, identifiers, generated rule text, word counts, and static validation records in a manifest.
-4. Test repeat generation for byte-identical output and reject duplicate or out-of-scope entries.
-5. Do not implement the exact solver or run random, shallow, or exact candidate play in that cycle.
+1. Implement a generic no-reduction memoized exact solver.
+2. Implement an independently written brute-force fixture enumerator rather than sharing the memoized recursion.
+3. Cross-check root outcome, outcome-preserving terminal distance, and every opening-action value on all four frozen fixtures.
+4. Exhaustively verify the symmetry claims on Fixtures 1 and 2 only.
+5. Add deterministic correctness and cap tests.
+6. Do not solve any of the eighteen candidates in that cycle.
 
 ## Human action currently needed
 
