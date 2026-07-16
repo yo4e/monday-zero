@@ -23,6 +23,10 @@
 - A fresh clone attempt failed because the execution environment could not resolve `github.com`; the full legacy suite was not rerun.
 - No GitHub Actions workflow was available as a remote CI substitute.
 
+### Correction during final audit
+
+The adjacency-chain graph was initially annotated as symmetric under transpose plus player/color exchange. Its L-shaped playable mask is not invariant under transpose, so that claim was false even though the graph itself was correct. Before solver implementation or candidate generation, the symmetry claim was removed in both code and fixture documentation. The targeted suite was rerun and remained at **10 passed**. Fixtures 1 and 2 retain explicit symmetry claims; Fixtures 3 and 4 are intentionally treated as asymmetric.
+
 ### Result
 
 The frozen representation is precise enough to generate static candidates in a later cycle and the four fixture graphs are machine-checkable before solver implementation. This is representation evidence only. It does not validate an exact solver or any game candidate.
