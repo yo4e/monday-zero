@@ -2,6 +2,7 @@ from collections import deque
 
 import pytest
 
+import templex_zero.exact_first.solver as solver_module
 from templex_zero.exact_first.bruteforce import solve_bruteforce
 from templex_zero.exact_first.fixtures import (
     ADJACENCY_CHAIN,
@@ -153,3 +154,16 @@ def test_outcome_preserving_distance_policy_is_explicit():
             ActionValue(1, ExactValue("loss", 5)),
         )
     ) == ExactValue("loss", 5)
+
+
+def test_time_cap_is_deterministic_with_a_controlled_clock(monkeypatch):
+    ticks = iter((0.0, 0.0, 2.0))
+    monkeypatch.setattr(solver_module, "perf_counter", lambda: next(ticks))
+    capped = solve_exact(
+        IMMEDIATE_COMPONENT_WIN.spec,
+        time_limit_seconds=1.0,
+    )
+    assert capped.root is None
+    assert capped.expanded_states == 1
+    assert capped.cap_reached is True
+    assert capped.cap_reason == "time"
