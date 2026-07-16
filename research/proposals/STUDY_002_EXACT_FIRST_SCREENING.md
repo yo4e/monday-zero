@@ -68,7 +68,8 @@ Generate exactly **18** unranked candidate rules from a frozen grammar:
 - exactly 6 candidates from each of three mechanism families:
   1. adjacency-constrained growth;
   2. component expansion or merger;
-  3. local blocking and pattern completion.
+  3. local blocking and pattern completion;
+- therefore exactly **3 candidates in each board-size × mechanism-family cell**.
 
 All candidates must satisfy these static boundaries before evaluation:
 
@@ -81,7 +82,9 @@ All candidates must satisfy these static boundaries before evaluation:
 - intended player/color symmetry stated explicitly;
 - exact duplicates removed only by static canonicalization before the candidate set is frozen.
 
-The candidate grammar, generation seed, canonicalization rule, and all 18 rule tuples must be committed before any random, shallow, or exact result is inspected. If static generation produces fewer than 18 distinct valid candidates, the grammar fails; do not invent replacements after seeing play results.
+The first execution cycle must freeze a deterministic enumeration rule. Within each of the six board-size × family cells, the manifest contains the first three distinct valid candidates emitted by the seeded generator after static canonicalization. No manual ranking or replacement is permitted.
+
+The candidate grammar, generation seed, enumeration order, canonicalization rule, and all 18 rule tuples must be committed before any random, shallow, or exact result is inspected. If static generation produces fewer than 18 distinct valid candidates, the grammar fails; do not invent replacements after seeing play results.
 
 ## 6. Exact-analysis instrument
 
@@ -111,6 +114,7 @@ Symmetry reduction may be added only if a no-reduction reference solve first agr
 - Maximum **30 seconds of measured solver time per candidate** in the recorded reference environment.
 - Maximum **25,000,000 expanded states across the study**.
 - A capped candidate is recorded as unsolved; its cap may not be raised inside Study 002.
+- Candidates are solved strictly in frozen manifest order. If the total state cap is reached, every later manifest entry is recorded as unsolved without reordering.
 - No paid compute, external solver service, continuous background task, or unpublished manual intervention.
 
 At least **12 of 18 candidates** must be solved exactly for the comparison study to proceed. If fewer than 12 are solved, close Study 002 as an instrument-or-scope failure without replacing candidates or raising caps.
@@ -180,7 +184,7 @@ Close the study without repair if:
 - the independent solvers disagree after one implementation-debugging cycle;
 - fewer than 18 distinct valid candidates survive static generation;
 - fewer than 12 candidates solve within the frozen caps;
-- more than half the candidates terminate trivially on or before ply 2 under exact analysis, indicating a degenerate frozen grammar;
+- more than half of the exactly solved candidates terminate trivially on or before ply 2, indicating a degenerate frozen grammar;
 - reproducibility fails and the cause cannot be isolated within one bounded cycle;
 - completion would require external services, paid compute, or materially human-authored candidate ranking.
 
@@ -228,7 +232,7 @@ On the next approval, if this proposal remains uncorrected:
 2. create its protocol by copying the frozen commitments into the active study directory;
 3. define and test the declarative rule schema;
 4. define the four hand-audited solver fixtures and their expected state graphs;
-5. freeze the candidate-generation grammar and seed;
+5. freeze the candidate-generation grammar, enumeration rule, and seed;
 6. do **not** generate or evaluate the 18 candidates yet.
 
 That cycle determines whether the proposed representation and correctness fixtures are precise enough to support the study before candidate results exist.
