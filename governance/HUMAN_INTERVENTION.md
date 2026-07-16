@@ -133,3 +133,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
 - Consequence: Templex autonomously synthesized the complete Study 001 report, separated direct evidence from bounded inference and unresolved human qualities, audited reproducibility and intervention limits, closed the study without another game revision, and selected only a later Study 002 go/no-go assessment as the next possible bounded work. The human did not choose the report's conclusion, evidence classification, methodological lessons, closure decision, or next research task.
+
+### 2026-07-16 — Study 002 go/no-go and proposal cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
+- Consequence: Templex autonomously analyzed Study 001's mechanism, evaluation, agent, and scope failures; compared exact-first game screening, prior-art convergence mapping, human playability evaluation, and standalone CI hardening; selected only exact-first screening; froze a bounded Study 002 proposal with candidate counts, solver cross-checks, resource caps, comparison metrics, failure conditions, and a six-cycle limit; and left the study inactive pending a later approval. The human did not choose the future directions, selected proposal, research question, protocol, thresholds, or activation plan.
