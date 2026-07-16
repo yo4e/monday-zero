@@ -1,78 +1,79 @@
 # Study 001 — Autonomous Game Design
 
+_Status: **Closed — negative research conclusion**_  
+_Final report: [`REPORT.md`](REPORT.md)_
+
 ## Research question
 
 Can Templex Tsukino independently design a compact, deterministic, two-player abstract strategy game whose rules are teachable in under three minutes and whose automated play provides evidence of nontrivial strategy and reasonable balance?
 
-This is the same study selected under the earlier internal name Monday. The public identity change does not alter the protocol, thresholds, or prior results.
+The protocol and thresholds were fixed before candidate selection. Automated evaluation was not treated as proof of fun, elegance, teachability, or originality.
 
-## Intended artifact
+## Result
 
-A complete game package containing concise rules, a reference implementation, reproducible evaluation tools, agents, experiment data, analysis, and a record of rejected prototypes and revisions.
+Study 001 did not produce a surviving game that supports the target claim.
 
-## Constraints
+| Design | Disposition | Decisive evidence |
+|---|---|---|
+| Relay | Rejected | Equal depth-2 play produced 129 first-player wins, 12 second-player wins, and 59 unresolved 200-ply games. |
+| Span v0.1 | Rejected | Exhaustive reply enumeration proved a five-ply Black connection through C2–C3–C4 or its reflection. |
+| Keystone v0.1 | Rejected | Only 50.9% of 2,000 fixed-seed random games completed by 200 plies. |
+| Span v0.2 | Rejected | Equal depth-3 play produced 1,000 second-participant wins, and exhaustive analysis proved every legal opening loses for the first participant. |
 
-- Two players, deterministic, perfect information.
-- No proprietary assets or external services.
-- Core rules at or below 400 words.
-- Small generic physical equipment or pencil-and-paper play.
-- No originality claim before deliberate prior-art review.
+## Main evidence
 
-## Current phase
+### Protocol and process
 
-**Negative conclusion / final report synthesis.** Relay, Span v0.1, Keystone v0.1, and the single-change Span v0.2 revision are rejected under the frozen protocol. No game survived with honest evidence of reasonable balance and meaningful strategic depth.
+- [`PROTOCOL.md`](PROTOCOL.md) — frozen evaluation plan and thresholds
+- [`WORKLOG.md`](WORKLOG.md) — chronological research record
+- [`REPORT.md`](REPORT.md) — final synthesis, evidence classification, limitations, and conclusion
 
-## Prototype outcomes
+### Relay
 
-### Relay — rejected
+- [`../../../experiments/relay_baseline.py`](../../../experiments/relay_baseline.py) — reproducible baseline
+- Genesis implementation and analysis commit: `5a59af0d88da6bfab14bc3bc8bd1913d31e4da6e`
 
-Stronger symmetric play produced 129 first-player wins, 12 second-player wins, and 59 unresolved 200-ply games. One rule would not honestly repair both initiative and cycling symptoms.
+### Span v0.1
 
-### Span v0.1 — rejected
-
-- [`prototypes/span/RULES.md`](prototypes/span/RULES.md) — frozen baseline
+- [`prototypes/span/RULES.md`](prototypes/span/RULES.md) — frozen rules
 - [`prototypes/span/DECISION.md`](prototypes/span/DECISION.md) — disposition
-- [`analysis/span_minimax_smoke_v0_1.md`](analysis/span_minimax_smoke_v0_1.md) — diagnosis
+- [`analysis/span_random_v0_1.md`](analysis/span_random_v0_1.md) — random pathology screen
+- [`analysis/span_minimax_smoke_v0_1.md`](analysis/span_minimax_smoke_v0_1.md) — forced-line diagnosis
 
-Exhaustive reply enumeration proves that Black can force C2–C3–C4, or the reflection, and connect on ply 5.
+### Keystone v0.1
 
-### Keystone v0.1 — rejected
-
-- [`prototypes/keystone/RULES.md`](prototypes/keystone/RULES.md) — frozen baseline
+- [`prototypes/keystone/ORIGIN.md`](prototypes/keystone/ORIGIN.md) — recovered origin and ambiguity decisions
+- [`prototypes/keystone/RULES.md`](prototypes/keystone/RULES.md) — frozen rules
 - [`prototypes/keystone/DECISION.md`](prototypes/keystone/DECISION.md) — disposition
-- [`analysis/keystone_random_v0_1.md`](analysis/keystone_random_v0_1.md) — diagnosis
+- [`analysis/keystone_random_v0_1.md`](analysis/keystone_random_v0_1.md) — termination diagnosis
 
-Only 50.9% of 2,000 fixed-seed random games completed by 200 plies. The long population exhausted reserves and entered extended shifting play.
+### Span v0.2
 
-### Span v0.2 — rejected
-
-- [`analysis/prototype_revision_selection.md`](analysis/prototype_revision_selection.md) — revision selection
-- [`prototypes/span/RULES_v0_2.md`](prototypes/span/RULES_v0_2.md) — frozen rules
-- [`prototypes/span/DECISION_v0_2.md`](prototypes/span/DECISION_v0_2.md) — disposition
+- [`analysis/prototype_revision_selection.md`](analysis/prototype_revision_selection.md) — one-change revision selection
+- [`prototypes/span/RULES_v0_2.md`](prototypes/span/RULES_v0_2.md) — frozen swap revision
 - [`analysis/span_v0_2_formal.md`](analysis/span_v0_2_formal.md) — formal evaluation and forced-win diagnosis
-- [`../../../experiments/span_v0_2_formal_screen.py`](../../../experiments/span_v0_2_formal_screen.py) — reproducible experiment
-- [`../../../data/span_v0_2_formal.json`](../../../data/span_v0_2_formal.json) — machine-readable results
+- [`prototypes/span/DECISION_v0_2.md`](prototypes/span/DECISION_v0_2.md) — disposition
+- [`../../../data/span_v0_2_formal.json`](../../../data/span_v0_2_formal.json) — machine-readable formal results
 - [`../../../tests/test_span_v0_2_forced_second_participant.py`](../../../tests/test_span_v0_2_forced_second_participant.py) — exhaustive opening regression
 
-The formal script was committed before execution at `edac024671aeb380472e0a6a58a8eb35a134e124`. Two complete runs were byte-identical.
+## Methodological result
 
-Random play again looked healthy: all 10,000 games terminated and first-participant wins were 51.98%. The equal-budget depth-3 screen instead produced 1,000 second-participant wins, zero first-participant wins, and six-placement White connections in every game.
+The strongest repeated lesson was that random parity was not balance evidence. Relay, Span v0.1, and Span v0.2 all appeared approximately even under random play, while stronger or constructive analysis exposed severe initiative or forced wins.
 
-Exhaustive opening analysis then proved that all six legal first placements lose. C2 and C4 are taken by swap and converted into the known Black central win. B1, B5, D1, and D5 concede a forced White B3–C3–D3 connection or its reflection.
+Rule freezing, participant-aware measurement, deterministic reruns, constructive counterexamples, and explicit stop conditions prevented the study from rescuing failed designs through unbounded post-result adjustment.
 
-## Study result
+## Unresolved qualities
 
-Study 001 concludes negatively. The autonomous process did produce:
+No candidate reached the stage required for responsible claims about:
 
-- compact frozen rules;
-- reference implementations;
-- deterministic tests;
-- seeded reproducible experiments;
-- preserved negative evidence;
-- useful methodological findings about random parity, shallow search, revision discipline, and constructive falsification.
+- fun or elegance;
+- teachability in actual human use;
+- human strategic depth or replay value;
+- accessibility or physical ergonomics;
+- genuine originality or equivalence to existing games.
 
-It did not produce a surviving game that supports the target claim. Strategic-signal tournaments and prior-art review for Span v0.2 were cancelled because a forced participant win from the initial state is already decisive.
+A prior-art review was not performed because no design survived basic viability evaluation.
 
-## Next work
+## Closure
 
-Write `REPORT.md` as the final synthesis. It should separate demonstrated facts, bounded inferences, unresolved human qualities, methodological lessons, and the limits of autonomous game design in this study. No new rule revision belongs inside Study 001.
+No Span v0.3 or additional prototype belongs inside Study 001. A possible Study 002 would require a separate question, protocol, scope, and approval cycle; it is not an automatic continuation.
