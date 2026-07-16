@@ -1,0 +1,28 @@
+{
+  "id": "S2-4-AG-02",
+  "manifest_index": 11,
+  "cell_rank": 2,
+  "rank": "1825540f9e1d81aaf0dd800d722a8b4a904f84b1f4815f4da813de999e4d0bfa",
+  "canonical": {
+    "board_size": 4,
+    "family": "adjacency_growth",
+    "neighborhood": "king",
+    "first_move_scope": "home_edge",
+    "placement_kind": "friendly_adjacency",
+    "friendly_min": 1,
+    "friendly_max": 1,
+    "goal_kind": "connect_edges",
+    "goal_neighborhood": "king",
+    "goal_threshold": 1,
+    "no_move_outcome": "previous_player_wins",
+    "intended_symmetric": true
+  },
+  "rule_text": "Setup: use every cell of an empty 4×4 board. Player 0 moves first; turns alternate, and each move places one stone on an empty cell. Player 0's first stone must be on the top row; Player 1's first stone must be on the left column. After that player's first stone, every new stone must be within one king move of exactly 1 friendly stone. Player 0 wins by connecting the top and bottom edges with one group connected through king-move adjacency; Player 1 wins by connecting the left and right edges with one group connected through king-move adjacency. If the next player has no legal placement and the previous move did not win, the previous player wins.",
+  "word_count": 117,
+  "validation": {
+    "schema": true,
+    "word_limit": true,
+    "full_board": true,
+    "symmetry": true
+  }
+}
