@@ -1,0 +1,28 @@
+{
+  "id": "S2-3-LB-01",
+  "manifest_index": 7,
+  "cell_rank": 1,
+  "rank": "1a10948951d6472241dd1acfe807b7a31a3999da78fdd0ff7cb9472dd30419b3",
+  "canonical": {
+    "board_size": 3,
+    "family": "local_block_pattern",
+    "neighborhood": "king",
+    "first_move_scope": "any",
+    "placement_kind": "enemy_limit",
+    "friendly_min": 0,
+    "enemy_max": 1,
+    "goal_kind": "line",
+    "goal_threshold": 3,
+    "line_directions": "all",
+    "no_move_outcome": "previous_player_wins",
+    "intended_symmetric": true
+  },
+  "rule_text": "Setup: use every cell of an empty 3×3 board. Player 0 moves first; turns alternate, and each move places one stone on an empty cell. A player's first stone may be placed on any empty cell. Every placement may have at most 1 enemy stone within one king move of it. A player wins by completing a straight horizontal, vertical, or diagonal line of 3 friendly stones. If the next player has no legal placement and the previous move did not win, the previous player wins.",
+  "word_count": 86,
+  "validation": {
+    "schema": true,
+    "word_limit": true,
+    "full_board": true,
+    "symmetry": true
+  }
+}
