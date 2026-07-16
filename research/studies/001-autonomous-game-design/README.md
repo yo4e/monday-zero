@@ -8,7 +8,7 @@ This is the same study selected under the earlier internal name Monday. The publ
 
 ## Intended artifact
 
-A complete game package containing concise rules, a reference implementation, command-line play, reproducible evaluation tools, agents of differing strength, experiment data and analysis, and a record of rejected prototypes and revisions.
+A complete game package containing concise rules, a reference implementation, reproducible evaluation tools, agents, experiment data, analysis, and a record of rejected prototypes and revisions.
 
 ## Constraints
 
@@ -20,7 +20,7 @@ A complete game package containing concise rules, a reference implementation, co
 
 ## Current phase
 
-**Span v0.2 empirical screening.** Relay, Span v0.1, and Keystone v0.1 are rejected in their tested forms. Span v0.2 is the only selected revision. Its participant-aware implementation, search agent, match recorder, and deterministic tests now pass; no formal v0.2 play screen has been run.
+**Negative conclusion / final report synthesis.** Relay, Span v0.1, Keystone v0.1, and the single-change Span v0.2 revision are rejected under the frozen protocol. No game survived with honest evidence of reasonable balance and meaningful strategic depth.
 
 ## Prototype outcomes
 
@@ -44,39 +44,35 @@ Exhaustive reply enumeration proves that Black can force C2–C3–C4, or the re
 
 Only 50.9% of 2,000 fixed-seed random games completed by 200 plies. The long population exhausted reserves and entered extended shifting play.
 
-## Selected revision
-
-### Span v0.2 — instrumented, not yet empirically evaluated
+### Span v0.2 — rejected
 
 - [`analysis/prototype_revision_selection.md`](analysis/prototype_revision_selection.md) — revision selection
 - [`prototypes/span/RULES_v0_2.md`](prototypes/span/RULES_v0_2.md) — frozen rules
-- [`../../../src/templex_zero/games/span_v0_2.py`](../../../src/templex_zero/games/span_v0_2.py) — participant-aware game
-- [`../../../tests/test_span_v0_2.py`](../../../tests/test_span_v0_2.py) — swap and rule regressions
-- [`../../../src/templex_zero/span_v0_2_agents.py`](../../../src/templex_zero/span_v0_2_agents.py) — participant-aware agents
-- [`../../../src/templex_zero/span_v0_2_match.py`](../../../src/templex_zero/span_v0_2_match.py) — match records
-- [`../../../tests/test_span_v0_2_agents.py`](../../../tests/test_span_v0_2_agents.py) — agent and match tests
-- [`analysis/span_v0_2_agent_instrumentation.md`](analysis/span_v0_2_agent_instrumentation.md) — verification and limits
+- [`prototypes/span/DECISION_v0_2.md`](prototypes/span/DECISION_v0_2.md) — disposition
+- [`analysis/span_v0_2_formal.md`](analysis/span_v0_2_formal.md) — formal evaluation and forced-win diagnosis
+- [`../../../experiments/span_v0_2_formal_screen.py`](../../../experiments/span_v0_2_formal_screen.py) — reproducible experiment
+- [`../../../data/span_v0_2_formal.json`](../../../data/span_v0_2_formal.json) — machine-readable results
+- [`../../../tests/test_span_v0_2_forced_second_participant.py`](../../../tests/test_span_v0_2_forced_second_participant.py) — exhaustive opening regression
 
-v0.2 changes exactly one rule: after the first Black placement, the second participant may place White normally or swap sides. Swap exchanges participant ownership of colors and goals without changing the board.
+The formal script was committed before execution at `edac024671aeb380472e0a6a58a8eb35a134e124`. Two complete runs were byte-identical.
 
-The evaluation maps each participant to their currently owned color and uses the same color-symmetric geometry before and after swap. The same minimax depth and procedure choose the opening, swap response, and later placements. Match records retain participant and color results separately.
+Random play again looked healthy: all 10,000 games terminated and first-participant wins were 51.98%. The equal-budget depth-3 screen instead produced 1,000 second-participant wins, zero first-participant wins, and six-placement White connections in every game.
 
-The locally reconstructed full suite produced **52 passed**: 45 previous cases plus 7 new instrumentation cases. `compileall` completed without error. This verifies the measurement tools only; balance, strategic signal, viable openings, and swap frequency remain unresolved.
+Exhaustive opening analysis then proved that all six legal first placements lose. C2 and C4 are taken by swap and converted into the known Black central win. B1, B5, D1, and D5 concede a forced White B3–C3–D3 connection or its reflection.
+
+## Study result
+
+Study 001 concludes negatively. The autonomous process did produce:
+
+- compact frozen rules;
+- reference implementations;
+- deterministic tests;
+- seeded reproducible experiments;
+- preserved negative evidence;
+- useful methodological findings about random parity, shallow search, revision discipline, and constructive falsification.
+
+It did not produce a surviving game that supports the target claim. Strategic-signal tournaments and prior-art review for Span v0.2 were cancelled because a forced participant win from the initial state is already decisive.
 
 ## Next work
 
-Commit a reproducible experiment script before execution, then run and repeat a fixed-seed random pathology screen and an equal-budget symmetric minimax screen. Report participant and color results, swap frequency, openings, termination, win modes, duration, and branching. Reject or advance the frozen version under the unchanged protocol.
-
-If v0.2 survives basic empirical evaluation, perform a deliberate prior-art and similarity review before making an originality claim.
-
-## Planned study files
-
-- `PROTOCOL.md` — evaluation plan and thresholds
-- `candidates/` — candidate mechanisms and rejection notes
-- `prototypes/` — versioned rules and dispositions
-- `src/templex_zero/` — implementations and agents
-- `experiments/` — reproducible runs
-- `data/` — machine-readable results
-- `analysis/` — interpretation and critique
-- `RULES.md` — rules of a surviving design, if any
-- `REPORT.md` — final report
+Write `REPORT.md` as the final synthesis. It should separate demonstrated facts, bounded inferences, unresolved human qualities, methodological lessons, and the limits of autonomous game design in this study. No new rule revision belongs inside Study 001.
