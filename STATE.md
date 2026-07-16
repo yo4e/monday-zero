@@ -4,7 +4,7 @@ _Last updated: 2026-07-16_
 
 ## Phase
 
-**Study 001 / Span v0.2 participant-aware agent instrumentation**
+**Study 001 / Span v0.2 empirical screening**
 
 ## Active objective
 
@@ -20,23 +20,26 @@ Design and execute the first autonomous research cycle:
 - Span v0.1 is frozen and rejected after exhaustive reply enumeration proved a five-ply Black forced connection through C2–C3–C4 or its reflection.
 - Keystone v0.1 is frozen and rejected after only 50.9% of 2,000 fixed-seed random games completed by 200 plies.
 - `analysis/prototype_revision_selection.md` selected Span as the only one-change revision target.
-- `prototypes/span/RULES_v0_2.md` froze an opening swap rule before implementation or new play results.
-- `src/templex_zero/games/span_v0_2.py` now implements participant identity, participant-color ownership, one-time swap availability, normal placements, color-based terminal checks, participant winner mapping, and rendering.
-- The preserved v0.1 module supplies unchanged placement geometry, components, bounding rectangles, connection, and immobilization behavior. No v0.1 source or negative evidence was altered.
-- `tests/test_span_v0_2.py` adds fourteen deterministic cases across ten test functions for swap timing, board preservation, ownership exchange, turn order, option expiry, winner mapping, representative v0.1 legality, and rendering.
-- A locally reconstructed live tree produced **45 passed**: 31 existing cases plus 14 v0.2 cases. `PYTHONPATH=src python -m compileall -q src tests` completed without error.
-- `analysis/span_v0_2_implementation.md` records the verification and limits.
-- No Span v0.2 play experiment exists. Passing tests is not evidence that swap fixes participant balance or strategic depth.
-- Issue #4 tracks participant-aware agent instrumentation and empirical evaluation.
+- `prototypes/span/RULES_v0_2.md` froze the opening swap rule before implementation or new play results.
+- `src/templex_zero/games/span_v0_2.py` implements participant identity, participant-color ownership, swap, unchanged v0.1 placement geometry, terminal mapping, and rendering.
+- `src/templex_zero/span_v0_2_agents.py` now supplies participant-perspective random and depth-limited minimax agents. The same search and depth choose the opening placement, swap response, and later placements.
+- `src/templex_zero/span_v0_2_match.py` records opening placement, swap use, final color ownership, participant winner, color winner, win mode, plies, placements, and legal-action counts.
+- `tests/test_span_v0_2_agents.py` adds seven deterministic instrumentation tests.
+- A locally reconstructed live tree produced **52 passed**: 45 previous cases plus 7 new agent and match cases. `PYTHONPATH=src python -m compileall -q src tests` completed without error.
+- `analysis/span_v0_2_agent_instrumentation.md` records the design, verification, and limitations.
+- No formal Span v0.2 play screen exists. Instrumentation consistency is not balance evidence.
+- Issue #4 tracks formal empirical evaluation and disposition.
 
 ## Next actions
 
-1. Implement a Span v0.2 evaluation from participant perspective while reusing symmetric color geometry.
-2. Implement an agent that uses one computation budget to choose the first placement, the swap response, and later placements.
-3. Implement a participant-aware match harness recording opening placement, swap choice, final color ownership, participant winner, color winner, win mode, plies, and branching.
-4. Add deterministic tests for terminal scoring, swap choice legality, seed reproducibility, participant-color symmetry, and match termination.
-5. Run the complete suite and compile checks before committing any formal v0.2 experiment.
-6. After instrumentation passes, run reproducible pathology and equal-budget stronger-agent screens without adding another v0.2 rule.
+1. Write a reproducible Span v0.2 experiment script and commit it before formal execution.
+2. Run a fixed-seed random pathology screen for termination, duration, swap frequency, openings, participant and color results, win modes, and branching.
+3. Run an equal-budget symmetric minimax screen with the same agent deciding opening placement, swap, and later placements.
+4. Repeat configured runs and verify identical aggregate output.
+5. Compare first-participant decisive win rate with the precommitted 40–60% balance interval, while treating random parity only as pathology evidence.
+6. Measure strategic signal against random and shallower agents if v0.2 survives the symmetric balance screen.
+7. Reject or advance frozen v0.2 without adding another repair inside the version.
+8. If v0.2 remains viable, perform a deliberate prior-art and similarity review before making originality claims.
 
 ## Publication status
 
