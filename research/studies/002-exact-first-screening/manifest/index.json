@@ -1,0 +1,275 @@
+{
+  "manifest_version": 1,
+  "generation_seed": 2026071602,
+  "selection": {
+    "cell_order": [
+      {
+        "board_size": 3,
+        "family": "adjacency_growth"
+      },
+      {
+        "board_size": 3,
+        "family": "component_expansion"
+      },
+      {
+        "board_size": 3,
+        "family": "local_block_pattern"
+      },
+      {
+        "board_size": 4,
+        "family": "adjacency_growth"
+      },
+      {
+        "board_size": 4,
+        "family": "component_expansion"
+      },
+      {
+        "board_size": 4,
+        "family": "local_block_pattern"
+      }
+    ],
+    "candidates_per_cell": 3,
+    "ranking": "sha256(seed|board_size|family|canonical_json)",
+    "manual_ranking": false
+  },
+  "entry_count": 18,
+  "entries_sha256": "cff3a75a58442b843134cd05a337e2af3166e1c1e035c15fc890f576e0495cee",
+  "cells": [
+    {
+      "board_size": 3,
+      "family": "adjacency_growth",
+      "raw_count": 24,
+      "canonical_unique_count": 24,
+      "statically_valid_count": 24,
+      "selected_ids": [
+        "S2-3-AG-01",
+        "S2-3-AG-02",
+        "S2-3-AG-03"
+      ]
+    },
+    {
+      "board_size": 3,
+      "family": "component_expansion",
+      "raw_count": 24,
+      "canonical_unique_count": 24,
+      "statically_valid_count": 24,
+      "selected_ids": [
+        "S2-3-CE-01",
+        "S2-3-CE-02",
+        "S2-3-CE-03"
+      ]
+    },
+    {
+      "board_size": 3,
+      "family": "local_block_pattern",
+      "raw_count": 16,
+      "canonical_unique_count": 16,
+      "statically_valid_count": 16,
+      "selected_ids": [
+        "S2-3-LB-01",
+        "S2-3-LB-02",
+        "S2-3-LB-03"
+      ]
+    },
+    {
+      "board_size": 4,
+      "family": "adjacency_growth",
+      "raw_count": 24,
+      "canonical_unique_count": 24,
+      "statically_valid_count": 24,
+      "selected_ids": [
+        "S2-4-AG-01",
+        "S2-4-AG-02",
+        "S2-4-AG-03"
+      ]
+    },
+    {
+      "board_size": 4,
+      "family": "component_expansion",
+      "raw_count": 24,
+      "canonical_unique_count": 24,
+      "statically_valid_count": 24,
+      "selected_ids": [
+        "S2-4-CE-01",
+        "S2-4-CE-02",
+        "S2-4-CE-03"
+      ]
+    },
+    {
+      "board_size": 4,
+      "family": "local_block_pattern",
+      "raw_count": 16,
+      "canonical_unique_count": 16,
+      "statically_valid_count": 16,
+      "selected_ids": [
+        "S2-4-LB-01",
+        "S2-4-LB-02",
+        "S2-4-LB-03"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "id": "S2-3-AG-01",
+      "file": "S2-3-AG-01.json",
+      "manifest_index": 1,
+      "cell_rank": 1,
+      "rank": "0c60dc3ddbe87c12ceab75ad2ec41c53c83a61bbc2cd94dfd5886c50d31f446f",
+      "word_count": 103,
+      "canonical_sha256": "6ffca3777d3bb148805161574223b96de4918de7731d53351b82d46923f46a3f"
+    },
+    {
+      "id": "S2-3-AG-02",
+      "file": "S2-3-AG-02.json",
+      "manifest_index": 2,
+      "cell_rank": 2,
+      "rank": "0e0995ecd0e70465df3ce78a3388a469aae6df67f599ca35d90de42b872b9b6d",
+      "word_count": 102,
+      "canonical_sha256": "d66118a0cc5dc2a43583395609b3c7e15fab55277cdf3a5bbed79b4f216cd245"
+    },
+    {
+      "id": "S2-3-AG-03",
+      "file": "S2-3-AG-03.json",
+      "manifest_index": 3,
+      "cell_rank": 3,
+      "rank": "1dafa2dad3f8dbd4cd2c24005c11602fc9c4ff326a393ad59df5a5feda864f59",
+      "word_count": 117,
+      "canonical_sha256": "c4e32ea79130ed59259d02162e28a90b763a6837f423b28f9b655c51309feccc"
+    },
+    {
+      "id": "S2-3-CE-01",
+      "file": "S2-3-CE-01.json",
+      "manifest_index": 4,
+      "cell_rank": 1,
+      "rank": "01160e75f65a7cf8a6b87074e1e4ea415d5f0477c1ab1409026e207c061383ec",
+      "word_count": 115,
+      "canonical_sha256": "11428ae282207485117353b1bd75de0e068a6cc863029e54d48224d140679eb4"
+    },
+    {
+      "id": "S2-3-CE-02",
+      "file": "S2-3-CE-02.json",
+      "manifest_index": 5,
+      "cell_rank": 2,
+      "rank": "12c8ed32dd2148bd684438b19138ad2166427a2f90ed65ed75b06f8cfa56f94f",
+      "word_count": 111,
+      "canonical_sha256": "7de436c4c57702df2356d2562c471f0604b86efc65c0091291d9da1f8231c723"
+    },
+    {
+      "id": "S2-3-CE-03",
+      "file": "S2-3-CE-03.json",
+      "manifest_index": 6,
+      "cell_rank": 3,
+      "rank": "27a2001e94b3fb6f6719e37580cfffb9d750752178a6b42980a06b2b70869c99",
+      "word_count": 133,
+      "canonical_sha256": "fe4ea9e67888307c2064ed2d10637995749755775d8e5d12c7b956abef77d808"
+    },
+    {
+      "id": "S2-3-LB-01",
+      "file": "S2-3-LB-01.json",
+      "manifest_index": 7,
+      "cell_rank": 1,
+      "rank": "1a10948951d6472241dd1acfe807b7a31a3999da78fdd0ff7cb9472dd30419b3",
+      "word_count": 86,
+      "canonical_sha256": "79603326340b9bf935a27da859b66e20c9cf6ecb06343ca8c0db61703675cf71"
+    },
+    {
+      "id": "S2-3-LB-02",
+      "file": "S2-3-LB-02.json",
+      "manifest_index": 8,
+      "cell_rank": 2,
+      "rank": "43e58912b3b8fed4943734bb6feb1b2cfc0a06186dcb2d4d795c726ba9082fbf",
+      "word_count": 85,
+      "canonical_sha256": "1a01e9b4e9e0e7777b0fe547b379474c5398145a596e26d9d28a3a84d033c24f"
+    },
+    {
+      "id": "S2-3-LB-03",
+      "file": "S2-3-LB-03.json",
+      "manifest_index": 9,
+      "cell_rank": 3,
+      "rank": "53cde2eb9a4fa6d6ee124d7dd999e029854d39debc5d7e3deaf33f86c617d23f",
+      "word_count": 92,
+      "canonical_sha256": "a4f5d759631f61a49703dfb70f674465a4b482dfedb94cb1d3a2ad3bfa147a3a"
+    },
+    {
+      "id": "S2-4-AG-01",
+      "file": "S2-4-AG-01.json",
+      "manifest_index": 10,
+      "cell_rank": 1,
+      "rank": "0aaae77f60f06887a29d0b798fb6315276c5a812b6fd46784bc614ee76da699d",
+      "word_count": 111,
+      "canonical_sha256": "2890bf52598f4a6892c940ff52c477ab2c5e484724a90acdb33fb5b9a57319bb"
+    },
+    {
+      "id": "S2-4-AG-02",
+      "file": "S2-4-AG-02.json",
+      "manifest_index": 11,
+      "cell_rank": 2,
+      "rank": "1825540f9e1d81aaf0dd800d722a8b4a904f84b1f4815f4da813de999e4d0bfa",
+      "word_count": 117,
+      "canonical_sha256": "9de69f22e8b8a50fae7abf121c144affc31811d00c34c8f8e735587215b384d7"
+    },
+    {
+      "id": "S2-4-AG-03",
+      "file": "S2-4-AG-03.json",
+      "manifest_index": 12,
+      "cell_rank": 3,
+      "rank": "26c655eff75473f25c236c74c18a8e1593b8ab0385f6ab4189a67294b11a8434",
+      "word_count": 118,
+      "canonical_sha256": "dd933b3e71611f591ab37ba85923165332614cfc3b4c1b52334bb0cdda16b96d"
+    },
+    {
+      "id": "S2-4-CE-01",
+      "file": "S2-4-CE-01.json",
+      "manifest_index": 13,
+      "cell_rank": 1,
+      "rank": "0ca79275981e7a3a876cfd145db9872995d08ef5eac9b38846e7531584e98218",
+      "word_count": 142,
+      "canonical_sha256": "68bff0a57622c7a412f97ba74b9a87e51c56d04faf0befa15d003555890b1010"
+    },
+    {
+      "id": "S2-4-CE-02",
+      "file": "S2-4-CE-02.json",
+      "manifest_index": 14,
+      "cell_rank": 2,
+      "rank": "11f6f0c69a626f2b639ddf1741139011b9c18de8aa48324fc2638ebbf2f0b28c",
+      "word_count": 139,
+      "canonical_sha256": "95ea8524eab17fad15710b5d14044278c98a4c558f938dc98cc127189182e634"
+    },
+    {
+      "id": "S2-4-CE-03",
+      "file": "S2-4-CE-03.json",
+      "manifest_index": 15,
+      "cell_rank": 3,
+      "rank": "23b73086874dfbab309bfba6460456249c5776b4bfc0f1a370aac1945671ee59",
+      "word_count": 106,
+      "canonical_sha256": "3a564e62348cb09a32c30decdf16aa4ebc8fae56dd1d03e88bd93dbb979d88a2"
+    },
+    {
+      "id": "S2-4-LB-01",
+      "file": "S2-4-LB-01.json",
+      "manifest_index": 16,
+      "cell_rank": 1,
+      "rank": "09ce51034cd6731feba42139cfda47fe13c4402abab266adfbb04a1284e60177",
+      "word_count": 86,
+      "canonical_sha256": "3d0190f1da3ee7477fbf1a16c967c196cf8bae00fca61b0e69e2bc81cb0efcf1"
+    },
+    {
+      "id": "S2-4-LB-02",
+      "file": "S2-4-LB-02.json",
+      "manifest_index": 17,
+      "cell_rank": 2,
+      "rank": "104bd45f03b9f9805c867be46d7b7e54198920a0b9c0543fc9515c60f1621b7d",
+      "word_count": 83,
+      "canonical_sha256": "92bc98f7e8c60dd431d219fd70a007dd04f9371dd24a57f5146db82acd7d698d"
+    },
+    {
+      "id": "S2-4-LB-03",
+      "file": "S2-4-LB-03.json",
+      "manifest_index": 18,
+      "cell_rank": 3,
+      "rank": "21610d9a1bda28459d8f8f8720dd5b5c4d123fcc6d4f521e9779e9809f29d4e5",
+      "word_count": 92,
+      "canonical_sha256": "cf4b92103958b1042608caeaf30e26f42f7ddeac91e48ce32b0631503c10f5b6"
+    }
+  ]
+}
