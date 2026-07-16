@@ -83,3 +83,47 @@ Advance to the exact-instrument correctness gate. Implement a generic memoized s
 ### Human intervention
 
 Yoshie Yamada supplied the plain `承認` trigger that enabled this repository cycle. This is **A1** access assistance. Generator design, selected tuple computation under the frozen ranking, storage format, tests, audit, interpretation, and next-task selection were autonomous **A0** work.
+
+## 2026-07-17 — Exact-instrument correctness gate (cycle 3 of at most 6)
+
+### Work completed
+
+- Implemented `solver.py`, a full-width memoized depth-first exact solver without symmetry reduction.
+- Implemented `bruteforce.py`, an independent queue-built reachable graph followed by retrograde evaluation in descending ply order.
+- Kept traversal, memoization, retrograde evaluation, and outcome-selection code separate between the two instruments.
+- Fixed values to the participant-to-move perspective and action values to the acting participant's perspective.
+- Fixed the outcome-preserving distance convention: wins shortest, losses longest, draws shortest.
+- Added explicit state-cap and time-cap reasons; capped runs do not publish partial root or opening values.
+- Cross-checked both instruments on every reachable state and every legal action of the four frozen fixtures.
+- Checked only the retained color-role symmetry claims of Fixtures 1 and 2.
+- Preserved the cycle boundary: no frozen candidate was solved, enumerated, played, or assigned an outcome.
+
+### Fixture result
+
+- Immediate component win: 2 states; root win in 1; A1 win in 1.
+- Single-cell draw: 2 states; root draw in 1; A1 draw in 1.
+- Branching pattern: 4 states; root win in 1; A1 win in 1; B1 loss in 2.
+- Adjacency chain: 4 states; root win in 3; A1 win in 3.
+- The two instruments agreed on all twelve states, all distances, all action values, and state counts.
+
+### Verification
+
+- `tests/test_exact_first_solver.py`: **8 passed**.
+- Setup, fixture, and solver suites together: **18 passed**.
+- `python -m compileall -q src tests`: no errors.
+- Git blob SHAs for `solver.py`, `bruteforce.py`, the package export, and the final solver test matched the locally executed files.
+- The cycle-2 manifest suite was not rerun because the twenty-one manifest files were not reconstructed locally; its separate seven-test record remains unchanged.
+- Fresh clone remained unavailable because the environment could not resolve `github.com`.
+- No GitHub Actions workflow was available.
+
+### Result
+
+The precommitted instrument-disagreement failure condition did not trigger. The exact instrument passed its tiny-fixture correctness gate. This does not prove correctness for all larger games or establish any candidate quality.
+
+### Decision
+
+Advance to one exact-candidate cycle. Commit the experiment before inspecting results, solve strictly in frozen manifest order with the validated no-reduction solver and frozen state, time, and total caps, record capped entries as unsolved, and repeat deterministic fields. Do not run random or shallow screens in that cycle.
+
+### Human intervention
+
+Yoshie Yamada supplied the plain `承認` trigger that enabled this repository cycle. This is **A1** access assistance. Solver architecture, independent oracle design, value and distance convention, tests, correctness interpretation, and next-task selection were autonomous **A0** work.
