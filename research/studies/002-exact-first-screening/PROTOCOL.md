@@ -1,7 +1,7 @@
 # Study 002 Protocol — Exact-First Screening of Compact Games
 
 _Date activated: 2026-07-16 (Asia/Tokyo)_  
-_Status: **Active — manifest cycle 2 of at most 6 completed**_
+_Status: **Active — exact-instrument cycle 3 of at most 6 completed**_
 
 ## Authority and frozen source
 
@@ -72,14 +72,26 @@ Candidate schema validation rejects out-of-scope board sizes, masked boards, asy
 
 ## Exact-analysis instrument
 
-Implement a standard-library-only generic engine and memoized full-width solver that returns:
+The standard-library-only generic engine and memoized full-width solver return:
 
 - exact outcome from the participant-to-move perspective: win, draw, or loss;
 - distance to terminal under outcome-preserving optimal play;
 - exact value of each legal opening action;
 - number of winning, drawing, and losing opening actions;
 - reachable or expanded-state count;
-- whether a configured cap was reached.
+- whether a configured state or time cap was reached.
+
+### Frozen value convention
+
+An action value is expressed from the acting participant's perspective by reversing the child's participant-to-move result and adding one ply.
+
+Outcome order is `win > draw > loss`. Among actions preserving the best outcome:
+
+- wins choose the shortest distance;
+- losses choose the longest distance;
+- draws choose the shortest distance as a deterministic convention.
+
+A capped solve does not publish a partial root or opening value.
 
 ### Correctness gate
 
@@ -90,7 +102,13 @@ Before candidate solving:
 3. exhaustively check participant/color symmetry on fixture states where symmetry is claimed;
 4. reject the instrument if disagreement remains after one bounded implementation-debugging cycle.
 
-Symmetry reduction may be added only after a no-reduction reference solve agrees on all fixtures and all 3×3 candidates.
+The gate passed in cycle 3. The memoized depth-first solver and a separately written queue-built retrograde oracle agreed on all twelve reachable states of the four fixtures, all action values, and state counts. Fixtures 1 and 2 passed their retained color-role symmetry checks. State-cap and controlled-clock time-cap behavior passed.
+
+Audit:
+
+- `research/studies/002-exact-first-screening/EXACT_INSTRUMENT_AUDIT.md`
+
+Symmetry reduction may be added only after a no-reduction reference solve agrees on all fixtures and all 3×3 candidates. Study 002 does not require adding it.
 
 ## Frozen fixtures
 
@@ -174,7 +192,7 @@ Close without repair if:
 - reproducibility fails and cannot be isolated within one bounded cycle;
 - completion requires external services, paid compute, or materially human-authored candidate ranking.
 
-The static grammar-failure condition did not trigger: all six cells produced at least three valid candidates under the frozen rules.
+The grammar-failure condition did not trigger. The instrument-disagreement condition did not trigger.
 
 ## Cycle limit
 
@@ -182,7 +200,10 @@ Study 002 receives at most **six approval-driven execution cycles after activati
 
 - Cycle 1: protocol, schema, fixtures, grammar, seed — completed without candidate generation.
 - Cycle 2: deterministic 18-entry manifest freeze — completed without candidate play or solving.
-- Later cycles: exact instrument, frozen candidate solves, approximate screens, and synthesis as evidence permits.
+- Cycle 3: exact-instrument correctness gate — completed without candidate solving.
+- Cycle 4: frozen exact candidate solves, as evidence and caps permit.
+- Cycle 5: frozen approximate screens, only if the exact-solution continuation threshold is met.
+- Cycle 6: synthesis and closure.
 
 At the limit the study closes as completed, negative, or incomplete. It may not expand into a second grammar, game polishing, prior-art review, human playtesting, or product development.
 
@@ -201,9 +222,11 @@ A structurally interesting survivor may be preserved only as a possible subject 
 
 ## Verification record so far
 
-Cycle 1 recorded 10 targeted setup tests. Cycle 2 recorded 7 targeted manifest tests, byte-identical regeneration, successful compilation, and exact Git blob identity for the generator, script, test, and all 21 manifest files.
+- Cycle 1: 10 targeted setup tests.
+- Cycle 2: 7 targeted manifest tests, byte-identical regeneration, successful compilation, and Git blob identity for the generator, script, test, and all 21 manifest files.
+- Cycle 3: 8 targeted solver tests; setup, fixture, and solver suites together reported 18 passed; successful compilation; Git blob identity for solver, oracle, export, and final solver test.
 
-Fresh clone remained unavailable because the execution environment could not resolve `github.com`. A combined setup-plus-manifest rerun attempted with an incomplete reconstructed schema was discarded and is not evidence. The repository has no recorded GitHub Actions workflow.
+The cycle-2 manifest suite was not rerun in cycle 3 because the twenty-one committed manifest files were not recreated in the local reconstruction. Fresh clone remained unavailable because the execution environment could not resolve `github.com`. The repository has no recorded GitHub Actions workflow.
 
 ## Intervention model
 
