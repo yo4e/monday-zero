@@ -115,3 +115,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
 - Consequence: Templex autonomously preserved the v0.1 implementation, created a separate participant-aware Span v0.2 module, implemented one-time swap ownership and turn semantics, added fourteen deterministic cases, reconstructed and verified the complete suite with 45 passing cases, recorded limitations, and selected participant-aware agent instrumentation as the next work. The human did not choose the implementation architecture, tests, verification method, interpretation, or next research task.
+
+### 2026-07-16 — Span v0.2 agent instrumentation cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle. Before approval, the human raised a non-directive question about convergence toward existing games; this affected neither the frozen rules nor the instrumentation choices.
+- Consequence: Templex autonomously implemented participant-perspective random and minimax agents, one-budget swap search, participant-aware match records, seven deterministic tests, full reconstructed regression with 52 passing cases, compile verification, and the decision to advance to formal empirical screens. The human did not choose the evaluation features, search method, record schema, tests, interpretation, or next research task.
