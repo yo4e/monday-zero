@@ -4,9 +4,9 @@ _Updated: 2026-07-17 (Asia/Tokyo)_
 
 ## Purpose
 
-This is a compact advisory bridge for a new execution context. It is not authorization and is not the source of truth. `STATE.md`, the active Study 002 protocol, frozen fixtures and manifest, correctness audit, Issue #6, tests, and recent commits remain authoritative.
+This is a compact advisory bridge for a new execution context. It is not authorization and is not the source of truth. `STATE.md`, the active protocol, frozen manifest, exact-screen analysis, Issue #6, and live commits remain authoritative.
 
-When Yoshie Yamada sends `承認` in the project chat, the executing session must re-read the live repository and follow `governance/APPROVAL_DRIVEN_EXECUTION.md` before selecting and performing one bounded research cycle.
+When Yoshie Yamada sends `承認` in the project chat, re-read the live repository and `governance/APPROVAL_DRIVEN_EXECUTION.md`, complete one bounded cycle, report it in the same chat, and stop.
 
 ## Identity and execution
 
@@ -14,69 +14,55 @@ When Yoshie Yamada sends `承認` in the project chat, the executing session mus
 - Laboratory: **TEMPLEX/0**
 - Familiar and historical name: **Monday**
 - Repository: `https://github.com/yo4e/templex-zero`
-- One clear `承認` authorizes one complete bounded research cycle.
-- After reporting, stop until another `承認` is received.
-- External communication, submissions, spending, permissions, human-subject activity, and other separately gated actions remain outside ordinary approval.
+- External communication, publication, spending, permissions, human-subject activity, and third-party actions remain separately gated.
 
 ## Current position
 
-**Study 002 is active. Exact-instrument cycle 3 of at most 6 is complete.**
+**Study 002 is active. Exact candidate cycle 4 of at most 6 is complete.**
 
 - Active protocol: `research/studies/002-exact-first-screening/PROTOCOL.md`
-- Frozen grammar: `research/studies/002-exact-first-screening/GRAMMAR.md`
-- Frozen fixtures: `research/studies/002-exact-first-screening/FIXTURES.md`
 - Frozen manifest: `research/studies/002-exact-first-screening/manifest/`
-- Manifest audit: `research/studies/002-exact-first-screening/MANIFEST_AUDIT.md`
-- Exact-instrument audit: `research/studies/002-exact-first-screening/EXACT_INSTRUMENT_AUDIT.md`
+- Exact instrument audit: `research/studies/002-exact-first-screening/EXACT_INSTRUMENT_AUDIT.md`
+- Exact screen data: `research/studies/002-exact-first-screening/data/exact_screen_v1.json`
+- Exact screen analysis: `research/studies/002-exact-first-screening/EXACT_SCREEN_ANALYSIS.md`
 - Tracking issue: Issue #6
 
 Study 001 remains closed. Do not reopen it or create Span v0.3.
 
-## Frozen sample
+## Exact result
 
-- 18 candidates total.
-- 9 on 3×3 and 9 on 4×4 boards.
-- Exactly three in every board-size × family cell.
-- Full compact entry-list SHA-256: `cff3a75a58442b843134cd05a337e2af3166e1c1e035c15fc890f576e0495cee`.
-- Selection used frozen compact JSON and seeded SHA-256 rank only.
-- Do not replace, reorder, polish, or add candidates. Do not change the grammar or seed.
+- 18 frozen candidates.
+- 15 solved exactly; 3 reached the 30-second time cap.
+- All nine 3×3 entries solved; six of nine 4×4 entries solved.
+- Exact roots: 9 first-participant wins, 6 first-participant losses, no draws.
+- 14 of 15 solved roots terminate within eight optimal plies.
+- Six solved candidates have no non-losing opening for the first participant.
+- Continuation threshold of 12 solved candidates passed.
+- Degenerate-majority failure condition did not trigger.
+- Corrected repeated-run normalized SHA-256: `9cc17bd02dee865d1e20c67d72a975a04ec36b131d9dfb8bf17de24e6f381eb1`.
 
-## Exact instrument
+## Procedural limitation
 
-- `solver.py`: memoized full-width DFS with no symmetry reduction.
-- `bruteforce.py`: independent queue-built graph and retrograde fixture oracle.
-- Values are from player-to-move perspective.
-- Outcome order: win, draw, loss.
-- Outcome-preserving distance: win shortest, loss longest, draw shortest.
-- A capped run publishes no partial root value.
-- State and time caps return explicit cap reasons.
+The frozen proposal requires the shallow-search heuristic to be generated before exact results are inspected. No heuristic was frozen before cycle 4. Exact results have now been inspected.
 
-The two instruments agreed on all twelve reachable states of the four frozen fixtures, including every legal action value. Fixtures 1 and 2 passed their retained color-role symmetry checks.
+Do not create a post-result heuristic and call it precommitted. The formal shallow depth-1/2/3 screen is cancelled, H2 will remain unresolved, and Study 002 cannot receive a fully successful methodological disposition.
 
-## Verification status
-
-- Solver suite: 8 passed.
-- Setup, fixture, and solver suites together: 18 passed.
-- `compileall`: passed.
-- Remote Git blob SHAs matched the locally executed solver, oracle, export, and test files.
-- Prior manifest suite: 7 passed and byte-identical regeneration; not rerun in this reconstruction.
-- Fresh clone failed because the environment could not resolve `github.com`.
-- No GitHub Actions workflow is recorded.
+The random screen remains valid because it requires no heuristic and was specified before exact results.
 
 ## Next recommended work unit
 
-Run the frozen exact candidate screen only.
+Run the frozen **random screen only**.
 
-1. Re-read the manifest and protocol from GitHub.
-2. Implement and commit a deterministic experiment script before inspecting candidate results.
-3. Load candidates strictly in manifest order.
-4. Use the validated no-reduction solver.
-5. Enforce 2,000,000 expanded states and 30 seconds per candidate.
-6. Enforce 25,000,000 expanded states across the study; mark all later entries unsolved if reached.
-7. Record root outcome and distance, every opening value, winning/drawing/losing opening counts, non-losing opening proportion, state count, measured time, and cap reason.
-8. Repeat the configured run and compare deterministic fields; timing may vary and must be reported separately.
-9. If fewer than 12 candidates solve exactly, close the study under the frozen failure condition.
-10. Do **not** alter candidates or caps and do **not** run random or shallow screens in that cycle.
+1. Commit the experiment script before running games.
+2. Use all 18 candidates in frozen manifest order.
+3. Run exactly 2,000 independent fixed-seed random games per candidate.
+4. Derive seeds from the frozen candidate index with a documented deterministic formula.
+5. Record first/second participant wins, duration, terminal reason, opening distribution, and branching.
+6. Repeat and compare deterministic aggregate output.
+7. Do not implement or run shallow search.
+8. Do not use exact values in move choice or candidate-specific behavior.
+9. After the random output is complete, compare it with exact outcomes and flag pre-defined false-reassurance cases where applicable.
+10. Reserve cycle 6 for final synthesis and closure as partial/incomplete.
 
 ## Human gate
 
@@ -90,11 +76,8 @@ None.
 
 - Approval protocol: `governance/APPROVAL_DRIVEN_EXECUTION.md`
 - Current state: `STATE.md`
-- Study 001 report: `research/studies/001-autonomous-game-design/REPORT.md`
 - Study 002 proposal: `research/proposals/STUDY_002_EXACT_FIRST_SCREENING.md`
 - Study 002 protocol: `research/studies/002-exact-first-screening/PROTOCOL.md`
-- Study 002 grammar: `research/studies/002-exact-first-screening/GRAMMAR.md`
-- Study 002 fixtures: `research/studies/002-exact-first-screening/FIXTURES.md`
-- Study 002 manifest: `research/studies/002-exact-first-screening/manifest/index.json`
-- Exact-instrument audit: `research/studies/002-exact-first-screening/EXACT_INSTRUMENT_AUDIT.md`
+- Frozen manifest: `research/studies/002-exact-first-screening/manifest/index.json`
+- Exact analysis: `research/studies/002-exact-first-screening/EXACT_SCREEN_ANALYSIS.md`
 - Issue #6: Study 002 tracking
