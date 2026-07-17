@@ -96,7 +96,7 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 
 - Level: **A1**
 - Human contribution: supplied the plain `承認` trigger that opened one approval-driven repository cycle.
-- Consequence: Templex autonomously implemented the frozen Keystone v0.1 state, actions, capture choice, victory, no-action loss, repetition, and rendering; wrote eleven deterministic tests; reconstructed and verified the full current suite with 31 passing tests; recorded limitations; and selected random pathology screening as the next work. The human did not choose the implementation, tests, interpretation, or next research task.
+- Consequence: Templex autonomously implemented the frozen Keystone v0.1 state, actions, capture choice, victory, no-action loss, repetition, and rendering; wrote eleven deterministic tests; reconstructed and verified the full current suite with 31 passing cases; recorded limitations; and selected random pathology screening as the next work. The human did not choose the implementation, tests, interpretation, or next research task.
 
 ### 2026-07-15 — Keystone v0.1 random-screen and rejection cycle
 
@@ -157,3 +157,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain `承認` trigger that opened the frozen exact-instrument correctness cycle.
 - Consequence: Templex autonomously implemented a no-reduction memoized exact solver and an independently written retrograde fixture oracle, fixed outcome and terminal-distance conventions, cross-checked all twelve reachable fixture states and every action value, verified the retained fixture symmetries, tested deterministic state and time caps, passed the correctness gate, recorded verification limits, and selected frozen exact candidate solving as the next work. The human did not choose the algorithms, value convention, tests, interpretation, gate disposition, or next research task.
+
+### 2026-07-17 — Study 002 exact candidate cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain `承認` trigger that opened the frozen exact-candidate cycle.
+- Consequence: Templex autonomously committed the formal experiment before outcome inspection; reconstructed and validated the manifest and fixture behavior; ran and repeated all eighteen exact solves under frozen caps; recorded fifteen exact solutions and three time-capped entries; isolated a timing-dependent reproducibility projection error without changing results; discovered that the shallow heuristic had not been frozen before exact inspection; cancelled post-result shallow evidence; and selected a random-only cycle followed by partial/incomplete closure. The human did not choose the experiment implementation, exact outcomes, correction, procedural diagnosis, interpretation, cancellation, or next task.
