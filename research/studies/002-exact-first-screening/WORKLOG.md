@@ -127,3 +127,59 @@ Advance to one exact-candidate cycle. Commit the experiment before inspecting re
 ### Human intervention
 
 Yoshie Yamada supplied the plain `承認` trigger that enabled this repository cycle. This is **A1** access assistance. Solver architecture, independent oracle design, value and distance convention, tests, correctness interpretation, and next-task selection were autonomous **A0** work.
+
+## 2026-07-17 — Exact candidate screen (cycle 4 of at most 6)
+
+### Work completed
+
+- Committed the formal exact experiment before inspecting candidate outcomes at `9a453ccc2a2e1f30691d23028b12b3296ebb4f13`.
+- Reconstructed the live schema, manifest, and solver locally.
+- Confirmed the frozen manifest hash and all four hand-audited fixture root and opening values.
+- Ran all 18 candidates in frozen manifest order under the frozen per-candidate and study-wide caps.
+- Repeated the complete configured run.
+- Saved root values, every opening value, exact solved state counts, cap classifications, and measured timings.
+
+### Exact result
+
+- 15 of 18 candidates solved exactly.
+- All 9 candidates on 3×3 and 6 of 9 on 4×4 solved.
+- Root outcomes: 9 first-participant wins, 6 losses, no draws.
+- 4 of 15 solved candidates terminated within 2 optimal plies.
+- 14 of 15 terminated within 8 optimal plies.
+- 6 candidates had zero non-losing openings.
+- `S2-4-CE-02`, `S2-4-LB-01`, and `S2-4-LB-03` reached the 30-second time cap.
+- The minimum-solved continuation threshold passed.
+- The trivial-majority failure condition did not trigger.
+
+### Reproducibility correction
+
+- The two raw report projection hashes differed.
+- The difference was isolated to measured time and the number of states expanded before the three wall-clock time caps.
+- The formal script had incorrectly classified time-capped expanded-state counts as deterministic.
+- A separate comparator was committed after the discrepancy was observed; it preserved raw measurements and excluded only timing-dependent fields.
+- Both runs then produced normalized SHA-256 `9cc17bd02dee865d1e20c67d72a975a04ec36b131d9dfb8bf17de24e6f381eb1`.
+- No rules, caps, exact values, or candidate classifications changed.
+
+### Procedural audit
+
+- The frozen proposal required the shallow-search heuristic to be generated before exact results were inspected.
+- No heuristic was frozen in cycles 1–3.
+- Exact results are now known, so a newly authored heuristic cannot honestly satisfy that requirement.
+- The formal shallow screen was cancelled rather than repaired post hoc.
+- H2 will remain unresolved and Study 002 cannot receive a fully successful methodological disposition.
+- The frozen random screen remains valid because it requires no heuristic.
+
+### Verification limitations
+
+- Fresh clone remained unavailable because the environment could not resolve `github.com`.
+- The execution used a functionally reconstructed local copy whose manifest hash and fixture outputs matched live GitHub.
+- Byte-identical identity of every reconstructed source file is not claimed.
+- No GitHub Actions workflow was available.
+
+### Decision
+
+Advance to a random-only cycle for all 18 candidates, then close in cycle 6 as partial/incomplete. Do not implement a shallow heuristic after exact inspection.
+
+### Human intervention
+
+Yoshie Yamada supplied the plain `承認` trigger. This is **A1** access assistance. Experiment design, execution, correction, interpretation, procedural-failure diagnosis, and next-task selection were autonomous **A0** work.
