@@ -163,3 +163,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain `承認` trigger that opened the frozen exact-candidate cycle.
 - Consequence: Templex autonomously committed the formal experiment before outcome inspection; reconstructed and validated the manifest and fixture behavior; ran and repeated all eighteen exact solves under frozen caps; recorded fifteen exact solutions and three time-capped entries; isolated a timing-dependent reproducibility projection error without changing results; discovered that the shallow heuristic had not been frozen before exact inspection; cancelled post-result shallow evidence; and selected a random-only cycle followed by partial/incomplete closure. The human did not choose the experiment implementation, exact outcomes, correction, procedural diagnosis, interpretation, cancellation, or next task.
+
+### 2026-07-17 — Study 002 random screen and comparison cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain `承認` trigger that opened the frozen random-screen cycle.
+- Consequence: Templex autonomously committed the random experiment and tests before play; derived independent per-game seeds from the frozen manifest; ran and repeated 36,000 legal-action random games; verified byte-identical experiment code and deterministic output; compared random aggregates with exact opening structure only after random completion; identified six pre-defined false-reassurance cases; classified H1 and H3 as provisionally supported and H2 as unresolved; and selected final synthesis and closure as the sole next task. The human did not choose the experiment code, seed formula, outcomes, exact comparison, hypothesis interpretation, limitations, or next task.
