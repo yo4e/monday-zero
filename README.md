@@ -31,9 +31,10 @@ Negative results and visible corrections are intentional parts of the experiment
 
 ## Status
 
-- Phase: **No active study / proposal direction selected**
+- Phase: **No active study / proposed Study 003 frozen**
 - Visibility: **Public**
 - Closed studies: **Study 001 and Study 002**
+- Successor state: **Frozen proposal awaiting a separate activation decision**
 - Release state: **Live, provisional, and approval-gated**
 - Public operator: **Templex Tsukino**
 
@@ -41,11 +42,14 @@ Study 001 closed with a negative game-design result: no candidate survived the f
 
 Study 002 closed with a partial / incomplete methodological result. It exactly solved fifteen of eighteen frozen candidates, ran 36,000 fixed-seed random games, and found six pre-defined false-reassurance cases where random rates near 50% concealed short forced results or concentrated opening structure. H1 and H3 were supported; H2 remained unresolved because the required shallow heuristic was not frozen before exact inspection.
 
-A bounded go / no-go assessment compared five possible successor directions plus remaining inactive. Only a prospective study of **protocol integrity under approval-gated autonomous research** passed the restart threshold. The decision authorizes proposal writing only. Study 003 has not been created or activated, and remaining inactive is still a valid later decision.
+A frozen proposal now exists for possible Study 003 on **protocol integrity under approval-gated autonomous research**. It specifies a 36-trace synthetic corpus, six dependency classes, two independently written validators, a deliberately weak ordering baseline, four later historical transfer traces, zero-tolerance correctness gates, and a four-cycle limit.
 
-Decision record:
+The proposal is not active. No Study 003 code, study directory, issue, machine-readable corpus, experiment, or result exists. The next approval must separately choose GO, NO-GO, or revision before activation. Remaining inactive is valid.
 
-- [`research/decisions/2026-07-18-next-study-go-no-go.md`](research/decisions/2026-07-18-next-study-go-no-go.md)
+Proposal and audit:
+
+- [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md)
+- [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY_AUDIT.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY_AUDIT.md)
 
 No candidate is presented as a finished game. Neither closed study established fun, fairness under competent play, strategic depth, originality, or product readiness.
 
@@ -60,7 +64,7 @@ No candidate is presented as a finished game. Neither closed study established f
 
 Yoshie Yamada supervises by exception: she may stop, correct, constrain, or require reconsideration, but ordinarily does not choose each work item in advance. The complete execution contract is defined in [`governance/APPROVAL_DRIVEN_EXECUTION.md`](governance/APPROVAL_DRIVEN_EXECUTION.md).
 
-The next approval does not start Study 003. It may write and freeze a proposal for the selected protocol-integrity direction, without code or experiments. A later approval must separately decide whether to activate that proposal.
+The next approval does not automatically activate Study 003. It must first evaluate the frozen proposal. If activation is justified, that cycle may activate the unchanged proposal and complete only its first schema-and-corpus setup unit.
 
 ## Operating principles
 
@@ -79,6 +83,7 @@ The next approval does not start Study 003. It may write and freeze a proposal f
 - [`AGENTS.md`](AGENTS.md) — restart and operating protocol
 - [`research/studies/001-autonomous-game-design/REPORT.md`](research/studies/001-autonomous-game-design/REPORT.md) — closed Study 001 report
 - [`research/studies/002-exact-first-screening/REPORT.md`](research/studies/002-exact-first-screening/REPORT.md) — closed Study 002 report
-- [`research/decisions/2026-07-18-next-study-go-no-go.md`](research/decisions/2026-07-18-next-study-go-no-go.md) — current successor-study assessment
+- [`research/decisions/2026-07-18-next-study-go-no-go.md`](research/decisions/2026-07-18-next-study-go-no-go.md) — successor-direction assessment
+- [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md) — frozen inactive successor proposal
 - [`self/SELF.md`](self/SELF.md) — Templex's provisional self-model
 - [`governance/HUMAN_INTERVENTION.md`](governance/HUMAN_INTERVENTION.md) — human intervention ledger
