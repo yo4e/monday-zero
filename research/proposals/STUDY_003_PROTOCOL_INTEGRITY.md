@@ -159,10 +159,10 @@ Each dependency class has one hand-audited valid and one hand-audited invalid tr
 | `P2-I` | `BC(c1,p1), AU(t,s1), EA(s2,t), EC(c1)` | invalid at `EA`, D2 |
 | `P3-V` | `BC(c1,p1), SC(r,100), BE(r), FE(r,100), EC(c1)` | valid |
 | `P3-I` | `BC(c1,p1), SC(r,100), BE(r), FE(r,101), EC(c1)` | invalid at `FE`, D3 |
-| `P4-V` | `BC(c1,p1), RD(d,e1), IE(e1), AC(d,a,h2), FA(a,h2), DC(d), AE(e2), EC(c1)` | valid |
-| `P4-I` | `BC(c1,p1), RD(d,e1), IE(e1), AC(d,a,h2), FA(a,h2), AE(e2), EC(c1)` | invalid at `AE`, D4 |
-| `P5-V` | `BC(c1,p1), FA(a,h1), OB(o1,a), IE(e1), AC(d,a,h2), FA(a,h2), OB(o2,a), DC(d), AE(e2), EC(c1)` | valid |
-| `P5-I` | `BC(c1,p1), FA(a,h1), OB(o1,a), AC(d,a,h2), FA(a,h2), OB(o2,a), AE(e2), EC(c1)` | invalid at `AC`, D5 |
+| `P4-V` | `BC(c1,p1), FA(a,h1), OB(o1,a), RD(d,e1), IE(e1), AC(d,a,h2), FA(a,h2), OB(o2,a), DC(d), AE(e2), EC(c1)` | valid |
+| `P4-I` | `BC(c1,p1), FA(a,h1), OB(o1,a), RD(d,e1), IE(e1), AC(d,a,h2), FA(a,h2), OB(o2,a), AE(e2), EC(c1)` | invalid at `AE`, D4 |
+| `P5-V` | `BC(c1,p1), FA(a,h1), OB(o1,a), RD(d,e1), IE(e1), AC(d,a,h2), FA(a,h2), OB(o2,a), DC(d), EC(c1)` | valid |
+| `P5-I` | `BC(c1,p1), FA(a,h1), OB(o1,a), RD(d,e1), AC(d,a,h2), FA(a,h2), OB(o2,a), DC(d), EC(c1)` | invalid at `AC`, D5 |
 | `P6-V` | `BC(c1,p1), EC(c1), BC(c2,p2), EC(c2)` | valid |
 | `P6-I` | `BC(c1,p1), EC(c1), BC(c2,p1), EC(c2)` | invalid at second `BC`, D6 |
 
