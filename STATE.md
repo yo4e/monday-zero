@@ -4,7 +4,7 @@ _Last updated: 2026-07-18_
 
 ## Phase
 
-**No active study / next proposal direction selected**
+**No active study / proposed Study 003 frozen, awaiting activation decision**
 
 ## Laboratory
 
@@ -21,74 +21,72 @@ Closed with a negative research conclusion.
 
 - Final report: `research/studies/001-autonomous-game-design/REPORT.md`
 - Do not alter it except to correct factual or technical errors.
-- Do not create Span v0.3 or continue its candidate repair under Study 001.
+- Do not create Span v0.3 or continue candidate repair under Study 001.
 
 ### Study 002 — Exact-First Screening of Compact Games
 
-Closed on 2026-07-18 with a **partial / incomplete methodological result**.
+Closed with a **partial / incomplete methodological result**.
 
 - Final report: `research/studies/002-exact-first-screening/REPORT.md`
-- Frozen protocol: `research/studies/002-exact-first-screening/PROTOCOL.md`
-- Frozen manifest SHA-256: `cff3a75a58442b843134cd05a337e2af3166e1c1e035c15fc890f576e0495cee`
+- H1 and H3 supported; H2 unresolved.
+- Do not retroactively create its shallow heuristic, replace candidates, or add another grammar under Study 002.
 
-Final hypothesis disposition:
-
-- **H1 supported:** six pre-defined false-reassurance cases were observed.
-- **H2 unresolved:** the required shallow-search heuristic was not frozen before exact results were inspected.
-- **H3 supported:** exact opening analysis supplied structural explanations hidden by aggregate random win rates.
-
-Reproducibility anchors:
-
-- Exact normalized SHA-256: `9cc17bd02dee865d1e20c67d72a975a04ec36b131d9dfb8bf17de24e6f381eb1`
-- Random deterministic SHA-256: `d3726b0dff560befc4bbc86fa69b7f9aa889d0e41d16f2a54a3b1acc0df7960e`
-
-## Latest go / no-go assessment
+## Frozen successor proposal
 
 Decision record:
 
 - `research/decisions/2026-07-18-next-study-go-no-go.md`
 
-The assessment compared five possible research directions plus remaining inactive. Only **protocol integrity under approval-gated autonomous research** passed the restart threshold.
+Proposal:
 
-The selected direction would test whether a machine-readable dependency model can reject evidence-contaminating event sequences before protected observations are accepted. It directly addresses the Study 002 sequencing failure while remaining distinct from another game-design or exact-screen continuation.
+- `research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`
+- Final frozen proposal commit: `a4434950383a2b995c35987fbb4d52b4220c7547`
+- Freeze audit: `research/proposals/STUDY_003_PROTOCOL_INTEGRITY_AUDIT.md`
 
-Current disposition:
+Proposed question:
 
-- **GO to a proposal-writing cycle only.**
-- No active study exists.
-- Study 003 has not been created or activated.
-- No experiment, code, trace corpus, checker, issue, or external action has been started.
-- Remaining inactive is still a valid later activation decision if the proposal cannot avoid tautology, special-casing, or weak independent validation.
+> Can a machine-readable research contract accept valid approval-gated research-event traces and reject evidence-contaminating, unauthorized, over-cap, or undisclosed-correction traces at the first violating event without study-specific rules?
 
-## Required next proposal contents
+Frozen design:
 
-A separately frozen proposal must define before any implementation:
+- six dependency classes;
+- fourteen event kinds;
+- thirty-six synthetic traces: ten valid and twenty-six invalid;
+- five mutation operators applied to four composite traces;
+- a primary incremental validator and independent whole-trace oracle;
+- an order-only baseline that must be materially weaker on named stateful cases;
+- four historical transfer traces evaluated only after the synthetic gate;
+- zero-tolerance false-accept, false-reject, first-violation, class, and oracle-agreement requirements;
+- maximum four approval cycles after activation.
 
-1. a research question about enforcing dependencies among research events;
-2. at least four dependency classes;
-3. hand-audited valid and invalid trace fixtures not limited to Study 002;
-4. mutation rules fixed before execution;
-5. a primary validator and independently written oracle;
-6. synthetic correctness gates before historical Study 001 and Study 002 evaluation;
-7. false-accept, false-reject, early-detection, oracle-agreement, and mutation-coverage metrics;
-8. explicit failure conditions, including rejection of any special-cased Study 002 rule;
-9. a maximum of four approval cycles after activation;
-10. explicit limits on claims about truth, quality, safety, creativity, or autonomy.
+## Current disposition
 
-## Closure boundaries
+- **No active study exists.**
+- The proposal is frozen but Study 003 is not active.
+- No active-study issue or study directory exists.
+- No schema, code, validator, oracle, baseline, machine-readable fixture, historical trace, experiment, or result exists.
+- Proposal existence does not authorize activation.
+- Remaining inactive is a valid activation decision.
 
-- Do not reopen Study 001 or create Span v0.3.
-- Do not retroactively create a shallow heuristic for Study 002.
-- Do not replace or repair the frozen Study 002 candidates.
-- Do not add another generated-game corpus as a hidden continuation of Study 002.
-- Closed-study files may be changed only for disclosed factual or technical corrections.
+## Activation risks
+
+The later decision must examine whether the proposal:
+
+- remains too close to a topological-sort demonstration;
+- gives the two validators sufficient implementation independence;
+- overfits known Study 002 history despite generic contract data;
+- produces enough information value to justify another self-referential study;
+- can execute within four cycles without becoming a workflow-platform project.
 
 ## Next actions
 
-1. Write and freeze a proposal for the selected protocol-integrity direction.
-2. Do not implement code, create fixtures, run traces, or activate Study 003 in that proposal-writing cycle.
-3. After the proposal exists, use a later approval cycle to make a separate activation go / no-go decision.
-4. Preserve inactivity if the proposal fails to define nontrivial independent tests and bounded failure conditions.
+On the next approval cycle, re-read the frozen proposal and choose one bounded disposition:
+
+1. **GO:** activate the unchanged proposal and complete only activation cycle 1 — schema, canonical serialization, and deterministic generation of the frozen thirty-six synthetic traces; do not implement verdict logic.
+2. **NO-GO:** remain inactive and record why execution is not worthwhile.
+3. **REVISE BEFORE ACTIVATION:** correct a factual or internal specification error before any implementation, then require a later activation decision.
+
+Do not silently activate, change the frozen evidence expectations after implementation, or begin Study 004.
 
 ## Human action currently needed
 
