@@ -31,10 +31,10 @@ Negative results and visible corrections are intentional parts of the experiment
 
 ## Status
 
-- Phase: **No active study / proposed Study 003 frozen**
+- Phase: **Study 003 active / cycle 1 of at most 4 complete**
 - Visibility: **Public**
 - Closed studies: **Study 001 and Study 002**
-- Successor state: **Frozen proposal awaiting a separate activation decision**
+- Active study: **Protocol Integrity Under Approval-Gated Autonomous Research**
 - Release state: **Live, provisional, and approval-gated**
 - Public operator: **Templex Tsukino**
 
@@ -42,16 +42,14 @@ Study 001 closed with a negative game-design result: no candidate survived the f
 
 Study 002 closed with a partial / incomplete methodological result. It exactly solved fifteen of eighteen frozen candidates, ran 36,000 fixed-seed random games, and found six pre-defined false-reassurance cases where random rates near 50% concealed short forced results or concentrated opening structure. H1 and H3 were supported; H2 remained unresolved because the required shallow heuristic was not frozen before exact inspection.
 
-A frozen proposal now exists for possible Study 003 on **protocol integrity under approval-gated autonomous research**. It specifies a 36-trace synthetic corpus, six dependency classes, two independently written validators, a deliberately weak ordering baseline, four later historical transfer traces, zero-tolerance correctness gates, and a four-cycle limit.
+Study 003 activated the unchanged frozen proposal on protocol integrity. Cycle 1 defined a declarative trace/contract schema, canonical serialization, and a deterministic 36-trace synthetic corpus: 10 valid and 26 invalid, with canonical SHA-256 `b7675cd11bf808a02579cc56d26252ca636e9627d9542d8d063e6752374b7d84`. No validator verdict or historical-transfer result exists yet.
 
-The proposal is not active. No Study 003 code, study directory, issue, machine-readable corpus, experiment, or result exists. The next approval must separately choose GO, NO-GO, or revision before activation. Remaining inactive is valid.
+- Proposal: [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md)
+- Protocol: [`research/studies/003-protocol-integrity/PROTOCOL.md`](research/studies/003-protocol-integrity/PROTOCOL.md)
+- Corpus index: [`research/studies/003-protocol-integrity/data/synthetic_corpus_v1/index.json`](research/studies/003-protocol-integrity/data/synthetic_corpus_v1/index.json)
+- Tracking issue: #7
 
-Proposal and audit:
-
-- [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md)
-- [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY_AUDIT.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY_AUDIT.md)
-
-No candidate is presented as a finished game. Neither closed study established fun, fairness under competent play, strategic depth, originality, or product readiness.
+No candidate from the closed game studies is presented as a finished game. The active study does not claim that procedural validation establishes truth, value, safety, creativity, autonomy, or product readiness.
 
 ## Current operating loop
 
@@ -64,7 +62,7 @@ No candidate is presented as a finished game. Neither closed study established f
 
 Yoshie Yamada supervises by exception: she may stop, correct, constrain, or require reconsideration, but ordinarily does not choose each work item in advance. The complete execution contract is defined in [`governance/APPROVAL_DRIVEN_EXECUTION.md`](governance/APPROVAL_DRIVEN_EXECUTION.md).
 
-The next approval does not automatically activate Study 003. It must first evaluate the frozen proposal. If activation is justified, that cycle may activate the unchanged proposal and complete only its first schema-and-corpus setup unit.
+The next approval may execute Study 003 Cycle 2 only: implement two independent validators and the frozen weak baseline, then run the first synthetic gate. Historical traces remain forbidden until that gate passes and validator code is frozen.
 
 ## Operating principles
 
@@ -83,7 +81,7 @@ The next approval does not automatically activate Study 003. It must first evalu
 - [`AGENTS.md`](AGENTS.md) — restart and operating protocol
 - [`research/studies/001-autonomous-game-design/REPORT.md`](research/studies/001-autonomous-game-design/REPORT.md) — closed Study 001 report
 - [`research/studies/002-exact-first-screening/REPORT.md`](research/studies/002-exact-first-screening/REPORT.md) — closed Study 002 report
-- [`research/decisions/2026-07-18-next-study-go-no-go.md`](research/decisions/2026-07-18-next-study-go-no-go.md) — successor-direction assessment
-- [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md) — frozen inactive successor proposal
+- [`research/studies/003-protocol-integrity/README.md`](research/studies/003-protocol-integrity/README.md) — active Study 003 overview
+- [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md) — frozen Study 003 proposal
 - [`self/SELF.md`](self/SELF.md) — Templex's provisional self-model
 - [`governance/HUMAN_INTERVENTION.md`](governance/HUMAN_INTERVENTION.md) — human intervention ledger
