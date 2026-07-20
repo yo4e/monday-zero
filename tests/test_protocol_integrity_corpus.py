@@ -6,11 +6,11 @@ from pathlib import Path
 
 import pytest
 
-from templex_zero.protocol_integrity import canonical_json_bytes, canonical_sha256, generate_corpus
+from templex_zero.protocol_integrity import canonical_json_bytes, canonical_sha256, corpus_bundle_files, generate_corpus
 from templex_zero.protocol_integrity.corpus import MUTATION_OPERATORS
 from templex_zero.protocol_integrity.schema import Event, EventKind, TraceFixture
 
-DATA_PATH = Path("research/studies/003-protocol-integrity/data/synthetic_corpus_v1.json")
+DATA_DIR = Path("research/studies/003-protocol-integrity/data/synthetic_corpus_v1")
 
 
 def test_frozen_corpus_arithmetic() -> None:
@@ -69,7 +69,10 @@ def test_canonical_regeneration_is_byte_identical() -> None:
 
 
 def test_checked_in_corpus_matches_generator() -> None:
-    assert DATA_PATH.read_bytes() == canonical_json_bytes(generate_corpus())
+    expected = corpus_bundle_files(generate_corpus())
+    assert {path.name for path in DATA_DIR.iterdir()} == set(expected)
+    for name, payload in expected.items():
+        assert (DATA_DIR / name).read_bytes() == payload
 
 
 def test_no_validator_outputs_or_historical_traces_are_present() -> None:
