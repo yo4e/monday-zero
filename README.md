@@ -16,42 +16,38 @@ The repository is the laboratory: charter, state, research, code, decisions, fai
 
 ## Experimental notice
 
-This is a live research workspace, not a curated release.
+This is a research workspace, not a curated release.
 
 - Research topics, methods, implementations, experiments, analysis, and internal next actions are primarily selected by an AI operating under [`CHARTER.md`](CHARTER.md).
 - Human actions at access, publication, safety, identity, and authority boundaries are recorded in [`governance/HUMAN_INTERVENTION.md`](governance/HUMAN_INTERVENTION.md).
 - Files may contain mistakes, incomplete implementations, failed hypotheses, provisional interpretations, or conclusions that are later revised or rejected.
-- Human authorization of a bounded work cycle enables execution; it does not certify that the resulting code or claims are correct.
+- Human authorization of a bounded work cycle enables execution; it does not certify that resulting code or claims are correct.
 - Nothing here should be treated as professional advice, validated scientific consensus, production-ready software, or a security-reviewed tool.
 - TEMPLEX/0 does not contact, advise, modify, or submit work to outsiders without explicit authorization.
 
-Negative results and visible corrections are intentional parts of the experiment. A polished appearance should not be mistaken for established truth.
+Negative results and visible corrections are intentional parts of the experiment.
 
 ## Status
 
-- Phase: **Study 003 active / cycle 3 of at most 4 complete**
+- Phase: **No active study**
 - Visibility: **Public**
-- Closed studies: **Study 001 and Study 002**
-- Active study: **Protocol Integrity Under Approval-Gated Autonomous Research**
-- Release state: **Live, provisional, and approval-gated**
+- Closed studies: **Study 001, Study 002, and Study 003**
+- Active study: **None**
+- Study 004: **Not proposed or active**
+- Release state: **Provisional and approval-gated**
 - Public operator: **Templex Tsukino**
 
 Study 001 closed with a negative game-design result: no candidate survived the frozen evaluation criteria.
 
-Study 002 closed with a partial / incomplete methodological result. It exactly solved fifteen of eighteen frozen candidates, ran 36,000 fixed-seed random games, and found six pre-defined false-reassurance cases where random rates near 50% concealed short forced results or concentrated opening structure. H1 and H3 were supported; H2 remained unresolved because the required shallow heuristic was not frozen before exact inspection.
+Study 002 closed with a partial / incomplete methodological result. It exactly solved fifteen of eighteen frozen candidates, ran 36,000 fixed-seed random games, and found six pre-defined false-reassurance cases. H1 and H3 were supported; H2 remained unresolved because the required shallow heuristic was not frozen before exact inspection.
 
-Study 003 Cycle 1 created a deterministic 36-trace synthetic corpus. Cycle 2 froze an incremental validator, independently written whole-trace oracle, and weak order-only baseline; the first synthetic gate passed with zero false accepts and false rejects, complete first-violation and class accuracy, full primary/oracle agreement, and 20 / 20 mutants rejected. Cycle 3 encoded four precommitted Study 001/002 histories before evaluation and matched all four expected dispositions with the frozen instruments. The shallow-comparison history was rejected at the protected exact-result observation because the required shallow heuristic had not been frozen; the other three histories were accepted.
+Study 003 closed with methodological success under bounded claims. Its frozen validators classified 36 synthetic traces with zero false accepts and false rejects, rejected 20 / 20 mutations, outperformed an order-only baseline on four precommitted stateful cases, and matched four precommitted Study 001/002 histories after instrument freeze. The final complete report covers 40 traces and 572 represented events and was byte-identical across two runs.
 
-- Proposal: [`research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`](research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md)
-- Protocol: [`research/studies/003-protocol-integrity/PROTOCOL.md`](research/studies/003-protocol-integrity/PROTOCOL.md)
-- Synthetic corpus: [`research/studies/003-protocol-integrity/data/synthetic_corpus_v1/index.json`](research/studies/003-protocol-integrity/data/synthetic_corpus_v1/index.json)
-- Synthetic result: [`research/studies/003-protocol-integrity/data/synthetic_gate_v1.json`](research/studies/003-protocol-integrity/data/synthetic_gate_v1.json)
-- Historical traces: [`research/studies/003-protocol-integrity/data/historical_traces_v1.json`](research/studies/003-protocol-integrity/data/historical_traces_v1.json)
-- Historical result: [`research/studies/003-protocol-integrity/data/historical_transfer_result_v1.json`](research/studies/003-protocol-integrity/data/historical_transfer_result_v1.json)
-- Cycle 3 audit: [`research/studies/003-protocol-integrity/CYCLE_3_HISTORICAL_TRANSFER.md`](research/studies/003-protocol-integrity/CYCLE_3_HISTORICAL_TRANSFER.md)
-- Tracking issue: #7
+- Study 003 report: [`research/studies/003-protocol-integrity/REPORT.md`](research/studies/003-protocol-integrity/REPORT.md)
+- Complete result: [`research/studies/003-protocol-integrity/data/complete_validation_v1.json`](research/studies/003-protocol-integrity/data/complete_validation_v1.json)
+- Study 003 overview: [`research/studies/003-protocol-integrity/README.md`](research/studies/003-protocol-integrity/README.md)
 
-Passing these gates does not show that a procedurally valid trace contains true, valuable, safe, creative, autonomous, or scientifically sound research. The historical sample contains only four preselected repository episodes.
+Passing Study 003 does not show that a procedurally valid trace contains true, valuable, safe, creative, autonomous, or scientifically sound research. The artifacts are research prototypes, not production authorization or security infrastructure.
 
 ## Current operating loop
 
@@ -62,9 +58,7 @@ Passing these gates does not show that a procedurally valid trace contains true,
 5. Templex reports what was actually done in the same project chat and proposes the next single cycle.
 6. The laboratory stops until another `承認` is received.
 
-Yoshie Yamada supervises by exception. The complete execution contract is defined in [`governance/APPROVAL_DRIVEN_EXECUTION.md`](governance/APPROVAL_DRIVEN_EXECUTION.md).
-
-The next approval may execute Study 003 Cycle 4 only: reproduce the complete synthetic-plus-historical validation report twice, classify H1–H4, write the final report, close the study, and stop. Study 004 must not begin in the same cycle.
+The next approval may perform a portfolio-level go / no-go assessment of possible research directions, including remaining inactive. It must not automatically begin Study 004 or run a new experiment.
 
 ## Operating principles
 
@@ -83,6 +77,6 @@ The next approval may execute Study 003 Cycle 4 only: reproduce the complete syn
 - [`AGENTS.md`](AGENTS.md) — restart and operating protocol
 - [`research/studies/001-autonomous-game-design/REPORT.md`](research/studies/001-autonomous-game-design/REPORT.md) — closed Study 001 report
 - [`research/studies/002-exact-first-screening/REPORT.md`](research/studies/002-exact-first-screening/REPORT.md) — closed Study 002 report
-- [`research/studies/003-protocol-integrity/README.md`](research/studies/003-protocol-integrity/README.md) — active Study 003 overview
+- [`research/studies/003-protocol-integrity/REPORT.md`](research/studies/003-protocol-integrity/REPORT.md) — closed Study 003 report
 - [`self/SELF.md`](self/SELF.md) — Templex's provisional self-model
 - [`governance/HUMAN_INTERVENTION.md`](governance/HUMAN_INTERVENTION.md) — human intervention ledger
