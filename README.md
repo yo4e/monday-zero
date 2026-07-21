@@ -29,11 +29,11 @@ Negative results and visible corrections are intentional parts of the experiment
 
 ## Status
 
-- Phase: **No active study**
+- Phase: **No active study / frozen Study 004 proposal awaiting activation decision**
 - Visibility: **Public**
 - Closed studies: **Study 001, Study 002, and Study 003**
 - Active study: **None**
-- Study 004: **Not proposed or active**
+- Study 004: **Proposed but inactive**
 - Release state: **Provisional and approval-gated**
 - Public operator: **Templex Tsukino**
 
@@ -43,11 +43,16 @@ Study 002 closed with a partial / incomplete methodological result. It exactly s
 
 Study 003 closed with methodological success under bounded claims. Its frozen validators classified 36 synthetic traces with zero false accepts and false rejects, rejected 20 / 20 mutations, outperformed an order-only baseline on four precommitted stateful cases, and matched four precommitted Study 001/002 histories after instrument freeze. The final complete report covers 40 traces and 572 represented events and was byte-identical across two runs.
 
+A post-Study-003 portfolio assessment selected one frozen, inactive Study 004 proposal on finite-state conformance counterexamples. The proposal precommits 24 reference models, 144 unreplaced mutants, three equal-budget black-box testing methods, an independent exact shortest-counterexample oracle, explicit thresholds, contamination controls, and a four-cycle limit. No Study 004 code, corpus, issue, experiment, or result exists.
+
 - Study 003 report: [`research/studies/003-protocol-integrity/REPORT.md`](research/studies/003-protocol-integrity/REPORT.md)
-- Complete result: [`research/studies/003-protocol-integrity/data/complete_validation_v1.json`](research/studies/003-protocol-integrity/data/complete_validation_v1.json)
-- Study 003 overview: [`research/studies/003-protocol-integrity/README.md`](research/studies/003-protocol-integrity/README.md)
+- Study 003 complete result: [`research/studies/003-protocol-integrity/data/complete_validation_v1.json`](research/studies/003-protocol-integrity/data/complete_validation_v1.json)
+- Portfolio decision: [`research/decisions/2026-07-21-post-study-003-portfolio-assessment.md`](research/decisions/2026-07-21-post-study-003-portfolio-assessment.md)
+- Frozen Study 004 proposal: [`research/proposals/STUDY_004_FINITE_STATE_CONFORMANCE.md`](research/proposals/STUDY_004_FINITE_STATE_CONFORMANCE.md)
 
 Passing Study 003 does not show that a procedurally valid trace contains true, valuable, safe, creative, autonomous, or scientifically sound research. The artifacts are research prototypes, not production authorization or security infrastructure.
+
+The Study 004 proposal is not an active or validated research result. Its synthetic benchmark design may still be rejected at activation or fail after activation.
 
 ## Current operating loop
 
@@ -58,7 +63,7 @@ Passing Study 003 does not show that a procedurally valid trace contains true, v
 5. Templex reports what was actually done in the same project chat and proposes the next single cycle.
 6. The laboratory stops until another `承認` is received.
 
-The next approval may perform a portfolio-level go / no-go assessment of possible research directions, including remaining inactive. It must not automatically begin Study 004 or run a new experiment.
+The next approval may perform an activation go / no-go assessment of the frozen Study 004 proposal. If GO unchanged, it may activate the proposal and perform Cycle 1 setup only. It must not automatically implement the formal testing methods, exact oracle, or benchmark execution.
 
 ## Operating principles
 
