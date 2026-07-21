@@ -9,9 +9,18 @@ spec.loader.exec_module(module)
 
 
 def synthetic_fixture():
-    ids = [f"P{i}-{suffix}" for i in range(1, 7) for suffix in ("V", "I")]
-    ids += [f"C{i}-V" for i in range(1, 5)]
-    ids += [f"C{i}-M{j}" for i in range(1, 5) for j in range(1, 6)]
+    rows = []
+    for trace_id in module.EXPECTED_SYNTHETIC_IDS:
+        is_invalid = trace_id.endswith("-I") or "-M" in trace_id
+        expected = {"verdict": "invalid" if is_invalid else "valid"}
+        category = "composite-mutant" if "-M" in trace_id else "fixture"
+        rows.append({
+            "trace_id": trace_id,
+            "category": category,
+            "expected": expected,
+            "primary": expected,
+            "oracle": expected,
+        })
     return {
         "passed": True,
         "metrics": {
@@ -35,11 +44,7 @@ def synthetic_fixture():
             "violation_class_errors": [], "reason_code_errors": [],
             "primary_oracle_disagreements": [], "special_case_findings": [],
         },
-        "rows": [
-            {"trace_id": item, "expected": {"verdict": "valid"},
-             "primary": {"verdict": "valid"}, "oracle": {"verdict": "valid"}}
-            for item in ids
-        ],
+        "rows": rows,
     }
 
 
