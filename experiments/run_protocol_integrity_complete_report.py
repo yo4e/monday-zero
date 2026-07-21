@@ -36,8 +36,7 @@ EXPECTED_HISTORICAL = {
 NAMED_BEYOND_ORDERING = ["P2-I", "P3-I", "P5-I", "P6-I"]
 EXPECTED_SYNTHETIC_IDS = (
     [f"P{i}-{suffix}" for i in range(1, 7) for suffix in ("V", "I")]
-    + [f"C{i}-V" for i in range(1, 5)]
-    + [f"C{i}-M{j}" for i in range(1, 5) for j in range(1, 6)]
+    + [item for i in range(1, 5) for item in ([f"C{i}-V"] + [f"C{i}-M{j}" for j in range(1, 6)])]
 )
 
 
