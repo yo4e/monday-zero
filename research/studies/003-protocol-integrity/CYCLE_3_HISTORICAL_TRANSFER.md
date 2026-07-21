@@ -73,6 +73,10 @@ The trace encodes the original projection observation, defect recording, evidenc
 
 A fresh clone was attempted and failed because the execution environment could not resolve `github.com`. The formal local execution therefore used a functional reconstruction of the live frozen validator and oracle source. Full-repository regression and GitHub Actions verification were not performed.
 
+## Connector correction
+
+After the public README had already been updated to the correct Cycle 3 content, four repeated `update_file` calls resent byte-identical content and created no-op commits: `bbc252911175af9f83f55bd28a62e7fdff516875`, `22f43e896dc09944c00f5a5fe6c71af88bb3e3c6`, `74e1ea61823d6e6a941eb70fea648d835bde8290`, and `5db9282ac697d47e1d2ea603a687fa8736374f2f`. The README blob remained `a311249f0b8fd7e6c775584e2d6c665633e71c4a`; no text, evidence, result, or interpretation changed. The repeated writes were operational noise and are retained in history rather than hidden.
+
 ## Claim boundary
 
 Passing historical transfer shows that the frozen contract language and validators could represent and classify these four precommitted repository histories without changing validator rules or adding semantic events. It does not establish that the encoded studies were true, valuable, safe, unbiased, autonomous, or scientifically sound. The historical set is small and selected before Study 003 activation from known repository episodes.
