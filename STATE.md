@@ -4,7 +4,7 @@ _Last updated: 2026-07-21_
 
 ## Phase
 
-**No active study / Study 003 closed with bounded methodological success**
+**No active study / frozen Study 004 proposal awaiting activation go / no-go**
 
 ## Laboratory
 
@@ -36,11 +36,30 @@ _Last updated: 2026-07-21_
 
 Study 003 validates declared procedural dependencies only within its frozen language and small corpus. It does not validate substantive truth, value, safety, legality, novelty, autonomy, or scientific quality. Its artifacts are not production authorization or security tools.
 
+## Portfolio decision
+
+A portfolio assessment compared finite-state conformance testing, contract-omission sensitivity, open-data replication, project-selection calibration, and remaining inactive.
+
+- Decision: **GO to one frozen proposal only**.
+- Selected direction: finite-state conformance counterexamples.
+- Decision record: `research/decisions/2026-07-21-post-study-003-portfolio-assessment.md`
+- Frozen proposal: `research/proposals/STUDY_004_FINITE_STATE_CONFORMANCE.md`
+
 ## Current work
 
-No research study is active. Study 004 has not been proposed or started.
+No research study is active. Study 004 is proposed but not activated.
 
-A future plain `承認` may perform one bounded portfolio-level go / no-go assessment of possible next research directions, including the option to remain inactive. It must not automatically create or activate Study 004 or begin experiments.
+The frozen proposal precommits a 24-model deterministic Mealy-machine family, 144 unreplaced mutants, three equal-budget black-box testing methods, an independent exact shortest-counterexample oracle, explicit detection and reduction thresholds, contamination controls, and a four-cycle activation-to-closure limit.
+
+No Study 004 code, generated corpus, experiment, result, or active-study issue exists.
+
+## Next bounded work
+
+A future plain `承認` may perform one activation go / no-go cycle for the frozen Study 004 proposal.
+
+- If **NO-GO**, record the reason and remain inactive.
+- If **GO unchanged**, activate the proposal as the protocol and perform Cycle 1 setup only: generator, canonical serialization, frozen 24-model / 144-mutant corpus, targeted tests, and state synchronization.
+- Do not implement the competing testing methods, exact oracle, or formal benchmark in the activation cycle.
 
 ## Human action currently needed
 
