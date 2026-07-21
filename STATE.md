@@ -4,7 +4,7 @@ _Last updated: 2026-07-21_
 
 ## Phase
 
-**Study 003 active / historical transfer passed / cycle 3 of at most 4 complete**
+**No active study / Study 003 closed with bounded methodological success**
 
 ## Laboratory
 
@@ -15,66 +15,32 @@ _Last updated: 2026-07-21_
 
 ## Closed studies
 
-- Study 001: negative autonomous-game-design conclusion; do not reopen or create Span v0.3.
-- Study 002: partial / incomplete exact-first result; H1 and H3 supported, H2 unresolved; do not add its missing shallow heuristic or replace its frozen candidates.
+- **Study 001:** negative autonomous-game-design conclusion; no candidate survived the frozen viability criteria. Do not reopen or create Span v0.3.
+- **Study 002:** partial / incomplete exact-first result; H1 and H3 supported, H2 unresolved. Do not add the missing shallow heuristic or replace frozen candidates.
+- **Study 003:** methodological success with bounded claims. H1–H4 supported for the frozen protocol-integrity corpus and four historical traces.
 
-## Active Study 003
+## Study 003 final record
 
-- Title: **Protocol Integrity Under Approval-Gated Autonomous Research**
-- Frozen proposal: `research/proposals/STUDY_003_PROTOCOL_INTEGRITY.md`
-- Final proposal commit: `a4434950383a2b995c35987fbb4d52b4220c7547`
-- Active protocol: `research/studies/003-protocol-integrity/PROTOCOL.md`
-- Tracking issue: #7
-- Cycle limit: 4 approval-driven cycles including closure.
+- Final report: `research/studies/003-protocol-integrity/REPORT.md`
+- Archived protocol: `research/studies/003-protocol-integrity/PROTOCOL.md`
+- Complete result: `research/studies/003-protocol-integrity/data/complete_validation_v1.json`
+- Complete result Git blob: `62b0836a3abc2ce96fa74f045b8fbf5628916e55`
+- Internal deterministic SHA-256: `a52d00e08e00855ad9f43b3988e8f64bf9dc03d3d81f87c7c090f52247ec60a4`
+- File SHA-256: `5f8d1e6d399957745b233f4807406a01ea0ae98af580cd3adba77becf4265904`
+- Coverage: 40 traces and 572 events.
+- Synthetic result: zero false accepts and false rejects, 20 / 20 mutants rejected, full primary/oracle agreement.
+- Historical result: 4 / 4 expected verdicts and first violations matched.
+- Issue #7: closed as completed.
 
-## Synthetic gate
+## Claim boundary
 
-- Corpus: 36 traces, 10 valid and 26 invalid, 528 events.
-- Corpus SHA-256: `b7675cd11bf808a02579cc56d26252ca636e9627d9542d8d063e6752374b7d84`.
-- Result: `research/studies/003-protocol-integrity/data/synthetic_gate_v1.json`.
-- Result SHA-256: `46fef85ba4e76698ba861d84873be205b0b5e54ce8d2e84b4fed4c39004090de`.
-- False accepts/rejects: 0 / 0.
-- First-index, class, reason, and primary/oracle agreement: 100%.
-- Mutants rejected: 20 / 20.
-- Weak baseline accepted twelve invalid traces, including the four frozen beyond-ordering cases.
+Study 003 validates declared procedural dependencies only within its frozen language and small corpus. It does not validate substantive truth, value, safety, legality, novelty, autonomy, or scientific quality. Its artifacts are not production authorization or security tools.
 
-## Frozen instruments
+## Current work
 
-- Primary validator blob: `71080f1051acc015e74b42de19d56ce8782b9f25`.
-- Independent oracle blob: `74159c7a7502975b1bcd376510d5dad0283e03cd`.
-- Weak baseline blob: `7af3b9e1db56a90e08b93690a14d90ee541b9d18`.
+No research study is active. Study 004 has not been proposed or started.
 
-These instruments may not change inside Study 003.
-
-## Historical transfer
-
-- Trace artifact: `research/studies/003-protocol-integrity/data/historical_traces_v1.json`.
-- Trace Git blob: `840a7779a1cee3ba4f3f88e62342269b804c2719`.
-- Trace internal canonical SHA-256: `8cdaec94de2e8a7aff3158924db5e570f4af3008bcb33f18602f584b29b41053`.
-- Result: `research/studies/003-protocol-integrity/data/historical_transfer_result_v1.json`.
-- Result SHA-256: `c59c621a1efad82ba95ca6eb92465a062b9b412b4fd8f4a05d69dccfcdcdac4a`.
-- Expected-verdict matches: 4 / 4.
-- First-violation matches: 4 / 4.
-- Primary/oracle agreement: 4 / 4.
-- H3 shallow-contamination trace rejected at index 5 with D1 `artifact-not-frozen`; the other three traces were accepted as expected.
-
-## Verification limits
-
-- Historical artifact and result matched locally generated Git blob SHA values.
-- Two local historical evaluations produced identical deterministic result bytes.
-- Fresh clone failed because the environment could not resolve `github.com`.
-- Historical evaluation used a functional reconstruction of the live frozen validator and oracle source.
-- Full-repository regression and GitHub Actions verification were not performed.
-
-## Next action
-
-Cycle 4 only:
-
-1. run the complete synthetic-plus-historical validation twice;
-2. require byte-identical deterministic reports;
-3. classify H1–H4 and write `research/studies/003-protocol-integrity/REPORT.md`;
-4. close Issue #7 and set no active study;
-5. do not begin Study 004.
+A future plain `承認` may perform one bounded portfolio-level go / no-go assessment of possible next research directions, including the option to remain inactive. It must not automatically create or activate Study 004 or begin experiments.
 
 ## Human action currently needed
 
