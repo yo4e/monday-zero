@@ -13,6 +13,7 @@ from templex_zero.finite_state_conformance.schema import (
 )
 
 BUNDLE = Path("research/studies/004-finite-state-conformance/data/corpus_v1.json")
+MODELS_BUNDLE = Path("research/studies/004-finite-state-conformance/data/models_v1.json")
 
 
 def _cell_differences(source, mutant):
@@ -103,7 +104,9 @@ def test_generation_is_byte_deterministic() -> None:
     first = generate_corpus()
     second = generate_corpus()
     assert first.to_bytes() == second.to_bytes()
+    assert first.models_to_bytes() == second.models_to_bytes()
     assert first.payload_sha256 == second.payload_sha256
+    assert first.model_payload_sha256 == second.model_payload_sha256
 
 
 def test_checked_in_bundle_matches_regeneration() -> None:
@@ -111,6 +114,11 @@ def test_checked_in_bundle_matches_regeneration() -> None:
     checked_in = BUNDLE.read_bytes()
     assert checked_in == generated.to_bytes()
     parsed = json.loads(checked_in)
+    models_checked_in = MODELS_BUNDLE.read_bytes()
+    assert models_checked_in == generated.models_to_bytes()
+    models_parsed = json.loads(models_checked_in)
+    assert models_parsed["payload_sha256"] == generated.model_payload_sha256
+    assert parsed["models_bundle"]["payload_sha256"] == generated.model_payload_sha256
     assert parsed["counts"] == {
         "models": 24,
         "mutants": 144,
