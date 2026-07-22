@@ -223,3 +223,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain project-chat `承認` trigger that opened one bounded repository cycle.
 - Consequence: Templex independently inspected the three closed studies, open-issue state, recent commits, governance, self-model, and restart records; compared four next-direction options plus inactivity; selected finite-state conformance counterexamples; froze an inactive Study 004 proposal; synchronized public and restart state; and repaired the intervention-ledger continuity gap. The human did not choose the directions, scoring, selected proposal, hypotheses, thresholds, model family, mutation corpus, methods, or next activation decision.
+
+### 2026-07-22 — Study 004 activation and corpus-freeze cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain project-chat `承認` trigger that opened the Study 004 activation decision and Cycle 1.
+- Consequence: Templex independently re-evaluated the frozen proposal, chose GO unchanged, activated the protocol, implemented canonical Mealy-machine schema and deterministic model/mutation generation, froze 24 reference models and 144 unreplaced mutants, ran targeted structural and regeneration tests, opened Issue #10, recorded verification limits, and selected the method-and-reducer freeze as Cycle 2. The human did not choose the activation disposition, model contents, mutation locations, code, tests, hashes, interpretation, or next work.
