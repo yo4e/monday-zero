@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "action_order": ["a0", "a1", "a2"],
+  "fixtures": [
+    {
+      "fixture_id": "OF-01-equivalent-uniform-output",
+      "expected_equivalent": true,
+      "expected_shortest_trace": null,
+      "hand_audit": "Every transition in both machines emits o0, so every action trace has the same output word despite different hidden targets.",
+      "reference": {
+        "model_id": "OF-01-R",
+        "family": "cyclic",
+        "state_count": 4,
+        "variant": 1,
+        "reset_state": 0,
+        "transitions": [[[1,"o0"],[2,"o0"],[3,"o0"]],[[1,"o0"],[0,"o0"],[2,"o0"]],[[3,"o0"],[2,"o0"],[0,"o0"]],[[0,"o0"],[1,"o0"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-01-I",
+        "family": "cyclic",
+        "state_count": 4,
+        "variant": 1,
+        "reset_state": 0,
+        "transitions": [[[0,"o0"],[0,"o0"],[0,"o0"]],[[2,"o0"],[3,"o0"],[0,"o0"]],[[2,"o0"],[1,"o0"],[3,"o0"]],[[1,"o0"],[2,"o0"],[3,"o0"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-02-immediate-a0",
+      "expected_equivalent": false,
+      "expected_shortest_trace": ["a0"],
+      "hand_audit": "At reset, a0 emits o0 in the reference and o1 in the implementation; no non-empty trace can be shorter.",
+      "reference": {
+        "model_id": "OF-02-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[0,"o0"],[0,"o0"]],[[1,"o0"],[1,"o0"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-02-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o1"],[0,"o0"],[0,"o0"]],[[1,"o0"],[1,"o0"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-03-two-step-a0-a1",
+      "expected_equivalent": false,
+      "expected_shortest_trace": ["a0", "a1"],
+      "hand_audit": "All reset actions agree. Only a0 reaches state 1, where a1 emits o1 versus o2; therefore a0,a1 is the unique length-two witness.",
+      "reference": {
+        "model_id": "OF-03-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[1,"o0"],[0,"o0"],[0,"o0"]],[[1,"o0"],[1,"o1"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-03-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[1,"o0"],[0,"o0"],[0,"o0"]],[[1,"o0"],[1,"o2"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-04-hidden-state-divergence",
+      "expected_equivalent": false,
+      "expected_shortest_trace": ["a2", "a0"],
+      "hand_audit": "The first a2 output agrees but moves the pair to reference state 1 and implementation state 2. Their next a0 outputs are o1 and o2; all one-action traces agree.",
+      "reference": {
+        "model_id": "OF-04-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[0,"o0"],[1,"o0"]],[[1,"o1"],[1,"o0"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-04-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[0,"o0"],[2,"o0"]],[[1,"o0"],[1,"o0"],[1,"o0"]],[[2,"o2"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-05-lexicographic-tie",
+      "expected_equivalent": false,
+      "expected_shortest_trace": ["a0", "a2"],
+      "hand_audit": "Both a0,a2 and a1,a2 are length-two witnesses. Under frozen action order a0<a1<a2, a0,a2 is the lexicographically first shortest witness.",
+      "reference": {
+        "model_id": "OF-05-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[1,"o0"],[2,"o0"],[0,"o0"]],[[1,"o0"],[1,"o0"],[1,"o1"]],[[2,"o0"],[2,"o0"],[2,"o1"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-05-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[1,"o0"],[2,"o0"],[0,"o0"]],[[1,"o0"],[1,"o0"],[1,"o2"]],[[2,"o0"],[2,"o0"],[2,"o2"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-06-equivalent-action-output",
+      "expected_equivalent": true,
+      "expected_shortest_trace": null,
+      "hand_audit": "In both machines the output depends only on the current action: a0->o0, a1->o1, a2->o2. Hidden target differences cannot affect any future output word.",
+      "reference": {
+        "model_id": "OF-06-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[1,"o0"],[2,"o1"],[3,"o2"]],[[2,"o0"],[3,"o1"],[0,"o2"]],[[3,"o0"],[0,"o1"],[1,"o2"]],[[0,"o0"],[1,"o1"],[2,"o2"]]]
+      },
+      "implementation": {
+        "model_id": "OF-06-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[0,"o1"],[0,"o2"]],[[1,"o0"],[1,"o1"],[1,"o2"]],[[2,"o0"],[2,"o1"],[2,"o2"]],[[3,"o0"],[3,"o1"],[3,"o2"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-07-three-step-a1-a0-a2",
+      "expected_equivalent": false,
+      "expected_shortest_trace": ["a1", "a0", "a2"],
+      "hand_audit": "Only a1 reaches state 1 and only the following a0 reaches state 2. The machines first differ on a2 from state 2; all shorter traces agree.",
+      "reference": {
+        "model_id": "OF-07-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[1,"o0"],[0,"o0"]],[[2,"o0"],[1,"o0"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o1"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-07-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[1,"o0"],[0,"o0"]],[[2,"o0"],[1,"o0"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o2"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-08-four-step-chain",
+      "expected_equivalent": false,
+      "expected_shortest_trace": ["a0", "a0", "a0", "a1"],
+      "hand_audit": "Three a0 actions are required to reach state 3. The first differing output is then produced by a1; no other action reaches state 3 sooner.",
+      "reference": {
+        "model_id": "OF-08-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[1,"o0"],[0,"o0"],[0,"o0"]],[[2,"o0"],[1,"o0"],[1,"o0"]],[[3,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o1"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-08-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[1,"o0"],[0,"o0"],[0,"o0"]],[[2,"o0"],[1,"o0"],[1,"o0"]],[[3,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o2"],[3,"o0"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-09-immediate-a2",
+      "expected_equivalent": false,
+      "expected_shortest_trace": ["a2"],
+      "hand_audit": "At reset only a2 differs, emitting o1 versus o2. The one-action witness is exact.",
+      "reference": {
+        "model_id": "OF-09-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[0,"o0"],[0,"o1"]],[[1,"o0"],[1,"o0"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-09-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[0,"o0"],[0,"o2"]],[[1,"o0"],[1,"o0"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      }
+    },
+    {
+      "fixture_id": "OF-10-two-step-a1-a1",
+      "expected_equivalent": false,
+      "expected_shortest_trace": ["a1", "a1"],
+      "hand_audit": "All reset actions agree; a1 reaches state 1, where the next a1 emits o1 versus o2. No other reset action reaches the differing transition.",
+      "reference": {
+        "model_id": "OF-10-R", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[1,"o0"],[0,"o0"]],[[1,"o0"],[1,"o1"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      },
+      "implementation": {
+        "model_id": "OF-10-I", "family": "cyclic", "state_count": 4, "variant": 1, "reset_state": 0,
+        "transitions": [[[0,"o0"],[1,"o0"],[0,"o0"]],[[1,"o0"],[1,"o2"],[1,"o0"]],[[2,"o0"],[2,"o0"],[2,"o0"]],[[3,"o0"],[3,"o0"],[3,"o0"]]]
+      }
+    }
+  ]
+}
