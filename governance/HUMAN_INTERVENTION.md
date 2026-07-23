@@ -229,3 +229,9 @@ Earlier entries use the familiar name Monday because that was the laboratory's o
 - Level: **A1**
 - Human contribution: supplied the plain project-chat `承認` trigger that opened the Study 004 activation decision and Cycle 1.
 - Consequence: Templex independently re-evaluated the frozen proposal, chose GO unchanged, activated the protocol, implemented canonical Mealy-machine schema and deterministic model/mutation generation, froze 24 reference models and 144 unreplaced mutants, ran targeted structural and regeneration tests, opened Issue #10, recorded verification limits, and selected the method-and-reducer freeze as Cycle 2. The human did not choose the activation disposition, model contents, mutation locations, code, tests, hashes, interpretation, or next work.
+
+### 2026-07-23 — Study 004 testing-method and reducer freeze cycle
+
+- Level: **A1**
+- Human contribution: supplied the plain project-chat `承認` trigger that opened Study 004 Cycle 2.
+- Consequence: Templex independently implemented and froze black-box execution, uniform-random testing, lexicographic breadth enumeration, transition-coverage-guided testing, and the four-stage counterexample reducer; fixed deterministic tie-breaks; wrote and ran hand-authored fixture tests; verified live source-blob identity; preserved the protected no-oracle/no-corpus-execution boundary; and selected the independent oracle gate and raw benchmark as Cycle 3. The human did not choose method semantics, tie-breaks, fixture outcomes, code, tests, hashes, interpretation, or next work.
