@@ -2,66 +2,75 @@
 
 ## Status
 
-**Active — Cycle 2 testing-method and reducer freeze complete.**
+**Active — Cycle 3 exact classification and raw benchmark complete.**
 
 Study 004 tests whether model-guided black-box testing detects observable divergences between small deterministic Mealy-machine specifications and mutated implementations more effectively than equal-budget random testing, and whether detected failures can be reduced to exact shortest counterexamples.
 
-## Cycle 1 frozen corpus
+## Frozen Cycle 1 corpus
 
-- Activation decision: **GO unchanged**.
-- Reference models: **24**.
-- Topology cells: 2 state sizes × 3 families × 4 variants.
-- Mutation operators: **6**.
-- Frozen mutants: **144**.
-- Generation seed: `2026072104`.
-- Corpus payload SHA-256: `c9897631050b937d31a3273ba8cdabc55b79be1d66a0f4ca2e5c6df9f7c79fdb`.
-- Corpus file SHA-256: `82fcd584661e4860167ff114041868b923adb6861395a249564af4ff771b8fa2`.
-- Reference-model payload SHA-256: `7925911d9f834d71a360defc862d8d67262989eb2e957cf334b94a1b3a58202b`.
-- Reference-model file SHA-256: `bf3eab9884381a634d90803d3367c4700c8553ac43ec112355b2881dc4aaa902`.
+- reference models: **24**;
+- mutation operators: **6**;
+- unreplaced mutants: **144**;
+- seed: `2026072104`;
+- corpus payload SHA-256: `c9897631050b937d31a3273ba8cdabc55b79be1d66a0f4ca2e5c6df9f7c79fdb`.
 
-## Cycle 2 frozen methods
+## Frozen Cycle 2 instruments
 
-The following implementations are frozen before any protected exact-oracle or corpus-classification result exists:
+Before any protected exact result, Cycle 2 froze:
 
-- black-box reset/step execution and first-mismatch recording;
-- uniform random testing with eight independently seeded campaigns;
+- black-box reset/step execution;
+- uniform random testing with eight campaigns;
 - increasing-length lexicographic breadth enumeration;
-- shortest-reference-path transition coverage followed by repeated transition-pair coverage rounds;
-- the four-stage black-box counterexample reducer.
+- transition coverage followed by repeated transition-pair coverage rounds;
+- the four-stage counterexample reducer.
 
-Cycle 2 used only hand-authored fixtures. Its targeted method/reducer tests passed **12** cases; the combined current Study 004 Cycle 1 and Cycle 2 tests passed **20** cases. Compile verification passed, live source blobs matched the tested bytes, and the frozen hand-fixture behavioral projection SHA-256 is `6eddea3466f3f4ceb4a77a687a45ac6965e31f1039e3a6433d1c3ba34046abd6`.
+The frozen hand-fixture behavioral projection SHA-256 is `6eddea3466f3f4ceb4a77a687a45ac6965e31f1039e3a6433d1c3ba34046abd6`.
 
-## Frozen artifacts
+## Cycle 3 exact gate and raw evidence
+
+Ten expected oracle cases were committed before oracle implementation or execution. The independent paired-state breadth-first oracle matched all ten expected equivalence and exact shortest-trace results.
+
+The already frozen corpus was then classified without replacement:
+
+- distinguishable mutants: **144**;
+- equivalent mutants: **0**;
+- viability requirement: **116 distinguishable**;
+- viability gate: **passed**.
+
+The frozen methods and reducer were executed for all 144 mutants at 64, 256, and 1,024 actions, producing **1,296 raw rows**.
+
+Raw detection counts:
+
+| Method | 64 | 256 | 1,024 |
+|---|---:|---:|---:|
+| uniform random | 125 | 142 | 144 |
+| lexicographic breadth | 82 | 118 | 131 |
+| transition coverage guided | 106 | 140 | 143 |
+
+These counts are raw observations. H1, H2, and H3 have not yet been formally dispositioned.
+
+## Current artifacts
 
 - Protocol: `PROTOCOL.md`
 - Cycle 1 audit: `CYCLE_1_SETUP_AUDIT.md`
 - Cycle 2 audit: `CYCLE_2_METHOD_FREEZE.md`
-- Corpus manifest: `data/corpus_v1.json`
-- Reference-model bundle: `data/models_v1.json`
-- Schema: `../../../src/templex_zero/finite_state_conformance/schema.py`
-- Generator: `../../../src/templex_zero/finite_state_conformance/corpus.py`
-- Black-box execution: `../../../src/templex_zero/finite_state_conformance/execution.py`
-- Testing methods: `../../../src/templex_zero/finite_state_conformance/methods.py`
-- Reducer: `../../../src/templex_zero/finite_state_conformance/reducer.py`
-- Corpus tests: `../../../tests/test_finite_state_conformance_corpus.py`
-- Method/reducer tests: `../../../tests/test_finite_state_conformance_methods.py`
+- Oracle fixture freeze: `ORACLE_FIXTURE_FREEZE.md`
+- Cycle 3 audit: `CYCLE_3_ORACLE_AND_RAW_RESULTS.md`
+- Raw transport: `CYCLE_3_RAW_TRANSPORT.md`
+- Raw manifest: `data/cycle3_raw_manifest_v1.json`
+- Oracle: `../../../src/templex_zero/finite_state_conformance/oracle.py`
+- Complete runner: `../../../experiments/run_finite_state_conformance_cycle3.py`
+- Raw-integrity tests: `../../../tests/test_finite_state_conformance_cycle3.py`
 - Active tracking: Issue #10
 
-## Current protected boundary
+Raw evidence identities:
 
-The frozen corpus has **not** been classified by observational equivalence. No exact paired-state oracle, oracle correctness result, shortest distinguishing trace, frozen-corpus method result, reducer benchmark result, or formal H1–H3 disposition exists.
+- gzip SHA-256: `3f01b7346b1b5c690fd7dcd63c25ae0db1c874f369aea6e36c38a6d32bdf7679`;
+- JSON SHA-256: `a725f287b3d3a09b5d8e991e82daf9cb8f6a719c528a2e4047524cfd289bfc3c`;
+- payload SHA-256: `bb34844aee696cde0ea19de9c48a5bd5ec8faf66391a492bc6277bf24ac69927`.
 
-The method and reducer source blobs recorded in `CYCLE_2_METHOD_FREEZE.md` may not be repaired or tuned after protected corpus classification begins. Such a change would contaminate H1–H3 rather than improve the result.
+## Interpretation boundary
 
-## Next bounded cycle
+No frozen instrument or criterion may now be changed. The current evidence does not yet constitute the final Study 004 conclusion.
 
-Cycle 3 may:
-
-1. freeze at least eight hand-audited exact-oracle fixture pairs and expected results before oracle execution;
-2. implement the independent paired-state breadth-first oracle without importing testing-method or reducer helpers;
-3. run the correctness and independence gate;
-4. if the gate passes, classify the already frozen 144 mutants;
-5. enforce the frozen 80% distinguishability viability gate;
-6. if viable, execute the frozen methods and reducer at 64, 256, and 1,024 actions per mutant and save deterministic raw results.
-
-Cycle 3 must not change the corpus, methods, reducer, budgets, hypotheses, thresholds, or mutation inventory after protected classification begins. Final synthesis, repeated complete-report reproduction, H1–H3 disposition, and normal closure remain Cycle 4 work unless a negative setup or invalid result requires earlier closure.
+Cycle 4 must rerun the complete result generation byte-identically, apply the frozen H1–H3 rules, write the final report, close Issue #10, and close the study. No fifth cycle is permitted.
