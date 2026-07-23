@@ -19,7 +19,7 @@ The repository is the laboratory: charter, state, research, code, decisions, fai
 This is a research workspace, not a curated release.
 
 - Research topics, methods, implementations, experiments, analysis, and internal next actions are primarily selected by an AI operating under [`CHARTER.md`](CHARTER.md).
-- Human actions at access, publication, safety, identity, and authority boundaries are recorded in [`governance/HUMAN_INTERVENTION.md`](governance/HUMAN_INTERVENTION.md).
+- Human actions at access, publication, safety, identity, and authority boundaries are recorded in [`governance/HUMAN_INTERVENTION.md`](governance/HUMAN_INTERVENTION.md) and its dated continuation records when required.
 - Files may contain mistakes, incomplete implementations, failed hypotheses, provisional interpretations, or conclusions that are later revised or rejected.
 - Human authorization of a bounded work cycle enables execution; it does not certify that resulting code or claims are correct.
 - Nothing here should be treated as professional advice, validated scientific consensus, production-ready software, or a security-reviewed tool.
@@ -29,23 +29,24 @@ Negative results and visible corrections are intentional parts of the experiment
 
 ## Status
 
-- Phase: **Active Study 004 / Cycle 3 raw benchmark complete**
+- Phase: **No active study / post-Study-004 portfolio decision pending**
 - Visibility: **Public**
-- Closed studies: **Study 001, Study 002, and Study 003**
-- Active study: **Study 004 — Finite-State Conformance Counterexamples**
-- Cycle: **3 of maximum 4 complete**
+- Closed studies: **Study 001, Study 002, Study 003, and Study 004**
+- Active study: **None**
 - Release state: **Provisional and approval-gated**
 - Public operator: **Templex Tsukino**
 
 Study 001 closed with a negative game-design result. Study 002 closed with a partial / incomplete exact-first result. Study 003 closed with methodological success under bounded procedural claims.
 
-Study 004 asks whether model-guided black-box testing can detect observable divergences between small deterministic Mealy specifications and mutated implementations better than equal-budget random testing, and whether failures can be reduced to exact shortest counterexamples.
+Study 004 closed as a valid **partial result** after all four permitted cycles:
 
-- Cycle 1 froze 24 reference models and 144 unreplaced mutants.
-- Cycle 2 froze three testing methods and a black-box reducer before exact classification.
-- Cycle 3 froze ten oracle expectations before implementing an independent paired-state breadth-first oracle; the oracle matched all ten expectations; all 144 mutants were distinguishable; the 80% viability gate passed; and the complete 1,296-row raw benchmark was generated.
+- 24 reference models and 144 unreplaced mutants were frozen;
+- all 144 mutants were distinguishable and the corpus viability gate passed;
+- an independent exact oracle matched 10 / 10 frozen expectations;
+- the complete benchmark contained 1,296 rows and reproduced byte-identically;
+- H1 was unsupported, H2 was supported, and H3 remained unresolved because the frozen hypothesis did not define aggregation across multiple reducer outputs for one mutant.
 
-Raw detection counts are currently:
+Final detection counts:
 
 | Method | 64 | 256 | 1,024 |
 |---|---:|---:|---:|
@@ -53,16 +54,15 @@ Raw detection counts are currently:
 | lexicographic breadth | 82 | 118 | 131 |
 | transition coverage guided | 106 | 140 | 143 |
 
-These are raw observations, not final H1–H3 dispositions. The complete result has not yet been repeated byte-identically, interpreted, or closed.
+At the precommitted 256-action comparison, guided testing detected two fewer mutants than uniform random, so the proposed 10-percentage-point guided advantage was not observed.
 
+- Study 004 final report: [`research/studies/004-finite-state-conformance/REPORT.md`](research/studies/004-finite-state-conformance/REPORT.md)
 - Study 004 overview: [`research/studies/004-finite-state-conformance/README.md`](research/studies/004-finite-state-conformance/README.md)
-- Active protocol: [`research/studies/004-finite-state-conformance/PROTOCOL.md`](research/studies/004-finite-state-conformance/PROTOCOL.md)
-- Cycle 3 audit: [`research/studies/004-finite-state-conformance/CYCLE_3_ORACLE_AND_RAW_RESULTS.md`](research/studies/004-finite-state-conformance/CYCLE_3_ORACLE_AND_RAW_RESULTS.md)
-- Raw transport: [`research/studies/004-finite-state-conformance/CYCLE_3_RAW_TRANSPORT.md`](research/studies/004-finite-state-conformance/CYCLE_3_RAW_TRANSPORT.md)
-- Raw manifest: [`research/studies/004-finite-state-conformance/data/cycle3_raw_manifest_v1.json`](research/studies/004-finite-state-conformance/data/cycle3_raw_manifest_v1.json)
+- Cycle 4 closure audit: [`research/studies/004-finite-state-conformance/CYCLE_4_REPRODUCTION_AND_CLOSURE.md`](research/studies/004-finite-state-conformance/CYCLE_4_REPRODUCTION_AND_CLOSURE.md)
+- Final analysis: [`research/studies/004-finite-state-conformance/data/final_analysis_v1.json`](research/studies/004-finite-state-conformance/data/final_analysis_v1.json)
 - Study 003 report: [`research/studies/003-protocol-integrity/REPORT.md`](research/studies/003-protocol-integrity/REPORT.md)
 
-Passing Study 004 would not show superiority on arbitrary software, production correctness, security value, or method novelty outside the frozen synthetic domain.
+The Study 004 result does not show superiority on arbitrary software, production correctness, security value, human comprehensibility, or method novelty outside the frozen synthetic domain.
 
 ## Current operating loop
 
@@ -73,7 +73,7 @@ Passing Study 004 would not show superiority on arbitrary software, production c
 5. Templex reports what was actually done in the same project chat and proposes the next single cycle.
 6. The laboratory stops until another `承認` is received.
 
-The next approval may perform Study 004 Cycle 4 only: reproduce the complete output byte-identically, apply the frozen H1–H3 rules, write the final report, close Issue #10, and close Study 004. No fifth cycle is permitted.
+The next approval may perform one post-Study-004 portfolio assessment only. It may compare distinct future directions plus inactivity and freeze at most one inactive proposal. It may not activate or implement a new study in the same cycle.
 
 ## Operating principles
 
@@ -90,7 +90,7 @@ The next approval may perform Study 004 Cycle 4 only: reproduce the complete out
 - [`STATE.md`](STATE.md) — current state and next actions
 - [`NEXT_START.md`](NEXT_START.md) — compact restart handoff
 - [`AGENTS.md`](AGENTS.md) — restart and operating protocol
-- [`research/studies/004-finite-state-conformance/README.md`](research/studies/004-finite-state-conformance/README.md) — active Study 004
+- [`research/studies/004-finite-state-conformance/REPORT.md`](research/studies/004-finite-state-conformance/REPORT.md) — closed Study 004 report
 - [`research/studies/001-autonomous-game-design/REPORT.md`](research/studies/001-autonomous-game-design/REPORT.md) — closed Study 001 report
 - [`research/studies/002-exact-first-screening/REPORT.md`](research/studies/002-exact-first-screening/REPORT.md) — closed Study 002 report
 - [`research/studies/003-protocol-integrity/REPORT.md`](research/studies/003-protocol-integrity/REPORT.md) — closed Study 003 report
