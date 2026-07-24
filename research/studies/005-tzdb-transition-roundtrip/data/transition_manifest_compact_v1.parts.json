@@ -1,40 +1,58 @@
 {
   "combined_base64_characters": 61248,
-  "concatenation": "concatenate parts in listed order after removing each final LF; append no separator; decode base64; decompress xz",
+  "concatenation": "concatenate parts in listed order; remove one final LF only when final_lf is true; append no separator; decode base64; decompress xz",
   "encoding": "base64(xz(canonical JSON))",
   "parts": [
     {
-      "characters_without_final_lf": 4000,
+      "characters": 4000,
+      "final_lf": true,
       "path": "transition_manifest_compact_v1.json.xz.b64.part01",
-      "sha256_with_final_lf": "4ec1bd82e43c08bc0589da659b3b0385249f5af21f3d6ebcb568abcd39377de1"
+      "sha256": "4ec1bd82e43c08bc0589da659b3b0385249f5af21f3d6ebcb568abcd39377de1"
     },
     {
-      "characters_without_final_lf": 12000,
+      "characters": 12000,
+      "final_lf": true,
       "path": "transition_manifest_compact_v1.json.xz.b64.part02",
-      "sha256_with_final_lf": "ecaabfa8d722a02c83303cc881ebfad834bdd52b3cb1cb269a1b6cac71cd99a6"
+      "sha256": "ecaabfa8d722a02c83303cc881ebfad834bdd52b3cb1cb269a1b6cac71cd99a6"
     },
     {
-      "characters_without_final_lf": 12000,
+      "characters": 4000,
+      "final_lf": false,
       "path": "transition_manifest_compact_v1.json.xz.b64.part03",
-      "sha256_with_final_lf": "7ded1130f2041431d7d0e3abd7cec9cc08526b85b881af6b278fcfce95a3f397"
+      "sha256": "886a71394f65c824f8b7b66515e1b4ec0bed7a0c36bdd632179cd11ae4c6e4ac"
     },
     {
-      "characters_without_final_lf": 12000,
+      "characters": 4000,
+      "final_lf": false,
+      "path": "transition_manifest_compact_v1.json.xz.b64.part03b",
+      "sha256": "f4468fb8f10a20596942bc752323b88219a567ac96e2c2075ffbed5f64f1bc6b"
+    },
+    {
+      "characters": 4000,
+      "final_lf": false,
+      "path": "transition_manifest_compact_v1.json.xz.b64.part03c",
+      "sha256": "cbc5a806bfb28f82bbb1ce5f9991d029f7bbc2e7b6f952ce32e0397f0ab0db54"
+    },
+    {
+      "characters": 12000,
+      "final_lf": true,
       "path": "transition_manifest_compact_v1.json.xz.b64.part04",
-      "sha256_with_final_lf": "c9f2737519613421e10e1a3eb854cc29ec2e43e72e44c44337856fc1a602adfb"
+      "sha256": "c9f2737519613421e10e1a3eb854cc29ec2e43e72e44c44337856fc1a602adfb"
     },
     {
-      "characters_without_final_lf": 12000,
+      "characters": 12000,
+      "final_lf": true,
       "path": "transition_manifest_compact_v1.json.xz.b64.part05",
-      "sha256_with_final_lf": "1cdbdb02a82959c7541182680e8beff97b49ec3483ca6c021942100a45383310"
+      "sha256": "1cdbdb02a82959c7541182680e8beff97b49ec3483ca6c021942100a45383310"
     },
     {
-      "characters_without_final_lf": 9248,
+      "characters": 9248,
+      "final_lf": true,
       "path": "transition_manifest_compact_v1.json.xz.b64.part06",
-      "sha256_with_final_lf": "0ab8157cb09908ce45db46f663782cd147b87e438ddde3a22c6b120db745399c"
+      "sha256": "0ab8157cb09908ce45db46f663782cd147b87e438ddde3a22c6b120db745399c"
     }
   ],
-  "schema": "templex-zero.study005.base64-parts.v1",
+  "schema": "templex-zero.study005.base64-parts.v2",
   "uncompressed_bytes": 354993,
   "uncompressed_sha256": "11b154ad96d5dbe74494f303739164489953c8cb857757703c3bac84aae6bdf4",
   "xz_bytes": 45936,
