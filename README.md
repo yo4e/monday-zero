@@ -29,10 +29,11 @@ Negative results and visible corrections are intentional parts of the experiment
 
 ## Status
 
-- Phase: **No active study / post-Study-004 portfolio decision pending**
+- Phase: **No active study / inactive Study 005 proposal frozen**
 - Visibility: **Public**
 - Closed studies: **Study 001, Study 002, Study 003, and Study 004**
 - Active study: **None**
+- Frozen proposal: **Study 005 — TZDB Transition Round-Trip Conformance**
 - Release state: **Provisional and approval-gated**
 - Public operator: **Templex Tsukino**
 
@@ -57,12 +58,33 @@ Final detection counts:
 At the precommitted 256-action comparison, guided testing detected two fewer mutants than uniform random, so the proposed 10-percentage-point guided advantage was not observed.
 
 - Study 004 final report: [`research/studies/004-finite-state-conformance/REPORT.md`](research/studies/004-finite-state-conformance/REPORT.md)
-- Study 004 overview: [`research/studies/004-finite-state-conformance/README.md`](research/studies/004-finite-state-conformance/README.md)
 - Cycle 4 closure audit: [`research/studies/004-finite-state-conformance/CYCLE_4_REPRODUCTION_AND_CLOSURE.md`](research/studies/004-finite-state-conformance/CYCLE_4_REPRODUCTION_AND_CLOSURE.md)
 - Final analysis: [`research/studies/004-finite-state-conformance/data/final_analysis_v1.json`](research/studies/004-finite-state-conformance/data/final_analysis_v1.json)
-- Study 003 report: [`research/studies/003-protocol-integrity/REPORT.md`](research/studies/003-protocol-integrity/REPORT.md)
 
 The Study 004 result does not show superiority on arbitrary software, production correctness, security value, human comprehensibility, or method novelty outside the frozen synthetic domain.
+
+## Post-Study-004 portfolio decision
+
+The 2026-07-24 portfolio cycle compared four distinct directions plus inactivity under a threshold fixed before scoring:
+
+- IANA tzdb transition round-trip conformance;
+- NIST Statistical Reference Dataset numerical replication;
+- Unicode normalization conformance;
+- prospective project-selection calibration;
+- remain inactive.
+
+Only the IANA tzdb direction cleared the decision threshold. It scored 29 / 30 with no criterion below 4 and changes the laboratory's epistemic source from self-authored synthetic semantics to a pinned external public-domain referent.
+
+The frozen proposal asks whether an original TZif reader and a version-isolated Python `zoneinfo` harness can verify:
+
+- exact UTC-to-local projection around explicit transitions;
+- `fold=0` / `fold=1` handling and exact UTC round trips across backward shifts;
+- deterministic detection of nonexistent local times across forward shifts without assuming one-hour changes.
+
+The proposal pins **IANA tzdb 2026c** and remains inactive. No source archive, compiled zone tree, implementation, transition corpus, issue, or experiment has been created.
+
+- Portfolio assessment: [`research/decisions/2026-07-24-post-study-004-portfolio-assessment.md`](research/decisions/2026-07-24-post-study-004-portfolio-assessment.md)
+- Frozen Study 005 proposal: [`research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`](research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md)
 
 ## Current operating loop
 
@@ -73,7 +95,7 @@ The Study 004 result does not show superiority on arbitrary software, production
 5. Templex reports what was actually done in the same project chat and proposes the next single cycle.
 6. The laboratory stops until another `承認` is received.
 
-The next approval may perform one post-Study-004 portfolio assessment only. It may compare distinct future directions plus inactivity and freeze at most one inactive proposal. It may not activate or implement a new study in the same cycle.
+The next approval may independently choose activation **GO unchanged** or **NO-GO** for the frozen Study 005 proposal. If GO, it may perform Cycle 1 only: official-source and permission preflight, isolated reproducible compilation, canonical zone inventory, and frozen parser fixtures. It may not implement the full reader, generate the complete transition corpus, or execute the Python comparison in the same cycle.
 
 ## Operating principles
 
@@ -90,6 +112,8 @@ The next approval may perform one post-Study-004 portfolio assessment only. It m
 - [`STATE.md`](STATE.md) — current state and next actions
 - [`NEXT_START.md`](NEXT_START.md) — compact restart handoff
 - [`AGENTS.md`](AGENTS.md) — restart and operating protocol
+- [`research/decisions/2026-07-24-post-study-004-portfolio-assessment.md`](research/decisions/2026-07-24-post-study-004-portfolio-assessment.md) — current portfolio decision
+- [`research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`](research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md) — frozen inactive proposal
 - [`research/studies/004-finite-state-conformance/REPORT.md`](research/studies/004-finite-state-conformance/REPORT.md) — closed Study 004 report
 - [`research/studies/001-autonomous-game-design/REPORT.md`](research/studies/001-autonomous-game-design/REPORT.md) — closed Study 001 report
 - [`research/studies/002-exact-first-screening/REPORT.md`](research/studies/002-exact-first-screening/REPORT.md) — closed Study 002 report
