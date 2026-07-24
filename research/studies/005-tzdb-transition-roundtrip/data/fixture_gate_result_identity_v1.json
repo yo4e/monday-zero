@@ -1,0 +1,10 @@
+{
+  "encoding": "base64(gzip(canonical JSON))",
+  "gzip_bytes": 1699,
+  "gzip_sha256": "70bc5f4e4c3b88efaf08ef6543bef7eb958baead8ab050b95b7daf4e20a33b21",
+  "passed": true,
+  "result_count": 18,
+  "schema": "templex-zero.study005.fixture-gate-identity.v1",
+  "uncompressed_bytes": 11460,
+  "uncompressed_sha256": "07daf47a745ba83ecff95d468328546b7fc8a5fbeb8d42c8eafb8bf970b906d3"
+}
