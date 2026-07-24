@@ -1,0 +1,30 @@
+{
+  "canonical_zone_inventory_v1.json": {
+    "bytes": 62616,
+    "sha256": "480d2b81c22c15f32da48b2cfe02338339ebdc5e6dc77ccf8e2e559dd81612d7"
+  },
+  "canonical_zones.txt": {
+    "bytes": 5183,
+    "sha256": "053b3988df8da3276ba63928fab3a1e6b1e9e625d0fa13d16b6f423edc51b582"
+  },
+  "compilation_manifest_v1.json": {
+    "bytes": 53180,
+    "sha256": "fc34c9ba751a3e3e820c4e92a09981fcfbee7f061f275a5fab3e2f21842705e9"
+  },
+  "compile_a_projection.tsv": {
+    "bytes": 29170,
+    "sha256": "0597ea7b68f068b1ab06be671b1a3839bca651c5514d7171c32a59c4da9849b2"
+  },
+  "fixture_expectations_v1.json": {
+    "bytes": 23121,
+    "sha256": "a3b08a49f5d3955f0015e67d58f705a68dadb7cc07ed1b499ff13381290786d9"
+  },
+  "source_provenance_v1.json": {
+    "bytes": 1948,
+    "sha256": "74cde8ecc5b2d4411a1669d4cdadab0eb523ad697451f8fed4c88545385dc680"
+  },
+  "targeted_zdump_evidence_v1.txt": {
+    "bytes": 8210,
+    "sha256": "7f160ff0791246cd2ebd4a84e6caefc747ebf3c280302856930af523498ee565"
+  }
+}
