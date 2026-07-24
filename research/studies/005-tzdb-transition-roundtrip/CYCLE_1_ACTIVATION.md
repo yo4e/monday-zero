@@ -55,6 +55,8 @@ The full projections were byte-identical.
 
 One non-semantic operational correction occurred before any `zic` command executed: the first shell wrapper contained a trailing line continuation before `done` and failed to parse. The temporary work root was deleted and recreated. The frozen command, flags, source order, and environment did not change.
 
+One post-execution artifact-persistence correction also occurred before cycle closure: the first repository serialization of the compressed targeted `zdump` evidence did not match the execution-local Git blob identity. The file was replaced from the unchanged execution-local base64 artifact using fixed line wrapping, and the corrected repository blob identity was rechecked. The uncompressed evidence bytes and recorded SHA-256 did not change.
+
 ## Canonical inventory
 
 - `zone1970.tab` bytes: 17,596
