@@ -1,57 +1,48 @@
 # Study 005 Cycle 3 — Formal Runner Source-Identity Correction
 
 _Date: 2026-07-24 (Asia/Tokyo)_  
-_Status: **Post-execution correction; formal result not rerun**_
+_Status: **Corrected and resolved by Cycle 4 exact-source reproduction**_
 
-## Authority of this correction
+## Authority
 
-This record supersedes any statement in `CYCLE_3_HARNESS_FREEZE.md`, `CYCLE_3_FORMAL_EXECUTION.md`, or the first version of `data/harness_freeze_identity_v1.json` that implies the formal execution used a runner byte-identical to the pre-outcome repository file `experiments/study005_cycle3.py`.
+This record supersedes earlier source-identity statements for Cycle 3. Cycle 4 directly verified the live Git blobs, the preserved local execution source, and the scientific effect of their differences. Machine-readable identities are in `data/cycle4_source_identities_v1.json`; the complete resolution is in `CYCLE_4_REPRODUCTION_AND_CLOSURE.md`.
 
-The harness module and targeted-test file were byte-identical to their pre-outcome repository blobs. The formal runner was not.
+## Correct identities
 
-## Evidence
+Pre-outcome committed files:
 
-Pre-outcome repository runner:
+- `experiments/study005_cycle3.py`: Git blob `f1fcb11678fc0b834cc968fb718ce91fd4951e75`;
+- `src/templex_zero/zoneinfo_harness.py`: Git blob `55e25f63296c67bb07a0ade9dcc44c38b5b8676a`;
+- `tests/test_zoneinfo_harness.py`: Git blob `af7d7392f239ef19ee5fa996c534408533bff916`;
+- `src/templex_zero/tzif_reader.py`: Git blob `11a7e40c3f15f81677ae7321475e364b70d5830f`.
 
-- path: `experiments/study005_cycle3.py`;
-- Git blob: `f1fcb1166580d874112c09ff8fe438ae8837a81a`.
-
-Execution-local runner:
+Cycle 3 execution-local runner:
 
 - bytes: 8,810;
 - SHA-256: `cbbd781f478c0d54c59f1b1bea66f515698adccdb17111bd14fa1e87b1b0c381`;
-- Git blob: `06280fe92a279a3ef847dd07448a041c379af9b0`;
-- preserved unchanged at `data/study005_cycle3_executed_runner_v1.py`.
+- computed Git blob: `06280fe9e6e7347c5de91f6736c4fc72577252a3`.
 
-Frozen support files that did match:
+The repository file `data/study005_cycle3_executed_runner_v1.py` has Git blob `3eccb9419bab3159ec09c663caaa018aa0c07ca0`. It is a semantically compressed transcription, not a byte-identical copy of the execution-local 8,810-byte runner.
 
-- `src/templex_zero/zoneinfo_harness.py`: Git blob `09692057aae2575c6760e07a41d378a79571c3a0`;
-- `tests/test_zoneinfo_harness.py`: Git blob `0ce9da76c736b1d4585014da9250bfd49b520d1c`.
-
-The first identity file incorrectly associated the execution-local runner SHA-256 with the repository path. It has been replaced by schema v2, which records both distinct identities.
+The earlier identifiers `f1fcb1166580d874112c09ff8fe438ae8837a81a`, `06280fe92a279a3ef847dd07448a041c379af9b0`, `09692057aae2575c6760e07a41d378a79571c3a0`, and `0ce9da76c736b1d4585014da9250bfd49b520d1c` were transcription errors and are withdrawn.
 
 ## Difference assessment
 
-Direct source inspection found formatting differences and two imports (`hashlib` and `importlib.util`) that were unused in the execution-local form. No intended comparison, isolation, serialization, record-generation, or output-path difference was identified.
+The pre-outcome and execution-local runners have different raw ASTs because the execution-local form contains two unused imports: `hashlib` and `importlib.util`. After removing those unused imports, the ASTs are identical. Formatting differs, but no comparison, isolation, witness-generation, serialization, or output logic difference was found.
 
-However, this cycle does **not** treat semantic equivalence as proven. The protected sequence required the executed runner to be frozen before outcomes, and literal byte identity did not hold. This is a procedural deviation even though the mechanical result may still reproduce exactly.
+Cycle 3 also imported a compatibility bridge to an independent local TZif parser rather than the literal committed reader. That remains a procedural deviation.
 
-## Effect on Cycle 3 result
+## Cycle 4 resolution
 
-The formal corpus was not rerun. The preserved mechanical artifacts remain:
+Cycle 4 reconstructed the exact committed reader, harness, tests, Cycle 2 builder, pre-outcome Cycle 3 runner, and result reconstructor from their verified Git blobs. It rebuilt the pinned source and compiled tree, reproduced the byte-identical 313-zone / 18,071-transition manifest, and executed the formal corpus once.
 
-- H1 records: 90,079;
-- H2 records: 26,778;
-- H3 records: 44,790;
-- nonzero mismatch records: 0;
-- canonical result SHA-256: `7115ba2b6a11ce0c6eb0230c2918f47e4f7721e314e97c438b97b3157795cfd6`.
+The exact-source reproduction produced:
 
-These values are not promoted to final hypothesis conclusions in Cycle 3.
+- H1: 90,079 records, zero nonzero masks;
+- H2: 26,778 records, zero nonzero masks;
+- H3: 44,790 records, zero nonzero masks;
+- mismatch records: zero.
 
-## Required Cycle 4 resolution
+All H1, H2, and H3 record families were byte-identical to Cycle 3. The only complete-result difference was the absolute temporary path stored in `environment.tzpath_after[0]`. Therefore, the source deviations had no observed effect on the frozen scientific payload, while the procedural deviation remains part of the permanent record.
 
-Cycle 4 must use a clean repository state and the exact committed source. It must run the pre-outcome repository runner without adapting it to the Cycle 3 outcome and compare all generated identities with the preserved Cycle 3 artifacts.
-
-- Exact identity reproduction would show that the runner byte difference was mechanically irrelevant for this corpus, while the procedural deviation remains reportable.
-- Any identity difference must be preserved, analyzed, and reflected in H1–H3 and study disposition.
-- No fifth cycle and no adaptive repair are permitted.
+Study 005 is closed after Cycle 4. No fifth cycle exists.
