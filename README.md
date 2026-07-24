@@ -29,13 +29,12 @@ Negative results and visible corrections are intentional parts of the experiment
 
 ## Status
 
-- Phase: **No active study / Study 005 source ingress verified, activation pending**
+- Phase: **Study 005 active / Cycle 1 of maximum 4 completed**
 - Visibility: **Public**
 - Closed studies: **Study 001, Study 002, Study 003, and Study 004**
-- Active study: **None**
-- Frozen proposal: **Study 005 — TZDB Transition Round-Trip Conformance**
-- Study 005 activation state: **Inactive; 0 of maximum 4 active cycles**
-- Verified source: **IANA tzdb 2026c archive available to the project conversation**
+- Active study: **Study 005 — TZDB Transition Round-Trip Conformance**
+- Active issue: **#11**
+- Pinned source: **IANA tzdb 2026c**
 - Release state: **Provisional and approval-gated**
 - Public operator: **Templex Tsukino**
 
@@ -65,28 +64,31 @@ At the precommitted 256-action comparison, guided testing detected two fewer mut
 
 The Study 004 result does not show superiority on arbitrary software, production correctness, security value, human comprehensibility, or method novelty outside the frozen synthetic domain.
 
-## Proposed Study 005 and verified source ingress
+## Active Study 005
 
-The post-Study-004 portfolio selected one inactive proposal on **IANA tzdb transition round-trip conformance** because it introduces a pinned external referent and practical boundary witnesses rather than another fully self-authored synthetic benchmark.
-
-The frozen proposal asks whether an original TZif reader and a version-isolated Python `zoneinfo` harness can verify:
+Study 005 asks whether an original TZif reader and a version-isolated Python `zoneinfo` harness can verify:
 
 - exact UTC-to-local projection around explicit transitions;
 - `fold=0` / `fold=1` handling and exact UTC round trips across backward shifts;
 - deterministic detection of nonexistent local times across forward shifts without assuming one-hour changes.
 
-The first activation decision verified official 2026c release metadata, the public-domain boundary, the official release checksum, and local tool availability, but remained NO-GO because the execution environment could not obtain the exact versioned archive bytes from the official IANA HTTPS host.
+The study pins **IANA tzdb 2026c**. An exact 475,694-byte archive supplied through the project conversation matched the official IANA SHA-512 and the bundled public-domain permission boundary.
 
-A later A1 access operation supplied `tzdata2026c.tar.gz` directly to the project conversation. Its observed 475,694-byte length and SHA-512 exactly matched the official IANA values; its internal version is `2026c`; `zone1970.tab` is present; and the bundled top-level `LICENSE` confirms the default public-domain boundary. The prior source-acquisition blocker is therefore removed.
+Cycle 1 activated the frozen protocol and completed setup without inspecting formal Python outcomes:
 
-A temporary repository-root copy created only to test binary ingress was not extracted, compiled, or used as Study 005 evidence. At the human's explicit instruction, Templex deleted it unchanged from the live branch. Public Git history was not rewritten and retains the earlier blob.
+- two isolated `zic -b fat` compilations each produced 341 files / 397,559 bytes;
+- their complete path/size/SHA-256 projections were byte-identical;
+- projection SHA-256: `0597ea7b68f068b1ab06be671b1a3839bca651c5514d7171c32a59c4da9849b2`;
+- the primary inventory contains 312 source-order `zone1970.tab` zones plus `Etc/UTC`, with zero missing or malformed compiled files;
+- 15 targeted hand-audited parser expectations were frozen and regenerated identically.
 
-No active protocol, issue, compiled zone tree, canonical zone inventory, parser fixture set, implementation, transition corpus, or experiment exists.
+No independent reader, complete transition manifest, Python formal comparison, or H1–H3 result exists yet.
 
-- Portfolio assessment: [`research/decisions/2026-07-24-post-study-004-portfolio-assessment.md`](research/decisions/2026-07-24-post-study-004-portfolio-assessment.md)
-- Frozen Study 005 proposal: [`research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`](research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md)
-- Activation NO-GO: [`research/decisions/2026-07-24-study-005-activation-no-go.md`](research/decisions/2026-07-24-study-005-activation-no-go.md)
-- Source ingress and cleanup: [`research/decisions/2026-07-24-study-005-source-ingress-record.md`](research/decisions/2026-07-24-study-005-source-ingress-record.md)
+- Frozen proposal: [`research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`](research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md)
+- Active protocol: [`research/studies/005-tzdb-transition-roundtrip/PROTOCOL.md`](research/studies/005-tzdb-transition-roundtrip/PROTOCOL.md)
+- Cycle 1 audit: [`research/studies/005-tzdb-transition-roundtrip/CYCLE_1_ACTIVATION.md`](research/studies/005-tzdb-transition-roundtrip/CYCLE_1_ACTIVATION.md)
+- Study overview: [`research/studies/005-tzdb-transition-roundtrip/README.md`](research/studies/005-tzdb-transition-roundtrip/README.md)
+- Prior source-ingress record: [`research/decisions/2026-07-24-study-005-source-ingress-record.md`](research/decisions/2026-07-24-study-005-source-ingress-record.md)
 
 ## Current operating loop
 
@@ -97,7 +99,7 @@ No active protocol, issue, compiled zone tree, canonical zone inventory, parser 
 5. Templex reports what was actually done in the same project chat and proposes the next single cycle.
 6. The laboratory stops until another `承認` is received.
 
-The next exact `承認` may independently retry the Study 005 activation decision. If GO unchanged, that one cycle may create the active protocol and issue, perform isolated double compilation, freeze the canonical zone inventory, and freeze parser fixtures. It may not implement the full reader, generate the complete transition corpus, or execute the Python comparison in the same cycle.
+The next exact `承認` may perform Study 005 Cycle 2 only: implement the independent standard-library-only TZif reader, enforce malformed-input rejection, pass all 15 frozen fixtures with at most one disclosed correction, and only then freeze the complete transition manifest. It may not implement or execute the formal Python comparison or begin Cycle 3.
 
 ## Operating principles
 
@@ -114,9 +116,9 @@ The next exact `承認` may independently retry the Study 005 activation decisio
 - [`STATE.md`](STATE.md) — current state and next actions
 - [`NEXT_START.md`](NEXT_START.md) — compact restart handoff
 - [`AGENTS.md`](AGENTS.md) — restart and operating protocol
-- [`research/decisions/2026-07-24-study-005-source-ingress-record.md`](research/decisions/2026-07-24-study-005-source-ingress-record.md) — verified source and cleanup record
-- [`research/decisions/2026-07-24-study-005-activation-no-go.md`](research/decisions/2026-07-24-study-005-activation-no-go.md) — prior activation decision
-- [`research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`](research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md) — frozen inactive proposal
+- [`research/studies/005-tzdb-transition-roundtrip/PROTOCOL.md`](research/studies/005-tzdb-transition-roundtrip/PROTOCOL.md) — active Study 005 protocol
+- [`research/studies/005-tzdb-transition-roundtrip/CYCLE_1_ACTIVATION.md`](research/studies/005-tzdb-transition-roundtrip/CYCLE_1_ACTIVATION.md) — completed Cycle 1 audit
+- [`research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`](research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md) — frozen pre-activation proposal
 - [`research/studies/004-finite-state-conformance/REPORT.md`](research/studies/004-finite-state-conformance/REPORT.md) — closed Study 004 report
 - [`research/studies/001-autonomous-game-design/REPORT.md`](research/studies/001-autonomous-game-design/REPORT.md) — closed Study 001 report
 - [`research/studies/002-exact-first-screening/REPORT.md`](research/studies/002-exact-first-screening/REPORT.md) — closed Study 002 report
