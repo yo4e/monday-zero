@@ -1,15 +1,15 @@
 # Study 005 Protocol — TZDB Transition Round-Trip Conformance
 
 _Date activated: 2026-07-24 (Asia/Tokyo)_  
-_Status: **Active — Cycle 3 of maximum 4 completed; frozen protocol semantics unchanged**_
+_Status: **Closed — Cycle 4 of maximum 4 completed; positive bounded conformance result**_
 
 ## 1. Authority and frozen source
 
-This active protocol instantiates the frozen proposal at:
+This active protocol instantiated the frozen proposal at:
 
 - `research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`
 
-The proposal remains the pre-activation record. This protocol changes no research question, hypothesis, corpus rule, witness semantic, criterion, protected sequence, disposition rule, or cycle limit.
+The proposal remains the pre-activation record. This protocol changed no research question, hypothesis, corpus rule, witness semantic, criterion, protected sequence, disposition rule, or cycle limit during execution.
 
 Activation decision: **GO unchanged**.
 
@@ -27,7 +27,7 @@ Pinned external referent:
 - member count: 32;
 - permission record: top-level `LICENSE` states the default public-domain boundary; the three conditionally BSD-licensed named files are absent.
 
-The source bytes were supplied unchanged through the project conversation as A1 access assistance. The archive itself and extracted third-party files will not be committed. Only metadata, digests, original TEMPLEX/0 artifacts, and generated manifests may be committed.
+The source bytes were supplied unchanged through the project conversation as A1 access assistance. The archive itself and extracted third-party files were not committed. Only metadata, digests, original TEMPLEX/0 artifacts, and generated manifests were committed.
 
 ## 2. Research question
 
@@ -162,22 +162,24 @@ No fifth cycle is permitted.
 
 Setup closes negatively if official source identity or permission fails, the archive is unavailable, isolated compilation is not reproducible, a primary canonical zone is missing/unreadable, the parser gate fails after its one correction opportunity, data-path isolation cannot be demonstrated, or protected sequencing is contaminated.
 
-## 9. Cycle 1 prohibitions
+## 9. Human intervention boundary
 
-Cycle 1 must not:
+The activation `承認`, source transfer, and later cycle approvals were A1 access assistance. Yoshie Yamada did not select the question, release, hypotheses, domain, compiler flags, source order, fixture zones, interpretations, or results.
 
-- implement the full TZif reader;
-- generate the complete transition manifest;
-- execute the Python `zoneinfo` comparison;
-- inspect the complete outcome set;
-- contact outsiders;
-- file an external defect report;
-- accept terms;
-- substitute a release, source channel, inventory, criterion, or witness rule;
-- begin Cycle 2.
+A separate explicit decision remains required before terms acceptance, external contact, defect reporting, permission changes, or publication through a new channel.
 
-## 10. Human intervention boundary
+## 10. Final disposition
 
-The activation `承認` and source transfer are A1 access assistance. Yoshie Yamada did not select the question, release, hypotheses, domain, compiler flags, source order, fixture zones, interpretations, or results.
+Cycle 4 used the exact committed reader, harness, tests, Cycle 2 builder, pre-outcome Cycle 3 runner, and result reconstructor. It reproduced the pinned archive, two byte-identical 341-file compilation projections, the 313-zone inventory, and the byte-identical 18,071-transition manifest.
 
-A separate explicit decision is required before terms acceptance, external contact, defect reporting, permission changes, publication through a new channel, or material changes to the frozen study.
+The exact-source formal reproduction produced:
+
+- H1: 90,079 records, zero mismatches — **supported**;
+- H2: 26,778 records, zero mismatches — **supported**;
+- H3: 44,790 records, zero mismatches — **supported**.
+
+The Cycle 3 and Cycle 4 scientific record families were byte-identical. Their complete result digests differed only because the serialized `environment.tzpath_after[0]` contained different absolute temporary paths. The full-result identity was therefore non-portable; this is an artifact-design limitation rather than a conformance mismatch.
+
+Study 005 closes as a **positive bounded conformance result with procedural and artifact-portability limitations**. See `REPORT.md` and `CYCLE_4_REPRODUCTION_AND_CLOSURE.md`.
+
+Issue #11 is closed. Study 005 is closed. No fifth cycle exists.
