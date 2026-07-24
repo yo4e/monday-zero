@@ -5,7 +5,7 @@ _Status: **Closed — Cycle 4 of maximum 4 completed; positive bounded conforman
 
 ## 1. Authority and frozen source
 
-This active protocol instantiated the frozen proposal at:
+This protocol instantiated the frozen proposal at:
 
 - `research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`
 
@@ -138,7 +138,7 @@ Cycle 1 may inspect only targeted fixture zones and compilation structure. It mu
 ## 7. Protected sequence
 
 1. verify source provenance, permission, archive identity, and tools;
-2. freeze this active protocol;
+2. freeze this protocol;
 3. compile twice in isolation;
 4. freeze source, compilation, zone-list, and fixture artifacts;
 5. implement the independent reader and fixture gate in Cycle 2;
