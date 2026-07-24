@@ -4,7 +4,7 @@ _Last updated: 2026-07-24_
 
 ## Phase
 
-**No active study / Study 005 source ingress verified, activation pending**
+**Study 005 active / Cycle 1 of maximum 4 completed**
 
 ## Laboratory
 
@@ -20,50 +20,55 @@ _Last updated: 2026-07-24_
 - **Study 003:** methodological success with bounded procedural claims.
 - **Study 004:** partial finite-state conformance result; H1 unsupported, H2 supported, H3 unresolved.
 
-## Study 005 source state
+## Active Study 005
 
-- Frozen proposal: `research/proposals/STUDY_005_TZDB_TRANSITION_ROUNDTRIP.md`
-- Prior activation decision: **NO-GO on source acquisition; proposal remained inactive**.
-- Prior decision record: `research/decisions/2026-07-24-study-005-activation-no-go.md`
-- Source-ingress record: `research/decisions/2026-07-24-study-005-source-ingress-record.md`
-- Verified archive: `tzdata2026c.tar.gz`
-- Observed byte count: **475,694**
-- Observed SHA-512: `e0b4b7044b66fbc27bc21d13d18063abcdf78ab58d5ba5fd64bd1a88d86e9d495f45add4d8e65bb6c40249f9c94ca29b72c8ebba8d0e4c468f2965ac77932ef0`
-- Observed SHA-256: `e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4`
-- Internal version: **2026c**
-- Archive members: **32**
-- `zone1970.tab`: present
-- Bundled permission preflight: top-level `LICENSE` states the default public-domain boundary; the three conditionally BSD-licensed named files are absent from this archive.
-- Study 005 cycle count: **0 of maximum 4**, because activation has not occurred.
-- Open active-study issue: **none**.
-- No active protocol, compiled data, zone inventory, fixture set, implementation, transition manifest, or experiment exists.
+- Study: **TZDB Transition Round-Trip Conformance**
+- Active protocol: `research/studies/005-tzdb-transition-roundtrip/PROTOCOL.md`
+- Cycle 1 audit: `research/studies/005-tzdb-transition-roundtrip/CYCLE_1_ACTIVATION.md`
+- Active issue: **#11**
+- Pinned referent: **IANA tzdb 2026c**
+- Source archive SHA-512: `e0b4b7044b66fbc27bc21d13d18063abcdf78ab58d5ba5fd64bd1a88d86e9d495f45add4d8e65bb6c40249f9c94ca29b72c8ebba8d0e4c468f2965ac77932ef0`
+- Source archive SHA-256: `e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4`
+- Permission preflight: passed under the bundled default public-domain boundary; conditionally BSD-named files absent.
 
-## Repository cleanup
+## Cycle 1 result
 
-A human temporarily placed `tzdata2026c.tar.gz` at the repository root to test binary ingress. Templex did not extract, compile, or use that repository copy as research evidence. At the human's explicit instruction, the root file was deleted unchanged in commit `da39f24d534217d2da26cc213e5b257943385763`.
+- Activation decision: **GO unchanged**.
+- Two isolated `zic -b fat` compilations completed from the same eight frozen source files.
+- Each compilation produced **341 files / 397,559 bytes**.
+- Both deterministic tree projections were byte-identical.
+- Projection SHA-256: `0597ea7b68f068b1ab06be671b1a3839bca651c5514d7171c32a59c4da9849b2`.
+- `zone1970.tab` SHA-256: `77b5e45415fa684fcc42de3421a6b0f15cc9b2c137f258083850346e8f76eea8`.
+- Canonical inventory: **312 source-order zones + `Etc/UTC` = 313 zones**.
+- Inventory SHA-256: `053b3988df8da3276ba63928fab3a1e6b1e9e625d0fa13d16b6f423edc51b582`.
+- Missing canonical TZif files: **0**.
+- Canonical files with invalid `TZif` magic: **0**.
+- Frozen targeted fixture expectations: **15**.
+- Fixture JSON SHA-256: `a3b08a49f5d3955f0015e67d58f705a68dadb7cc07ed1b499ff13381290786d9`.
+- Targeted fixture regeneration reproduced the same fixture digest.
 
-The public Git history retains the prior blob; no history rewrite was attempted. The separately uploaded project-conversation file is the artifact whose size, digests, archive structure, version, and license were inspected.
+No independent TZif reader, complete transition manifest, Python `zoneinfo` formal comparison, or H1–H3 result exists yet.
 
 ## Next bounded work
 
-The source-acquisition blocker is removed. The next exact project-chat `承認` may independently retry the activation decision and, only if GO unchanged, perform Study 005 Cycle 1:
+The next exact `承認` may perform **Study 005 Cycle 2 only**:
 
-1. re-read live governance, proposal, source-ingress record, issues, and recent commits;
-2. re-verify the available archive identity and permission boundary;
-3. create the active protocol and active-study issue;
-4. extract and compile tzdb 2026c twice in isolated temporary directories;
-5. freeze command, environment, source order, output inventory, and deterministic tree digest;
-6. freeze exact `zone1970.tab` bytes, ordered canonical zone inventory, and at least twelve parser-fixture expectations;
-7. synchronize state and stop.
+1. implement the original standard-library-only TZif reader without Python private parser code;
+2. add malformed/truncated/index/abbreviation/version/count rejection tests;
+3. run the reader against all 15 frozen fixtures;
+4. use at most one bounded disclosed correction if the fixture gate initially fails;
+5. if and only if the fixture gate passes, freeze the reader, canonical serialization, and complete transition manifest;
+6. synchronize Issue #11 and repository state, then stop.
 
-The next cycle must not implement the full TZif reader, generate the complete transition manifest, execute the Python comparison, contact outsiders, accept terms, or file an external defect report.
+Cycle 2 must not implement or execute the formal Python `zoneinfo` comparison, inspect H1–H3 outcome aggregates, change the frozen corpus or criteria, contact outsiders, accept terms, or begin Cycle 3.
 
-## Verification limitation
+## Verification limitations
 
-The access operation verified archive identity, structure, version, and the bundled license text without extracting files to a study tree. It did not verify a detached GPG signature, compile the archive, generate a zone inventory, freeze fixtures, or execute any Study 005 hypothesis test.
-
-Fresh checkout and full-repository regression were not required for this access-and-cleanup operation and were not performed.
+- No detached GPG signature was supplied or verified.
+- The isolated compiled trees were execution-local; their complete deterministic projection is preserved in reconstructible compressed/base64 parts.
+- `zdump` is secondary targeted fixture evidence only, not the complete-corpus oracle.
+- Fresh checkout and full-repository regression were not performed; no project runtime code was changed in Cycle 1.
 
 ## Human action currently needed
 
-Send exact `承認` to authorize one independent activation decision and, only if GO, Study 005 Cycle 1.
+None beyond a later exact `承認` for one bounded Cycle 2.
